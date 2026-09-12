@@ -1,0 +1,6 @@
+{
+  "name": "Oscar Weddings",
+  "description": "Luxury wedding photography and cinematic films studio rooted in Kerala, available across India and worldwide destinations. Candid, editorial, and timeless heirloom storytelling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
