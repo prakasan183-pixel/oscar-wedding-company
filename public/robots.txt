@@ -1,0 +1,12 @@
+# Robots.txt for Oscar Weddings
+# https://oscarweddings.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Host
+Host: https://oscarweddings.com
+
+# XML Sitemaps
+Sitemap: https://oscarweddings.com/sitemap.xml

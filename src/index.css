@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-black: #0A0A0A;
+    --color-ivory: #FAF8F5;
+    --color-ivory-dark: #F3EFEA;
+    --color-stone: #E6E1D8;
+    --color-taupe: #8C8479;
+    --color-taupe-light: #B4ACA1;
+    --color-charcoal: #171615;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #FAF8F5;
+    background-color: #0A0A0A;
+    letter-spacing: 0.01em;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-display {
+    font-family: 'Italiana', 'Cormorant Garamond', serif;
+  }
+}
+
+/* Luxury Editorial Typography Helper Classes */
+.font-editorial-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-editorial-sans {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.tracking-luxury-wide {
+  letter-spacing: 0.22em;
+}
+
+.tracking-luxury-widest {
+  letter-spacing: 0.3em;
+}
+
+/* Subtle image zoom on hover for editorial stillness */
+.editorial-img-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.editorial-img-wrapper img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+.editorial-img-wrapper:hover img {
+  transform: scale(1.035);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #262422;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8C8479;
+}
+
+/* Minimalist Editorial Cursor — Desktop mouse/trackpad only */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  html.custom-cursor-active,
+  html.custom-cursor-active body,
+  html.custom-cursor-active a,
+  html.custom-cursor-active button,
+  html.custom-cursor-active [role="button"],
+  html.custom-cursor-active .cursor-pointer,
+  html.custom-cursor-active img {
+    cursor: none !important;
+  }
+
+  html.custom-cursor-active input,
+  html.custom-cursor-active textarea {
+    cursor: text;
+  }
+}
+
+/* Mobile & Touch: completely unblocked native touch scrolling, no custom cursor */
+@media (max-width: 1023px), (hover: none), (pointer: coarse) {
+  html,
+  body {
+    cursor: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  * {
+    cursor: auto !important;
+  }
+}

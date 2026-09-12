@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="256" fill="#a9b875"/>
+  <g fill="#fff" font-family="Georgia, 'Times New Roman', serif" font-size="154" letter-spacing="-12" text-anchor="middle">
+    <text x="256" y="286">OWC</text>
+  </g>
+  <path d="M46 312 C128 282 202 317 278 344 C359 373 448 382 463 334 C478 288 407 278 343 289 C277 300 215 327 168 367 C137 394 138 417 151 414" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+</svg>
