@@ -19,7 +19,7 @@ export const ExperienceSection: React.FC = () => {
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
         {/* Section Header */}
         <ScrollReveal y={20} duration={0.8} amount={0.2}>
-          <div className="max-w-3xl space-y-4 border-b border-[#E2DDD5] pb-4">
+          <div className="max-w-3xl md:max-w-6xl space-y-4 border-b border-[#E2DDD5] pb-4">
             <span className="text-[10px] sm:text-[11px] tracking-[0.34em] uppercase text-[#736B63] font-medium block">
               THE OSCAR EXPERIENCE
             </span>

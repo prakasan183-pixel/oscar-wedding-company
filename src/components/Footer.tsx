@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Column 1: Brand Logo & Editorial Stature */}
             <div className="md:col-span-4 space-y-4 text-center md:text-left">
-              <OscarLogo theme="dark" variant="full" />
+              <OscarLogo theme="dark" variant="full" size="footer" />
               <p className="text-[10px] tracking-[0.24em] uppercase text-[#8C8479] leading-relaxed">
                 LUXURY WEDDING PHOTOGRAPHY &amp; CINEMATIC FILMS
               </p>

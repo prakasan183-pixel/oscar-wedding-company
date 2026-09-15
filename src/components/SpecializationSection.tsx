@@ -112,7 +112,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setActiveModalPhoto(photos[0])}
-                className="sm:col-span-2 lg:col-span-6 relative rounded-2xl overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
+                className="sm:col-span-2 lg:col-span-6 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
               >
                 <div className="aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full overflow-hidden relative">
                   <LazyImage
@@ -124,10 +124,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                     placeholderClassName="bg-[#EAE4DA]"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-5 sm:p-7 flex flex-col justify-end text-white pointer-events-none">
-                    <span className="text-[9.5px] tracking-[0.24em] uppercase text-[#D4AF37] font-medium">
-                      {photos[0].tag}
-                    </span>
+                  <div className="absolute inset-0 p-5 sm:p-7 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <h4
                       className="text-xl sm:text-2xl font-serif text-white mt-1"
                       style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
@@ -148,7 +145,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setActiveModalPhoto(photos[1])}
-                className="sm:col-span-1 lg:col-span-3 relative rounded-2xl overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
+                className="sm:col-span-1 lg:col-span-3 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
               >
                 <div className="aspect-[3/4] w-full overflow-hidden relative">
                   <LazyImage
@@ -160,10 +157,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                     placeholderClassName="bg-[#EAE4DA]"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent p-5 flex flex-col justify-end text-white pointer-events-none">
-                    <span className="text-[9.5px] tracking-[0.24em] uppercase text-[#D4AF37] font-medium">
-                      {photos[1].tag}
-                    </span>
+                  <div className="absolute inset-0 p-5 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <h4
                       className="text-lg sm:text-xl font-serif text-white mt-1"
                       style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
@@ -184,7 +178,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setActiveModalPhoto(photos[2])}
-                className="sm:col-span-1 lg:col-span-3 relative rounded-2xl overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
+                className="sm:col-span-1 lg:col-span-3 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
               >
                 <div className="aspect-[3/4] w-full overflow-hidden relative">
                   <LazyImage
@@ -196,10 +190,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                     placeholderClassName="bg-[#EAE4DA]"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent p-5 flex flex-col justify-end text-white pointer-events-none">
-                    <span className="text-[9.5px] tracking-[0.24em] uppercase text-[#D4AF37] font-medium">
-                      {photos[2].tag}
-                    </span>
+                  <div className="absolute inset-0 p-5 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <h4
                       className="text-lg sm:text-xl font-serif text-white mt-1"
                       style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
@@ -220,7 +211,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setActiveModalPhoto(photos[3])}
-                className="sm:col-span-1 lg:col-span-6 relative rounded-2xl overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
+                className="sm:col-span-1 lg:col-span-6 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
               >
                 <div className="aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/9] w-full overflow-hidden relative">
                   <LazyImage
@@ -232,10 +223,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                     placeholderClassName="bg-[#EAE4DA]"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-5 sm:p-6 flex flex-col justify-end text-white pointer-events-none">
-                    <span className="text-[9.5px] tracking-[0.24em] uppercase text-[#D4AF37] font-medium">
-                      {photos[3].tag}
-                    </span>
+                  <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <h4
                       className="text-lg sm:text-xl font-serif text-white mt-1"
                       style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
@@ -256,7 +244,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setActiveModalPhoto(photos[4])}
-                className="sm:col-span-1 lg:col-span-6 relative rounded-2xl overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
+                className="sm:col-span-1 lg:col-span-6 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
               >
                 <div className="aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/9] w-full overflow-hidden relative">
                   <LazyImage
@@ -268,10 +256,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                     placeholderClassName="bg-[#EAE4DA]"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-5 sm:p-6 flex flex-col justify-end text-white pointer-events-none">
-                    <span className="text-[9.5px] tracking-[0.24em] uppercase text-[#D4AF37] font-medium">
-                      {photos[4].tag}
-                    </span>
+                  <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <h4
                       className="text-lg sm:text-xl font-serif text-white mt-1"
                       style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
@@ -312,25 +297,25 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-xl flex items-center justify-center p-3 sm:p-6 md:p-10"
+            className="fixed inset-0 z-[9999] bg-[#11100F]/96 backdrop-blur-md flex items-start sm:items-center justify-center p-2 pt-[4.5rem] sm:p-6"
             data-theme="dark"
             onClick={() => setActiveModalPhoto(null)}
           >
             <div
-              className="relative max-w-5xl w-full bg-[#121110] border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[92vh]"
+              className="relative w-full max-w-5xl max-h-[calc(100dvh-5.25rem)] sm:max-h-[calc(100dvh-3rem)] lg:translate-y-6 bg-[#171615] border border-white/15 rounded-[3px] overflow-y-auto sm:overflow-hidden shadow-2xl flex flex-col md:flex-row"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setActiveModalPhoto(null)}
-                className="absolute top-4 right-4 z-30 p-2.5 rounded-full bg-black/60 text-white/80 hover:text-white hover:bg-black transition-colors cursor-pointer border border-white/15"
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 z-[70] flex items-center justify-center w-10 h-10 text-white/85 bg-[#171615]/90 border border-white/20 rounded-full hover:text-white hover:bg-[#252321] transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
 
               {/* Master Image Frame */}
-              <div className="relative md:w-3/5 bg-black flex items-center justify-center overflow-hidden min-h-[280px] sm:min-h-[380px] md:min-h-[500px]">
+              <div className="relative md:w-[60%] h-[28dvh] min-h-[180px] sm:h-[42dvh] sm:min-h-[300px] md:h-auto md:min-h-0 bg-[#0D0D0C] flex items-center justify-center overflow-hidden flex-shrink-0">
                 <LazyImage
                   src={activeModalPhoto.image}
                   alt={activeModalPhoto.alt}
@@ -344,14 +329,14 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                 {/* Modal Step Controls */}
                 <button
                   onClick={handleModalPrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 transition-all cursor-pointer"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white/75 hover:text-white transition-colors cursor-pointer"
                   aria-label="Previous photograph"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleModalNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/80 text-white border border-white/20 transition-all cursor-pointer"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white/75 hover:text-white transition-colors cursor-pointer"
                   aria-label="Next photograph"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -359,37 +344,37 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
               </div>
 
               {/* Modal Details Panel */}
-              <div className="md:w-2/5 p-6 sm:p-8 flex flex-col justify-between space-y-6 overflow-y-auto bg-[#171615] text-[#FAF8F5]">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-2 text-[#D4AF37] text-[10px] sm:text-[11px] tracking-[0.26em] uppercase font-mono">
+              <div className="md:w-[40%] p-4 sm:p-7 md:p-8 flex flex-col justify-between gap-5 overflow-y-auto bg-[#191817] text-[#FAF8F5]">
+                <div className="space-y-3 sm:space-y-5">
+                  <div className="text-[#C5A880] text-[10px] tracking-[0.28em] uppercase font-medium">
                     <span>{activeModalPhoto.tag}</span>
                   </div>
 
                   <h3
-                    className="text-2xl sm:text-3xl font-serif text-white font-light"
+                    className="text-xl sm:text-3xl font-serif text-white font-light leading-[1.08]"
                     style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                   >
                     {activeModalPhoto.title}
                   </h3>
 
                   {activeModalPhoto.location && (
-                    <div className="flex items-center gap-1.5 text-xs text-white/60 font-light">
+                    <div className="flex items-center gap-2 text-xs text-white/55 font-light border-b border-white/10 pb-4">
                       <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
                       <span>{activeModalPhoto.location}</span>
                     </div>
                   )}
 
-                  <p className="text-sm text-white/80 font-light leading-relaxed">
+                  <p className="text-sm text-white/75 font-light leading-[1.6] max-w-md">
                     {activeModalPhoto.caption}
                   </p>
 
                   {/* Craft Note */}
                   {activeModalPhoto.craftNote && (
-                    <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1.5">
-                      <span className="text-[9.5px] tracking-[0.24em] uppercase text-[#D4AF37] block font-mono">
+                    <div className="py-3 border-y border-white/10 space-y-2">
+                      <span className="text-[9px] tracking-[0.24em] uppercase text-[#C5A880] block font-medium">
                         ARCHIVAL SPECIFICATION
                       </span>
-                      <p className="text-xs font-mono text-white/70 leading-relaxed">
+                      <p className="text-xs text-white/65 leading-relaxed">
                         {activeModalPhoto.craftNote}
                       </p>
                     </div>
@@ -397,11 +382,11 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
 
                   {/* Aesthetic Keywords */}
                   {activeModalPhoto.aestheticKeywords && (
-                    <div className="flex flex-wrap gap-1.5 pt-1">
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 pt-1 text-[10px] tracking-[0.12em] uppercase text-white/55">
                       {activeModalPhoto.aestheticKeywords.map((kw, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-1 rounded-full bg-white/10 text-white/90 text-[10px] tracking-wider uppercase font-light border border-white/10"
+                          className="after:content-['·'] after:ml-3 last:after:content-none"
                         >
                           {kw}
                         </span>
@@ -410,18 +395,18 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                   )}
                 </div>
 
-                <div className="pt-4 border-t border-white/10 space-y-3">
+                <div className="pt-6 border-t border-white/10 space-y-4">
                   <button
                     onClick={() => {
                       setActiveModalPhoto(null);
                       onOpenEnquiry();
                     }}
-                    className="w-full py-3 rounded-full bg-[#FAF8F5] text-[#0A0A0A] hover:bg-white text-xs tracking-[0.2em] uppercase font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                    className="w-full py-3.5 rounded-[2px] bg-[#FAF8F5] text-[#0A0A0A] hover:bg-white text-[10px] tracking-[0.22em] uppercase font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>CHECK DATE AVAILABILITY</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
-                  <p className="text-[10px] text-center text-white/40 tracking-wider uppercase font-mono">
+                  <p className="text-[9px] text-center text-white/35 tracking-[0.18em] uppercase">
                     OSCAR WEDDINGS · PRIVATE COMMISSION
                   </p>
                 </div>

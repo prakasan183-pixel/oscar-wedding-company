@@ -674,7 +674,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, ChevronDown, ChevronUp, Eye } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { STORIES_DATA } from '../data/weddingContent';
 import { WeddingStory } from '../types';
 import { LazyImage } from './LazyImage';
@@ -755,7 +755,7 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
         <div
           id={`portfolio-card-${story.id}`}
           onClick={() => onOpenStory(story)}
-          className="cursor-pointer relative overflow-hidden bg-[#EAE6DF] border border-[#E5E0D8] hover:border-[#B4ACA1] transition-all duration-500 shadow-sm hover:shadow-2xl rounded-[2px] h-full flex flex-col"
+          className="cursor-pointer relative overflow-hidden bg-[#EAE6DF] border border-[#E5E0D8] hover:border-[#B4ACA1] transition-colors duration-300 shadow-sm rounded-[2px] h-full flex flex-col"
         >
           {/* Image Container */}
           <div className={`w-full overflow-hidden relative ${aspectClass}`}>
@@ -766,7 +766,7 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
               height={1400}
               containerClassName="w-full h-full"
               placeholderClassName="bg-[#EAE6DF]"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out filter contrast-[1.03] brightness-[0.98]"
+              className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out filter contrast-[1.03] brightness-[0.98]"
             />
 
             {/* Corner Index Badge */}
@@ -776,35 +776,6 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
               </span>
             </div>
 
-            {/* Luxury Editorial Hover Curtain */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-5 sm:p-6 text-[#FAF8F5] z-10">
-              <div className="space-y-1.5 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="text-[9px] sm:text-[10px] tracking-[0.26em] uppercase text-[#C5A880] font-medium block">
-                  {story.location}
-                </span>
-
-                <h3
-                  className="text-lg sm:text-xl font-serif text-[#FAF8F5] tracking-wide font-light leading-snug"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
-                  {story.title}
-                </h3>
-
-                <p className="text-[11px] sm:text-xs text-[#E6E1D8]/80 font-light line-clamp-1 italic font-serif">
-                  {story.tagline}
-                </p>
-
-                <div className="pt-2.5 flex items-center justify-between text-[9px] tracking-[0.22em] uppercase text-[#FAF8F5] font-medium border-t border-white/15">
-                  <span className="inline-flex items-center gap-1.5 text-[#C5A880]">
-                    <Eye className="w-3.5 h-3.5" />
-                    <span className="tracking-[0.2em] font-semibold text-white">VIEW STORY</span>
-                  </span>
-                  <span className="text-[#B4ACA1] text-[8px] tracking-widest">
-                    {story.gallery.length} ARCHIVED IMAGES
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Understated Editorial Caption Strip */}
@@ -839,17 +810,17 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
   // absorbs exactly that leftover height and centers the button inside it.
   // ===========================================================================
   const renderHeroComposition = () => (
-    <div className="flex flex-col sm:flex-row gap-8 items-stretch">
+    <div className="flex flex-col gap-8 sm:flex-row sm:items-stretch">
       {/* LEFT — tall, dominant */}
       <div className="flex-1 min-w-0">
         {heroLeft && renderCard(heroLeft, 0, 'aspect-[3/4]')}
       </div>
 
-      {/* CENTER — shorter card + button in the leftover gap */}
+      {/* CENTER — shorter card */}
       <div className="flex-1 flex flex-col gap-8 min-w-0">
         {heroCenter && renderCard(heroCenter, 1, 'aspect-[16/11]')}
 
-        <div className="flex-1 flex items-center justify-center min-h-[88px]">
+        <div className="hidden sm:flex flex-1 items-center justify-center min-h-[88px]">
           <button
             id="view-full-portfolio-btn"
             onClick={() => setIsExpanded(true)}
@@ -865,6 +836,19 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
       {/* RIGHT — tall, dominant, matches left */}
       <div className="flex-1 min-w-0">
         {heroRight && renderCard(heroRight, 2, 'aspect-[3/4]')}
+      </div>
+
+      {/* Mobile button sits after the third image, aligned at the end of the stack */}
+      <div className="sm:hidden w-full">
+        <button
+          id="view-full-portfolio-btn-mobile"
+          onClick={() => setIsExpanded(true)}
+          className="inline-flex w-full items-center justify-center gap-3 bg-[#141312] hover:bg-[#2A2724] text-[#FAF8F5] px-10 py-4 rounded-full text-xs tracking-[0.25em] font-medium uppercase transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 border border-[#141312] hover:border-[#38332E] cursor-pointer group"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+        >
+          <span>VIEW FULL PORTFOLIO</span>
+          <ChevronDown className="w-3.5 h-3.5 text-[#B4ACA1] group-hover:translate-y-0.5 transition-transform" />
+        </button>
       </div>
     </div>
   );

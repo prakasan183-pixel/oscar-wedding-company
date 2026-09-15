@@ -207,15 +207,17 @@ export const PhilosophySection: React.FC = () => {
 
             <div className="relative w-full max-w-md space-y-3">
 
-              <LazyImage
-                src={PHILOSOPHY_DATA.featuredImage}
-                alt="Documentary Kerala wedding portrait capturing silent grace and unhurried devotion in Fort Kochi - Oscar Weddings"
-                width={1200}
-                height={1500}
-                containerClassName="w-full aspect-[4/5] overflow-hidden bg-[#EAE6DF] shadow-sm"
-                placeholderClassName="bg-[#EAE6DF]"
-                className="w-full h-full object-cover filter grayscale contrast-105 hover:scale-[1.03] transition-transform duration-1000 ease-out"
-              />
+              <div className="group overflow-hidden">
+                <LazyImage
+                  src={PHILOSOPHY_DATA.featuredImage}
+                  alt="Documentary Kerala wedding portrait capturing silent grace and unhurried devotion in Fort Kochi - Oscar Weddings"
+                  width={1200}
+                  height={1500}
+                  containerClassName="w-full aspect-[4/5] overflow-hidden bg-[#EAE6DF] shadow-sm"
+                  placeholderClassName="bg-[#EAE6DF]"
+                  className="w-full h-full object-cover filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-[1.03] transition-[filter,transform] duration-1000 ease-out"
+                />
+              </div>
 
               <div className="flex items-center justify-between text-[10px] tracking-[0.22em] uppercase text-[#736B63]">
                 <span>{PHILOSOPHY_DATA.caption}</span>

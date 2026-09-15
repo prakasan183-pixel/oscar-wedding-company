@@ -103,6 +103,7 @@ export const CustomCursor: React.FC = () => {
   const dotY = useSpring(mouseY, dotSpringConfig);
 
   const lastCoordsRef = useRef<{ x: number; y: number }>({ x: -100, y: -100 });
+  const themeFrameRef = useRef<number | null>(null);
 
   // Update background theme based on coordinates
   const updateTheme = useCallback((x: number, y: number) => {
@@ -153,9 +154,14 @@ export const CustomCursor: React.FC = () => {
     };
 
     const handleScroll = () => {
-      if (lastCoordsRef.current.x >= 0 && lastCoordsRef.current.y >= 0) {
-        updateTheme(lastCoordsRef.current.x, lastCoordsRef.current.y);
-      }
+      if (themeFrameRef.current !== null) return;
+
+      themeFrameRef.current = window.requestAnimationFrame(() => {
+        themeFrameRef.current = null;
+        if (lastCoordsRef.current.x >= 0 && lastCoordsRef.current.y >= 0) {
+          updateTheme(lastCoordsRef.current.x, lastCoordsRef.current.y);
+        }
+      });
     };
 
     const handleMouseDown = () => setIsPressed(true);
@@ -214,6 +220,10 @@ export const CustomCursor: React.FC = () => {
     document.documentElement.classList.add('custom-cursor-active');
 
     return () => {
+      if (themeFrameRef.current !== null) {
+        window.cancelAnimationFrame(themeFrameRef.current);
+        themeFrameRef.current = null;
+      }
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousedown', handleMouseDown);

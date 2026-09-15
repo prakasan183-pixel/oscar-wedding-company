@@ -73,9 +73,6 @@ export const PhotographyAndFilmsSection: React.FC<PhotographyAndFilmsSectionProp
 
                 {/* Editorial Typography & Copy */}
                 <div className="space-y-3">
-                  <span className="text-[10px] tracking-[0.28em] uppercase text-[#8C8479]">
-                    01 · CAPTURED PERMANENCE
-                  </span>
                   <h3
                     className="text-3xl sm:text-4xl font-serif font-light text-[#FAF8F5] tracking-wide"
                     style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
@@ -124,7 +121,7 @@ export const PhotographyAndFilmsSection: React.FC<PhotographyAndFilmsSectionProp
             >
               <div className="space-y-6">
                 {/* Visual Presentation with Luxurious 4K YouTube Embed */}
-                <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/10] bg-[#0A0A0A] rounded-[2px] border border-[#262422]">
+                <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/10] bg-[#0A0A0A] border border-[#262422]">
                   {isPlayingInline ? (
                     <div className="relative w-full h-full bg-black">
                       <iframe
@@ -208,10 +205,7 @@ export const PhotographyAndFilmsSection: React.FC<PhotographyAndFilmsSectionProp
 
                 {/* Editorial Typography & Copy */}
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] tracking-[0.28em] uppercase text-[#8C8479]">
-                      02 · ATMOSPHERE &amp; MOTION
-                    </span>
+                  <div className="flex items-center justify-end">
                     <span className="text-[9px] tracking-[0.22em] uppercase px-2 py-0.5 rounded-[2px] bg-[#1C1814] border border-[#3A2E1F] text-[#D8B48A] flex items-center gap-1">
                       <Sparkles className="w-2.5 h-2.5 text-[#C5A880]" />
                       <span>CINEMA FILM</span>

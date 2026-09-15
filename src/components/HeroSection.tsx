@@ -128,8 +128,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
   const [isInitialLoaded, setIsInitialLoaded] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  const preloadedImages = useRef(new Map<string, { image: HTMLImageElement; promise: Promise<void> }>());
 
   const totalSlides = HERO_SLIDES.length;
+
+  const preloadImage = useCallback((index: number) => {
+    const imageUrl = HERO_SLIDES[index].image;
+    const existingImage = preloadedImages.current.get(imageUrl);
+    if (existingImage) return existingImage.promise;
+
+    const image = new Image();
+    const imagePromise = new Promise<void>((resolve, reject) => {
+      image.onload = () => {
+        image.decode().then(resolve).catch(resolve);
+      };
+      image.onerror = () => reject(new Error(`Unable to load hero image: ${imageUrl}`));
+      image.src = imageUrl;
+    });
+
+    preloadedImages.current.set(imageUrl, { image, promise: imagePromise });
+    return imagePromise;
+  }, []);
+
+  const changeSlide = useCallback((nextIndex: number) => {
+    preloadImage(nextIndex)
+      .then(() => {
+        setCurrentIndex(nextIndex);
+        setProgress(0);
+      })
+      .catch(() => {
+        // Keep the current image visible if a replacement cannot be loaded.
+      });
+  }, [preloadImage]);
 
   useEffect(() => {
     if (isAppLoaded) {
@@ -137,34 +167,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
     }
   }, [isAppLoaded]);
 
-  // Pre-cache hero images on mount for instantaneous, tear-free slides
+  // Prepare the opening slide and its successor before the first transition.
   useEffect(() => {
-    HERO_SLIDES.forEach((slide) => {
-      const img = new Image();
-      img.src = slide.image;
-    });
+    preloadImage(0);
+    if (totalSlides > 1) preloadImage(1);
 
     const timer = setTimeout(() => {
       setIsInitialLoaded(true);
     }, 400);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [preloadImage, totalSlides]);
+
+  useEffect(() => {
+    preloadImage((currentIndex + 1) % totalSlides);
+  }, [currentIndex, preloadImage, totalSlides]);
 
   const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-    setProgress(0);
-  }, [totalSlides]);
+    const nextIndex = (currentIndex + 1) % totalSlides;
+    changeSlide(nextIndex);
+  }, [changeSlide, currentIndex, totalSlides]);
 
   const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-    setProgress(0);
-  }, [totalSlides]);
-
-  const handleGoToSlide = useCallback((index: number) => {
-    setCurrentIndex(index);
-    setProgress(0);
-  }, []);
+    const nextIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    changeSlide(nextIndex);
+  }, [changeSlide, currentIndex, totalSlides]);
 
   // Strictly sequential cinematic slide advancement (1 -> 2 -> 3 -> 4 -> 5 -> 1)
   // Driven by timestamp delta to prevent duplicate state updates or skipped slides
@@ -182,13 +209,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
 
       if (elapsed >= duration) {
         clearInterval(interval);
-        // Advance strictly to the next slide in proper 1 -> 2 -> 3 -> 4 -> 5 order
-        setCurrentIndex((prev) => (prev + 1) % totalSlides);
+        // Advance only after the next image is ready, avoiding a black transition frame.
+        changeSlide((currentIndex + 1) % totalSlides);
       }
     }, 40);
 
     return () => clearInterval(interval);
-  }, [currentIndex, isInitialLoaded, totalSlides]);
+  }, [changeSlide, currentIndex, isInitialLoaded, totalSlides]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -236,13 +263,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
     <section
       id="hero"
       data-theme="dark"
-      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#0A0A0A] text-[#FAF8F5]"
+      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden text-[#FAF8F5]"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       {/* 1. CINEMATIC AMBIENT IMAGE STACK: Seamless Ken Burns Crossfade between exactly 5 images */}
-      <div className="absolute inset-0 z-0 select-none overflow-hidden bg-[#0A0A0A]">
+      <div className="absolute inset-0 z-0 select-none overflow-hidden">
         <AnimatePresence initial={false}>
           <motion.div
             key={currentSlide.id}
@@ -256,8 +283,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
             <img
               src={currentSlide.image}
               alt={currentSlide.alt}
-              width={1376}
-              height={768}
+              width={2400}
+              height={1600}
               className="w-full h-full object-cover brightness-[0.88] contrast-[1.04]"
               style={{
                 objectPosition: currentSlide.objectPosition || 'center 30%',
@@ -269,8 +296,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
             />
 
             {/* Editorial Multi-Tier Lighting Vignettes: Ensures crystal-clear legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/20 to-black/80 pointer-events-none" />
-            <div className="absolute inset-0 bg-radial-[circle_at_center,_transparent_35%,_rgba(0,0,0,0.5)_100%] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/ via-black/5 to-black/6 pointer-events-none" />
+            <div className="absolute inset-0 bg-radial-[circle_at_center,_transparent_70%,_rgba(0,0,0,0.5)_100%] pointer-events-none" />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -282,7 +309,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
       <div className="flex-1 min-h-[4vh] sm:min-h-[8vh] md:min-h-[14vh] pointer-events-none" />
 
       {/* 2. MAIN EDITORIAL DISPLAY: Left Navigation, Center Content, Right Progress Counter */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 pb-12 sm:pb-14 md:pb-16 flex items-center justify-between">
         
         {/* DESKTOP LEFT NAVIGATION: Arrowhead on the exact same horizontal axis */}
         <div className="hidden md:flex flex-1 justify-start items-center">
@@ -322,7 +349,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
         </div>
 
         {/* CENTER CONTENT: Perfectly synchronized text entrance and exit transitions */}
-        <div className="relative z-20 text-center px-2 sm:px-6 md:px-8 w-full max-w-2xl sm:max-w-3xl flex-1 md:flex-initial mx-auto translate-y-[4vh] sm:translate-y-0">
+        <div className="relative z-20 text-center px-2 sm:px-6 md:px-8 w-full max-w-2xl sm:max-w-3xl flex-1 md:flex-initial mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide.id}
@@ -336,24 +363,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center"
             >
-              {/* Studio Mark & Location with Tracking Expansion */}
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.12 }}
-                className="mb-2 sm:mb-3 flex items-center justify-center gap-2"
-              >
-                <span className="text-[9px] sm:text-[10.5px] md:text-xs tracking-[0.32em] sm:tracking-[0.4em] uppercase text-[#EAE6DF]/90 font-light drop-shadow">
-                  0{currentIndex + 1} &middot; OSCAR WEDDINGS &middot; {currentSlide.location || 'KERALA'}
-                </span>
-              </motion.div>
-
               {/* Primary Cormorant Garamond Editorial Headline */}
               <motion.h1
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-light text-[#FAF8F5] leading-[1.1] sm:leading-[1.04] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
+                className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-light text-[#FAF8F5] leading-[1.1] sm:leading-[1.04] tracking-tight whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 <span className="sr-only">Oscar Weddings — Luxury Wedding Photography &amp; Cinematic Films: </span>
@@ -365,23 +380,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.34 }}
-                className="mt-2.5 sm:mt-3.5 text-[9.5px] sm:text-xs md:text-sm uppercase tracking-[0.22em] sm:tracking-[0.32em] text-[#FAF8F5]/90 font-light drop-shadow"
+                className="mt-2.5 sm:mt-3.5 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.14em] sm:tracking-[0.28em] text-[#FAF8F5]/90 font-light drop-shadow whitespace-nowrap"
               >
                 {currentSlide.subheadline}
               </motion.p>
-
-              {/* Poetic Emotional Tagline (Sophisticated luxury descriptor) */}
-              {currentSlide.tagline && (
-                <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.44 }}
-                  className="mt-2.5 sm:mt-3 max-w-lg sm:max-w-xl text-xs sm:text-sm md:text-base font-serif italic text-[#EAE6DF]/85 font-light leading-relaxed drop-shadow tracking-wide"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
-                  "{currentSlide.tagline}"
-                </motion.p>
-              )}
             </motion.div>
           </AnimatePresence>
 
@@ -391,7 +393,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
               id="hero-explore-stories-btn"
               href="#stories"
               onClick={handleScrollToStories}
-              className="w-full sm:w-auto min-h-[44px] px-7 sm:px-9 py-3 sm:py-3.5 bg-[#FAF8F5] text-[#0A0A0A] text-[11px] sm:text-xs uppercase tracking-[0.22em] sm:tracking-[0.24em] font-medium hover:bg-[#EAE6DF] hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto min-h-[40px] sm:min-h-[44px] px-5 sm:px-9 py-2.5 sm:py-3.5 bg-[#FAF8F5] text-[#0A0A0A] text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.24em] font-medium hover:bg-[#EAE6DF] hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center gap-2 group"
             >
               <span>{HERO_DATA.ctaPrimary}</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
@@ -400,7 +402,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
             <button
               id="hero-enquire-btn"
               onClick={onOpenEnquiry}
-              className="w-full sm:w-auto min-h-[44px] px-7 sm:px-9 py-3 sm:py-3.5 border border-[#FAF8F5]/60 bg-black/40 backdrop-blur-sm text-[#FAF8F5] text-[11px] sm:text-xs uppercase tracking-[0.22em] sm:tracking-[0.24em] font-light hover:bg-[#FAF8F5]/20 hover:border-[#FAF8F5] transition-all duration-300"
+              className="w-full sm:w-auto min-h-[40px] sm:min-h-[44px] px-5 sm:px-9 py-2.5 sm:py-3.5 border border-[#FAF8F5]/60 bg-black/40 backdrop-blur-sm text-[#FAF8F5] text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.24em] font-light hover:bg-[#FAF8F5]/20 hover:border-[#FAF8F5] transition-all duration-300"
             >
               {HERO_DATA.ctaSecondary}
             </button>
@@ -520,73 +522,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
         </div>
       </div>
 
-      {/* 3. DESKTOP & TABLET 5-CHAPTER EDITORIAL SLIDE INDICATORS */}
-      <div className="hidden lg:flex items-center justify-center gap-6 mt-6 z-20 select-none px-6">
-        {HERO_SLIDES.map((slide, idx) => {
-          const isActive = idx === currentIndex;
-          return (
-            <button
-              key={slide.id}
-              onClick={() => handleGoToSlide(idx)}
-              className="group text-left focus:outline-none transition-all duration-300 py-1.5 cursor-pointer"
-              aria-label={`Jump to slide ${idx + 1}: ${slide.headline}`}
-            >
-              <div className="flex items-center gap-2 mb-1.5">
-                <span
-                  className={`text-[9.5px] tracking-[0.24em] font-light transition-colors duration-300 ${
-                    isActive ? 'text-white' : 'text-white/40 group-hover:text-white/70'
-                  }`}
-                >
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-                <span
-                  className={`text-[9.5px] uppercase tracking-[0.16em] transition-colors duration-300 ${
-                    isActive ? 'text-[#FAF8F5] font-medium' : 'text-white/40 group-hover:text-white/70'
-                  }`}
-                >
-                  {slide.headline}
-                </span>
-              </div>
-              {/* Hairline chapter progress track */}
-              <div className="w-20 xl:w-28 h-[1.5px] bg-white/15 rounded-full overflow-hidden relative">
-                <div
-                  className={`h-full rounded-full transition-all ${
-                    isActive
-                      ? 'bg-[#FAF8F5]'
-                      : 'bg-transparent group-hover:bg-white/30'
-                  }`}
-                  style={{
-                    width: isActive ? `${progress}%` : '0%',
-                    transition: isActive ? 'width 75ms linear' : 'all 300ms ease',
-                  }}
-                />
-              </div>
-            </button>
-          );
-        })}
-      </div>
+      <a
+        href="#philosophy"
+        className="absolute bottom-5 sm:bottom-7 md:bottom-8 left-1/2 z-20 -translate-x-1/2 inline-flex items-center gap-2 text-[9px] sm:text-[10px] tracking-[0.26em] uppercase text-[#B4ACA1]/90 transition-colors hover:text-[#FAF8F5]"
+        aria-label="Scroll to discover"
+      >
+        <span>SCROLL TO DISCOVER</span>
+        <ArrowDown className="w-3.5 h-3.5" />
+      </a>
 
-      {/* BOTTOM SPACER: Comfortable breathing room */}
-      <div className="h-3 sm:h-6 md:h-8 pointer-events-none" />
-
-      {/* 4. BOTTOM EDITORIAL BAR: Authentic Atelier Typography */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 py-3 sm:py-4 md:py-5 pb-8 md:pb-5 flex items-end justify-between text-[9px] sm:text-[10px] tracking-[0.26em] uppercase text-[#B4ACA1]/80">
-        <div className="hidden sm:block">
-          <span>KERALA &middot; SOUTH INDIA &middot; DESTINATIONS</span>
-        </div>
-
-        <a
-          href="#philosophy"
-          className="flex items-center gap-2 hover:text-[#FAF8F5] transition-colors mx-auto sm:mx-0 cursor-pointer mt-1"
-        >
-          <span>SCROLL TO DISCOVER</span>
-          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-        </a>
-
-        <div className="hidden sm:block">
-          <span>EST. 2019 &middot; VOLUME VI</span>
-        </div>
-      </div>
     </section>
   );
 };
