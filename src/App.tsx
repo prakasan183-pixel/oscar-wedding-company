@@ -16,13 +16,11 @@ import { FilmModal } from './components/FilmModal';
 import { EnquiryModal } from './components/EnquiryModal';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { CustomCursor } from './components/CustomCursor';
-import { ImagePreloader } from './components/ImagePreloader';
 import { SEOHead } from './components/SEOHead';
 import { WeddingStory } from './types';
-import { STORIES_DATA, FEATURED_HALDI_STORY, PRELOAD_ASSETS } from './data/weddingContent';
+import { STORIES_DATA, FEATURED_HALDI_STORY } from './data/weddingContent';
 
 export default function App() {
-  const [isAppLoaded, setIsAppLoaded] = useState(false);
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedStory, setSelectedStory] = useState<WeddingStory | null>(null);
   const [isFilmModalOpen, setIsFilmModalOpen] = useState(false);
@@ -107,12 +105,6 @@ export default function App() {
         isEnquiryOpen={isEnquiryOpen}
       />
 
-      {/* Global Image Preloader */}
-      <ImagePreloader
-        imageUrls={PRELOAD_ASSETS}
-        onComplete={() => setIsAppLoaded(true)}
-      />
-
       {/* Minimalist Interactive Circular Cursor */}
       <CustomCursor />
 
@@ -131,7 +123,6 @@ export default function App() {
           {/* SECTION 01 — HERO */}
           <HeroSection
             onOpenEnquiry={handleOpenEnquiry}
-            isAppLoaded={isAppLoaded}
           />
 
           {/* SECTION 02 — PHILOSOPHY */}

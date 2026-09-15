@@ -19,19 +19,25 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3, .font-serif {
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: -0.01em;
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: 'Italiana', 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .font-display {
-    font-family: 'Italiana', 'Cormorant Garamond', serif;
+    font-family: 'Italiana', 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 }
 
 /* Luxury Editorial Typography Helper Classes */
 .font-editorial-serif {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: 'Italiana', 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .font-editorial-sans {

@@ -672,8 +672,8 @@ import { WeddingStory, FilmReel, ExperienceStage, HeroSlide, SpecializationPhoto
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "kerala-garden-celebration",
-    image: "/images/hero-1-garden.jpg",
-    headline: "Eternal Beginnings",
+    image: "/images/mainpics/Hero1.web.jpg",
+    headline: "The Art of Arrival",
     subheadline: "THE ART OF TIMELESS HONESTY",
     location: "KOCHI · KERALA",
     tagline: "Where tropical morning light meets the quiet grace of unhurried devotion.",
@@ -683,8 +683,8 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "kerala-couple-laugh",
-    image: "/images/hero-2-laugh.jpg",
-    headline: "Unscripted Joy",
+    image: "/images/mainpics/Hero2.web.jpg",
+    headline: "A Private Kind of Joy",
     subheadline: "THE POETRY OF CANDID LAUGHTER",
     location: "THRISSUR · KERALA",
     tagline: "The whispered jokes, stolen glances, and spontaneous warmth that time cannot diminish.",
@@ -694,8 +694,8 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "kerala-royal-sofa",
-    image: "/images/hero-3-sofa.jpg",
-    headline: "Heirloom Legacy",
+    image: "/images/mainpics/Hero3.web.jpg",
+    headline: "Portraits of Distinction",
     subheadline: "REGAL CRAFTSMANSHIP & POISE",
     location: "TRIVANDRUM · KERALA",
     tagline: "Temple gold, woven Kanchipuram threads, and portraits crafted for generations.",
@@ -705,8 +705,8 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "kerala-thaali-ritual",
-    image: "/images/hero-4-thaali.jpg",
-    headline: "Sacred Vows",
+    image: "/images/mainpics/Hero4.web.jpg",
+    headline: "The Ceremony of Forever",
     subheadline: "THE REVERENCE OF THE THAALI",
     location: "KOTTAYAM · KERALA",
     tagline: "The suspended second when sacred knots are tied and two paths become one.",
@@ -716,8 +716,8 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "kerala-reception-twirl",
-    image: "/images/hero-5-reception.jpg",
-    headline: "Midnight Reverie",
+    image: "/images/mainpics/Hero5.web.jpg",
+    headline: "An Evening in Motion",
     subheadline: "CINEMATIC MOTION & CELEBRATION",
     location: "ALAPPUZHA · KERALA",
     tagline: "The euphoric twirl of midnight silks beneath glistening chandeliers.",
@@ -741,7 +741,7 @@ export const PHILOSOPHY_DATA = {
   headline: "We don't simply photograph weddings. We preserve the feeling of them.",
   paragraph: "The quiet glance before the ceremony. A father's hands adjusting a collar. Laughter between rituals. The movement, the people, the atmosphere. At Oscar, we document weddings as they unfold — combining honest observation with refined editorial composition to create photographs and films that feel as real years from now as they did that day.",
   linkText: "DISCOVER OUR APPROACH",
-  featuredImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85",
+  featuredImage: "/images/mainpics/section2img.web.jpg",
   caption: "Silent grace — Fort Kochi, Kerala"
 };
 
