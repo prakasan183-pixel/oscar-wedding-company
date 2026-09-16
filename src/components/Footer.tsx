@@ -1,52 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { OscarLogo } from './OscarLogo';
 import { FOOTER_LINKS, CONTACT_DETAILS } from '../data/weddingContent';
-import { ArrowUpRight, Mail, Phone, MessageCircle, ArrowRight, Check } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MessageCircle } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 
 export const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [feedbackMessage, setFeedbackMessage] = useState('');
-
-  const validateEmail = (val: string): boolean => {
-    const trimmed = val.trim();
-    if (!trimmed) return false;
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(trimmed);
-  };
-
-  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const trimmed = email.trim();
-
-    if (!trimmed) {
-      setStatus('error');
-      setFeedbackMessage('Please enter your email address.');
-      return;
-    }
-
-    if (!validateEmail(trimmed)) {
-      setStatus('error');
-      setFeedbackMessage('Please provide a valid email address (e.g. name@example.com).');
-      return;
-    }
-
-    setStatus('submitting');
-    setFeedbackMessage('');
-
-    // Simulate polite network delay for tactile feedback
-    setTimeout(() => {
-      setStatus('success');
-      setFeedbackMessage('Thank you. You are subscribed to Oscar Weddings journal updates.');
-      try {
-        localStorage.setItem('oscar_journal_subscriber', trimmed);
-      } catch {
-        // Gracefully handle storage limitations
-      }
-    }, 450);
-  };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -169,10 +127,10 @@ export const Footer: React.FC = () => {
                   href={CONTACT_DETAILS.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] hover:text-[#FAF8F5] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#38332E]"
+                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#E1306C]"
                 >
-                  <span className="group-hover:text-white">INSTAGRAM</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#C5A880] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <span className="group-hover:text-[#E1306C]">INSTAGRAM</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#E1306C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
 
                 {/* Threads */}
@@ -181,10 +139,10 @@ export const Footer: React.FC = () => {
                   href={CONTACT_DETAILS.socials.threads}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] hover:text-[#FAF8F5] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#38332E]"
+                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#FAFAFA]"
                 >
-                  <span className="group-hover:text-white">THREADS</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#C5A880] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <span className="group-hover:text-[#FAFAFA]">THREADS</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#FAFAFA] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
 
                 {/* YouTube */}
@@ -193,10 +151,10 @@ export const Footer: React.FC = () => {
                   href={CONTACT_DETAILS.socials.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] hover:text-[#FAF8F5] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#38332E]"
+                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#FF0000]"
                 >
-                  <span className="group-hover:text-white">YOUTUBE</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#C5A880] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <span className="group-hover:text-[#FF0000]">YOUTUBE</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#FF0000] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
 
                 {/* Facebook */}
@@ -205,10 +163,10 @@ export const Footer: React.FC = () => {
                   href={CONTACT_DETAILS.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] hover:text-[#FAF8F5] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#38332E]"
+                  className="text-xs tracking-[0.22em] uppercase text-[#B4ACA1] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#1877F2]"
                 >
-                  <span className="group-hover:text-white">FACEBOOK</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#C5A880] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <span className="group-hover:text-[#1877F2]">FACEBOOK</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#1877F2] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
 
                 {/* Pinterest */}
@@ -217,127 +175,11 @@ export const Footer: React.FC = () => {
                   href={CONTACT_DETAILS.socials.pinterest}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="col-span-2 text-xs tracking-[0.22em] uppercase text-[#B4ACA1] hover:text-[#FAF8F5] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#38332E]"
+                  className="col-span-2 text-xs tracking-[0.22em] uppercase text-[#B4ACA1] transition-colors flex items-center justify-between group p-2 rounded-[2px] bg-[#121110] border border-[#1F1D1B] hover:border-[#E60023]"
                 >
-                  <span className="group-hover:text-white">PINTEREST BOARDS</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#C5A880] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <span className="group-hover:text-[#E60023]">PINTEREST BOARDS</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#736B63] group-hover:text-[#E60023] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Editorial Journal Dispatches — Minimalist Newsletter Section */}
-          <div className="border-t border-[#1C1A18] pt-10 pb-2">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-12">
-              {/* Left Column: Quiet Editorial Context */}
-              <div className="space-y-1.5 max-w-md text-center md:text-left mx-auto md:mx-0">
-                <span className="text-[9px] tracking-[0.3em] uppercase text-[#8C8479] font-medium block">
-                  THE JOURNAL &amp; DISPATCHES
-                </span>
-                <h3 className="font-serif text-lg md:text-xl text-[#FAF8F5] font-light tracking-wide">
-                  Stories, ritual notes &amp; seasonal availability.
-                </h3>
-                <p className="text-xs text-[#6E675E] font-light leading-relaxed">
-                  Infrequent, thoughtful updates from Oscar Weddings. No promotional noise.
-                </p>
-              </div>
-
-              {/* Right Column: Accessible Minimalist Newsletter Form */}
-              <div className="w-full max-w-md mx-auto md:mx-0">
-                {status === 'success' ? (
-                  <div
-                    id="footer-journal-status"
-                    role="status"
-                    aria-live="polite"
-                    className="p-3.5 rounded-[2px] bg-[#0E1511] border border-[#1E2D22] text-[#A7D7B5] flex items-center justify-between gap-3 text-xs"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-[#A7D7B5] flex-shrink-0" />
-                      <span>{feedbackMessage}</span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setStatus('idle');
-                        setEmail('');
-                        setFeedbackMessage('');
-                      }}
-                      className="text-[10px] tracking-wider uppercase text-[#8C8479] hover:text-[#FAF8F5] underline cursor-pointer transition-colors flex-shrink-0"
-                    >
-                      New entry
-                    </button>
-                  </div>
-                ) : (
-                  <form
-                    id="footer-journal-form"
-                    noValidate
-                    onSubmit={handleNewsletterSubmit}
-                    className="space-y-2"
-                  >
-                    <div className="flex items-center gap-2">
-                      <label htmlFor="footer-journal-email" className="sr-only">
-                        Email address for Oscar Weddings Journal updates
-                      </label>
-                      <div className="relative flex-1">
-                        <input
-                          id="footer-journal-email"
-                          type="email"
-                          name="email"
-                          autoComplete="email"
-                          value={email}
-                          onChange={(e) => {
-                            setEmail(e.target.value);
-                            if (status === 'error') {
-                              setStatus('idle');
-                              setFeedbackMessage('');
-                            }
-                          }}
-                          placeholder="Enter your email address"
-                          disabled={status === 'submitting'}
-                          aria-required="true"
-                          aria-invalid={status === 'error' ? 'true' : 'false'}
-                          aria-describedby="footer-journal-feedback"
-                          className={`w-full bg-[#121110] border text-xs text-[#FAF8F5] placeholder-[#5C564E] px-3.5 py-2.5 rounded-[2px] transition-colors focus:outline-none ${
-                            status === 'error'
-                              ? 'border-[#8E3B3B] focus:border-[#D98282]'
-                              : 'border-[#211F1D] focus:border-[#C5A880]'
-                          }`}
-                        />
-                      </div>
-                      <button
-                        id="footer-journal-submit"
-                        type="submit"
-                        disabled={status === 'submitting'}
-                        className="px-4 py-2.5 text-[10px] tracking-[0.22em] uppercase font-medium bg-[#FAF8F5] text-[#0A0A0A] hover:bg-[#C5A880] transition-colors rounded-[2px] flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {status === 'submitting' ? (
-                          <span>JOINING...</span>
-                        ) : (
-                          <>
-                            <span>SUBSCRIBE</span>
-                            <ArrowRight className="w-3 h-3 text-[#0A0A0A]" />
-                          </>
-                        )}
-                      </button>
-                    </div>
-
-                    {/* Status & Validation Feedback */}
-                    <div
-                      id="footer-journal-feedback"
-                      role={status === 'error' ? 'alert' : 'status'}
-                      aria-live="polite"
-                      className="min-h-[18px] text-[11px]"
-                    >
-                      {status === 'error' ? (
-                        <p className="text-[#D98282]">{feedbackMessage}</p>
-                      ) : (
-                        <p className="text-[#5C564E]">
-                          Curated journal dispatches. Unsubscribe anytime.
-                        </p>
-                      )}
-                    </div>
-                  </form>
-                )}
               </div>
             </div>
           </div>

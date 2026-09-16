@@ -18,19 +18,19 @@ export const PhotographyAndFilmsSection: React.FC<PhotographyAndFilmsSectionProp
   return (
     <section
       id="craft"
-      data-theme="dark"
-      className="relative bg-[#0E0D0C] text-[#FAF8F5] py-16 md:py-24 px-6 md:px-12 lg:px-20 border-t border-[#211F1D]"
+      data-theme="light"
+      className="relative bg-[#FAF8F5] text-[#171615] py-16 md:py-24 px-6 md:px-12 lg:px-20 border-t border-[#E6E1D8]"
     >
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
         {/* Section Header */}
         <ScrollReveal y={20} duration={0.8} amount={0.2}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#262422] pb-8 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E6E1D8] pb-8 gap-6">
             <div className="space-y-2">
               <span className="text-[10px] tracking-[0.34em] uppercase text-[#8C8479]">
                 SECTION 05 — TWO MEDIUMS, ONE VISION
               </span>
               <h2
-                className="text-3xl sm:text-5xl font-serif font-light text-[#FAF8F5]"
+                className="text-3xl sm:text-5xl font-serif font-light text-[#171615]"
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 The Stills &amp; The Motion.

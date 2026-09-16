@@ -11,15 +11,15 @@ export interface UseIntersectionObserverOptions {
 /**
  * useIntersectionObserver:
  * High-performance hook for detecting when an element enters or nears the viewport.
- * Uses an anticipatory rootMargin (default 250px) to trigger asset loading prior
- * to viewport entry, ensuring seamless Core Web Vitals (LCP, INP, CLS).
+ * Uses a small anticipatory rootMargin to trigger asset loading shortly before
+ * viewport entry without creating a scroll-time download spike.
  */
 export function useIntersectionObserver<T extends HTMLElement = HTMLDivElement>(
   options: UseIntersectionObserverOptions = {}
 ): [RefObject<T>, boolean] {
   const {
     root = null,
-    rootMargin = '250px 0px',
+    rootMargin = '80px 0px',
     threshold = 0.01,
     freezeOnceVisible = true,
     disabled = false,
