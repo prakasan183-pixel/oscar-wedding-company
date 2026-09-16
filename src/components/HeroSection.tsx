@@ -368,7 +368,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-light text-[#FAF8F5] leading-[1.1] sm:leading-[1.04] tracking-tight whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
+                className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-serif font-light text-[#FAF8F5] leading-[1.1] sm:leading-[1.04] tracking-tight whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 <span className="sr-only">Oscar Weddings — Luxury Wedding Photography &amp; Cinematic Films: </span>
@@ -380,7 +380,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.34 }}
-                className="mt-2.5 sm:mt-3.5 text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.14em] sm:tracking-[0.28em] text-[#FAF8F5]/90 font-light drop-shadow whitespace-nowrap"
+                className="mt-2.5 sm:mt-3.5 text-[9px] sm:text-[10px] md:text-xs lg:text-[13px] uppercase tracking-[0.14em] sm:tracking-[0.28em] text-[#FAF8F5]/90 font-light drop-shadow whitespace-nowrap"
               >
                 {currentSlide.subheadline}
               </motion.p>

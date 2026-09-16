@@ -37,10 +37,13 @@ export const FinalEnquirySection: React.FC<FinalEnquirySectionProps> = ({
         {/* Oversized Serif Headline with generous negative space */}
         <ScrollReveal delay={0.12} y={24} duration={0.85} amount={0.2}>
           <h2
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-light text-[#FAF8F5] uppercase tracking-[0.06em] leading-[1.08] max-w-4xl mx-auto"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-[#FAF8F5] tracking-[0.06em] leading-[1.08] max-w-5xl mx-auto"
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
-            {ENQUIRY_DATA.headline}
+            <>
+              <span className="block lg:whitespace-nowrap">{ENQUIRY_DATA.headline.replace(' REMEMBERED.', '')}</span>
+              <span className="block lg:whitespace-nowrap" style={{ fontFamily: "'Monsieur La Doulaise', 'Brush Script MT', cursive", letterSpacing: '0.02em', textTransform: 'none' }}>Remembered.</span>
+            </>
           </h2>
         </ScrollReveal>
 
