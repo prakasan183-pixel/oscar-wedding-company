@@ -26,6 +26,7 @@ export interface WeddingStory {
     orientation: 'portrait' | 'landscape' | 'square';
   }[];
   filmFrame?: string;
+  accentColor?: string;
   description: string;
   rituals: string[];
   clientQuote?: {

@@ -792,271 +792,184 @@ export const FEATURED_HALDI_STORY: WeddingStory = {
 
 export const STORIES_DATA: WeddingStory[] = [
   {
-    id: "priya-aditya",
-    title: "PRIYA & ADITYA",
-    couple: "Priya & Aditya",
-    location: "KOCHI · GRAND HYATT BOLGATTY",
-    year: "2024",
-    category: "Modern Sangeet & Architectural Staircase",
-    tagline: "Bespoke fuchsia zardozi lehenga, grand marble descent, and an electric night of celebration.",
-    coverImage: "/images/story-pink-lehenga.jpg",
-    coverAspect: "horizontal",
-    description: "Set against contemporary geometric architecture overlooking the Vembanad waters, Priya and Aditya commenced their celebrations with an opulent Sangeet. Priya's voluminous fuchsia and gold lehenga moved with cinematic grace as they greeted their families under starlit glass atriums.",
-    rituals: ["Grand Sangeet Opening", "Bespoke Brocade Bandhgala", "Staircase Processional", "Midnight DJ & Live Percussion"],
-    gallery: [
-      {
-        url: "/images/story-pink-lehenga.jpg",
-        caption: "Priya & Aditya descending the grand marble steps",
-        orientation: "landscape"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85",
-        caption: "Candid laughter and celebratory cheers during the entrance",
-        orientation: "landscape"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1600&q=85",
-        caption: "Intricate zardozi embroidery and heirloom gemstones in morning light",
-        orientation: "portrait"
-      }
-    ],
-    clientQuote: {
-      text: "Oscar didn't just document the scale of our wedding; they caught every whisper, giggle, and glance with effortless luxury.",
-      author: "Priya & Aditya"
-    }
-  },
-  {
-    id: "kavya-rohan",
-    title: "KAVYA & ROHAN",
-    couple: "Kavya & Rohan",
-    location: "KUMARAKOM LAKE RESORT",
-    year: "2024",
-    category: "Royal Courtyard & Heritage Mandap",
-    tagline: "Regal crimson zardozi, ancestral bamboo grove, and timeless vows in morning dew.",
-    coverImage: "/images/story-royal-red-couple.jpg",
+    id: "albin-thara",
+    title: "ALBIN & THARA",
+    couple: "Albin & Thara",
+    location: "KERALA · FAMILY CELEBRATION",
+    year: "2025",
+    category: "Traditional Kerala Wedding",
+    tagline: "A heartfelt celebration shaped by ritual, warm family energy, and natural light.",
+    coverImage: "/images/albin&thara/cover.jpg",
     coverAspect: "vertical",
-    description: "Surrounded by lush emerald bamboo groves and centuries-old stone lanterns, Kavya in traditional royal crimson and Rohan in ivory raw silk celebrated their sacred union with quiet regality and deep devotion.",
-    rituals: ["Vedic Mantras under Ancient Banyan", "Raw Silk & Gold Sherwani", "Jasmine Garland Varmala", "Courtyard Walk of Blessings"],
+    accentColor: "#2F6F6A",
+    description: "Albin and Thara's wedding was a beautiful blend of sacred tradition and intimate family joy. Every frame carries the quiet grace of the ceremony, the warmth of the loved ones around them, and the gentle rhythm of Kerala's natural setting.",
+    rituals: ["Wedding Morning Preparations", "Family Blessings", "Traditional Rituals", "Golden Hour Couple Portraits"],
     gallery: [
-      {
-        url: "/images/story-royal-red-couple.jpg",
-        caption: "Royal bridal couple portrait in the tranquil bamboo grove",
-        orientation: "landscape"
-      },
-      {
-        url: "/images/hero-1-garden.jpg",
-        caption: "Joyful moments beneath the lush tropical palms",
-        orientation: "landscape"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=1600&q=85",
-        caption: "Heirloom temple jewelry and sacred vermillion details",
-        orientation: "portrait"
-      }
+      { url: "/images/albin&thara/A.JPG", caption: "Albin & Thara in a warm, candid wedding portrait", orientation: "portrait" },
+      { url: "/images/albin&thara/B.JPG", caption: "A deeply personal family moment during the celebration", orientation: "landscape" },
+      { url: "/images/albin&thara/C.JPG", caption: "Ceremony energy and quiet emotion in the same frame", orientation: "landscape" },
+      { url: "/images/albin&thara/D.JPG", caption: "Natural light and heartfelt connection between the couple", orientation: "portrait" },
+      { url: "/images/albin&thara/E.jpg", caption: "The evening atmosphere around the couple and family", orientation: "landscape" },
+      { url: "/images/albin&thara/F.jpg", caption: "A joyful family wedding scene filled with warmth", orientation: "portrait" }
     ],
     clientQuote: {
-      text: "The stillness and majesty of the courtyard came alive in every single photograph. An heirloom for generations.",
-      author: "Kavya & Rohan"
+      text: "Every photograph felt like our real memories — honest, warm, and full of love.",
+      author: "Albin & Thara"
     }
   },
   {
-    id: "meera-siddharth",
-    title: "MEERA & SIDDHARTH",
-    couple: "Meera & Siddharth",
-    location: "ALLEPPEY WATERWAYS",
-    year: "2024",
-    category: "Backwater Baraat & Muthukkuda Procession",
-    tagline: "Ceremonial silk parasols, lakeside baraat procession, and celebrations across tranquil waters.",
-    coverImage: "/images/story-backwater-procession.jpg",
-    coverAspect: "wide",
-    description: "A procession unlike any other. Friends and family marched along the coconut palm riverbanks of Alleppey beneath ornamental ceremonial parasols (muthukkuda), with Chenda Melam drumbeats echoing across the serene waters.",
-    rituals: ["Muthukkuda Parasol Procession", "Waterfront Baraat Arrival", "Chenda Melam Rhythm", "Sunset Houseboat Cocktails"],
+    id: "aleena-nithin",
+    title: "ALEENA & NITHIN",
+    couple: "Aleena & Nithin",
+    location: "KERALA · LUXURY WEDDING",
+    year: "2025",
+    category: "Elegant Wedding Story",
+    tagline: "A polished and personal celebration captured with cinematic grace and emotional honesty.",
+    coverImage: "/images/aleena&Nithin/cover.jpg",
+    coverAspect: "vertical",
+    accentColor: "#2F5F9E",
+    description: "Aleena and Nithin's wedding combined modern elegance with heartfelt tradition. The gallery reflects a clean, luxurious atmosphere while staying deeply personal and warm from beginning to end.",
+    rituals: ["Bridal Details", "Ceremony Moments", "Family Gatherings", "Candid Couple Portraits"],
     gallery: [
-      {
-        url: "/images/story-backwater-procession.jpg",
-        caption: "The celebratory baraat marching beside the tranquil Alleppey waters",
-        orientation: "landscape"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1600&q=85",
-        caption: "Quiet water reflections as dusk settles over the canals",
-        orientation: "landscape"
-      },
-      {
-        url: "/images/hero-2-laugh.jpg",
-        caption: "Unrestrained laughter and joy during the procession",
-        orientation: "portrait"
-      }
+      { url: "/images/aleena&Nithin/HD (1) (1).jpg", caption: "Aleena & Nithin in their refined wedding portrait", orientation: "portrait" },
+      { url: "/images/aleena&Nithin/HD (2) (1).jpg", caption: "Soft details and graceful styling in the morning light", orientation: "landscape" },
+      { url: "/images/aleena&Nithin/HD (3) (1).jpg", caption: "A quiet symbolic moment during the ceremony", orientation: "portrait" },
+      { url: "/images/aleena&Nithin/HD (4) (1).jpg", caption: "Couple and family frames that carry warmth and depth", orientation: "landscape" },
+      { url: "/images/aleena&Nithin/HD (6) (1).jpg", caption: "The visual richness of their wedding day", orientation: "portrait" },
+      { url: "/images/aleena&Nithin/HD (10) (1).jpg", caption: "A beautiful celebration backdrop with heartfelt expressions", orientation: "landscape" }
     ],
     clientQuote: {
-      text: "Looking back at our baraat photos, we can still hear the drums and the laughter over the water.",
-      author: "Meera & Siddharth"
+      text: "The photos felt elegant but never distant — they captured exactly who we were in that moment.",
+      author: "Aleena & Nithin"
     }
   },
   {
-    id: "lakshmi-harikrishnan",
-    title: "LAKSHMI & HARIKRISHNAN",
-    couple: "Lakshmi & Harikrishnan",
-    location: "TRIVANDRUM PALACE GROUNDS",
-    year: "2024",
-    category: "Traditional Kasavu & Temple Lotus",
-    tagline: "Gleaming Kasavu gold zari silk, handpicked pink lotus buds, and sunlit morning serenity.",
-    coverImage: "/images/story-kasavu-bride.jpg",
+    id: "jesica",
+    title: "JESSICA",
+    couple: "Jessica",
+    location: "KERALA · PRE-SHOT & WEDDING STORY",
+    year: "2025",
+    category: "Portrait & Wedding Moments",
+    tagline: "Graceful portraits and emotional wedding moments with a refined editorial feel.",
+    coverImage: "/images/jesica/cover.jpg",
     coverAspect: "portrait",
-    description: "In the cultural capital of Travancore, Lakshmi embraced quintessential Kerala bridal elegance in an off-white handloom Kasavu saree, holding a hand-tied bouquet of sacred pink lotuses and fresh jasmine.",
-    rituals: ["Traditional Kasavu Saree Weave", "Lotus Bud & Jasmine Varmala", "Thalikettu Ritual at Dawn", "Grand Feast on Banana Leaves"],
+    accentColor: "#CFC583",
+    description: "Jessica's story brings together quiet portraiture and celebration. The atmosphere is soft, elegant, and deeply personal, with each image preserving a distinct moment from the day.",
+    rituals: ["Pre-Wedding Portraits", "Bride's Mood", "Wedding Ceremony", "Golden Hour Portraits"],
     gallery: [
-      {
-        url: "/images/story-kasavu-bride.jpg",
-        caption: "Lakshmi holding fresh lotus buds in the sunlit palace gardens",
-        orientation: "landscape"
-      },
-      {
-        url: "/images/hero-3-sofa.jpg",
-        caption: "Couple seated on heirloom royal carved settee",
-        orientation: "portrait"
-      },
-      {
-        url: "/images/hero-4-thaali.jpg",
-        caption: "The sacred moment of tying the golden Thaali",
-        orientation: "landscape"
-      }
+      { url: "/images/jesica/0 (2).jpeg", caption: "Jessica's portrait in soft natural light", orientation: "portrait" },
+      { url: "/images/jesica/0 (3).jpeg", caption: "A calm and intimate bridal expression", orientation: "portrait" },
+      { url: "/images/jesica/0 (4).jpeg", caption: "A moment of quiet confidence before the ceremony", orientation: "landscape" },
+      { url: "/images/jesica/0 (6).jpeg", caption: "Wedding-day glow in an elegant composition", orientation: "portrait" },
+      { url: "/images/jesica/0 (7).jpeg", caption: "The joy and softness of celebration captured naturally", orientation: "landscape" },
+      { url: "/images/jesica/0 (8).jpeg", caption: "A final portrait preserving the emotion of the day", orientation: "portrait" }
     ],
     clientQuote: {
-      text: "Our traditions are everything to us, and Oscar documented them with such reverence and high-fashion grace.",
-      author: "Lakshmi & Harikrishnan"
+      text: "It felt like the photos were telling my story before I even had the words for it.",
+      author: "Jessica"
     }
   },
   {
-    id: "aishwarya-madhav",
-    title: "AISHWARYA & MADHAV",
-    couple: "Aishwarya & Madhav",
-    location: "CALICUT HERITAGE RESIDENCE",
-    year: "2024",
-    category: "Bridal Transcendence & Heirloom Jewels",
-    tagline: "Cascading jasmine veil, royal emerald polki necklace, and quiet meditative grace.",
-    coverImage: "/images/story-bridal-portrait.jpg",
-    coverAspect: "square",
-    description: "A portrait of quiet serenity. Aishwarya takes a mindful breath before entering the mandap, adorned in heirloom emeralds, fine uncut polki diamonds, and fragrant strands of fresh Madurai jasmine flowers.",
-    rituals: ["Bridal Blessing Ceremony", "Antique Heirloom Polki Choker", "Jasmine Garland Weave", "Nalukettu Family Gathering"],
+    id: "lizbeth-jibin",
+    title: "LIZBETH & JIBIN",
+    couple: "Lizbeth & Jibin",
+    location: "KERALA · CHURCH WEDDING",
+    year: "2025",
+    category: "Christian Wedding Story",
+    tagline: "A sacred, cinematic celebration filled with warmth, faith, and quiet emotion.",
+    coverImage: "/images/Lizbeth&jibin/cover.jpg",
+    coverAspect: "vertical",
+    accentColor: "#F2B7C6",
+    description: "Lizbeth and Jibin's wedding is full of serenity and devotion. The images reflect the spiritual atmosphere of the ceremony while keeping the storytelling warm and intimate for the couple and their families.",
+    rituals: ["Church Blessings", "Ceremony Details", "Family Portraits", "Post-Wedding Joy"],
     gallery: [
-      {
-        url: "/images/story-bridal-portrait.jpg",
-        caption: "Serene bridal portrait in the stillness before vows",
-        orientation: "landscape"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=85",
-        caption: "Classical profile illuminated by antique lamps",
-        orientation: "portrait"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=85",
-        caption: "Henna hands holding holy petals",
-        orientation: "square"
-      }
+      { url: "/images/Lizbeth&jibin/01 insta_.jpg", caption: "Lizbeth & Jibin in a graceful couple portrait", orientation: "portrait" },
+      { url: "/images/Lizbeth&jibin/02 insta_.jpg", caption: "A sacred church moment captured naturally", orientation: "landscape" },
+      { url: "/images/Lizbeth&jibin/02 insta_a.jpg", caption: "The brightness of celebration and the quiet of ritual", orientation: "portrait" },
+      { url: "/images/Lizbeth&jibin/03 insta_.jpg", caption: "Warm family and couple interactions", orientation: "landscape" },
+      { url: "/images/Lizbeth&jibin/04 insta_.jpg", caption: "The joy of the celebration in a natural moment", orientation: "portrait" },
+      { url: "/images/Lizbeth&jibin/05 insta_.jpg", caption: "An intimate portrait after the ceremony", orientation: "landscape" }
     ],
     clientQuote: {
-      text: "This single portrait brought my grandmother to tears. It captured the exact soul of that sacred morning.",
-      author: "Aishwarya & Madhav"
+      text: "The photos felt sacred and personal — exactly how we want to remember that day.",
+      author: "Lizbeth & Jibin"
     }
   },
   {
-    id: "diya-kabir",
-    title: "DIYA & KABIR",
-    couple: "Diya & Kabir",
-    location: "KOVALAM CLIFFTOP RESORT",
-    year: "2024",
-    category: "Rose-Gold Twirl & Twilight Lawn Gala",
-    tagline: "Shimmering sequin gown twirl, clinking champagne glasses, and coastal breeze at dusk.",
-    coverImage: "/images/hero-5-reception.jpg",
-    coverAspect: "tall",
-    description: "As evening fell over the Arabian Sea, Diya twirled across the manicured green lawns in an ethereal rose-gold sequined creation, celebrating their new chapter with pure, exuberant spontaneity.",
-    rituals: ["First Dance Under Fairy Lights", "Sparkler Lawn Celebration", "Artisanal Cocktail Toast", "Midnight Backwater Cruise"],
-    gallery: [
-      {
-        url: "/images/hero-5-reception.jpg",
-        caption: "The celebratory twirl on the coastal lawn",
-        orientation: "landscape"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1519225429980-715cb0215aed?auto=format&fit=crop&w=1600&q=85",
-        caption: "Twilight reception dinner with 300 candle lanterns",
-        orientation: "landscape"
-      },
-      {
-        url: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1600&q=85",
-        caption: "Unposed laughter during the toasts",
-        orientation: "square"
-      }
-    ],
-    clientQuote: {
-      text: "The sheer joy of that twirl was immortalized forever. We relive our reception every time we look at it.",
-      author: "Diya & Kabir"
-    }
-  },
-  FEATURED_HALDI_STORY,
-  {
-    id: "anjali-arjun",
-    title: "ANJALI & ARJUN",
-    couple: "Anjali & Arjun",
-    location: "KOCHI · BOLGATTY PALACE",
-    year: "2024",
-    category: "Syrian Christian & Harbor Sunset",
-    tagline: "Heirloom veil, centuries-old colonial chapel, and a sunset cruise along the harbor.",
-    coverImage: "/images/hero-1-garden.jpg",
+    id: "piyush",
+    title: "PIYUSH",
+    couple: "Piyush",
+    location: "KERALA · PORTRAIT STORY",
+    year: "2025",
+    category: "Editorial Portraits",
+    tagline: "A modern portrait story with strong character, confidence, and clean visual direction.",
+    coverImage: "/images/piyush/cover.jpg",
     coverAspect: "portrait",
-    description: "Anjali and Arjun brought their families together on the island of Bolgatty, overlooking the quiet expanse of the Vembanad waters. Between the whispered prayers of the ancient church and the lantern-lit laughter on the pier, their celebration was an homage to generational grace and understated warmth.",
-    rituals: ["Traditional Crowning Ceremony", "Heirloom Kasavu Drapes", "Sunset Harbor Cruise", "Waterfront Candlelit Dinner"],
+    accentColor: "#B6805A",
+    description: "Piyush's story follows a premium portrait aesthetic, combining mood, styling, and natural light to create timeless images that feel personal and expressive.",
+    rituals: ["Portrait Session", "Styling Details", "Mood Lighting", "Final Character Portraits"],
     gallery: [
-      {
-        url: "/images/hero-1-garden.jpg",
-        caption: "Anjali in antique heirloom jewellery, natural morning window light",
-        orientation: "portrait"
-      },
-      {
-        url: "/images/story-bridal-portrait.jpg",
-        caption: "The quiet breath before the aisle",
-        orientation: "landscape"
-      },
-      {
-        url: "/images/hero-5-reception.jpg",
-        caption: "Twilight over the harbor — 240 guests celebrating under the stars",
-        orientation: "landscape"
-      }
+      { url: "/images/piyush/oscar (1).jpg", caption: "Piyush in a confident editorial portrait", orientation: "portrait" },
+      { url: "/images/piyush/oscar (2).jpg", caption: "A refined portrait with depth and softness", orientation: "landscape" },
+      { url: "/images/piyush/oscar (3).jpg", caption: "A strong visual composition with natural texture", orientation: "portrait" },
+      { url: "/images/piyush/oscar (4).jpg", caption: "The mood and character of the session", orientation: "landscape" },
+      { url: "/images/piyush/oscar (5).jpg", caption: "A quiet, confident expression in a styled frame", orientation: "portrait" },
+      { url: "/images/piyush/oscar (6).jpg", caption: "A clean and polished portrait end shot", orientation: "landscape" }
     ],
     clientQuote: {
-      text: "Looking through the photographs felt like watching our most sacred memories distilled into poetry. They didn't direct us; they simply saw us.",
-      author: "Anjali & Arjun"
+      text: "The portraits felt like me — clean, sharp, and full of character.",
+      author: "Piyush"
     }
   },
   {
-    id: "a-and-b",
-    title: "AISHWARYA & BALRAM",
-    couple: "A & B",
-    location: "ALLEPPEY · VEMBANAD CANALS",
-    year: "2024",
-    category: "Heritage Tharavadu & Lake Serenity",
-    tagline: "Ancestral courtyards, rain-kissed palms, and the fragrant silence of jasmine.",
-    coverImage: "/images/hero-2-laugh.jpg",
-    coverAspect: "wide",
-    description: "Set inside a 140-year-old teakwood tharavadu on the banks of the Alleppey canals, this intimate gathering honored age-old rituals: bronze nilavilakku lamps lit at dawn, brass urulis floating with fresh lotus, and monsoon rain drumming softly against clay roof tiles.",
-    rituals: ["Nalukettu Courtyard Mandap", "Thalikettu at Auspicious Hour", "Traditional Sadya on Banana Leaves", "Canoe Departure"],
+    id: "vivek-sreelakshmi",
+    title: "VIVEK & SREELAKSHMI",
+    couple: "Vivek & Sreelakshmi",
+    location: "KERALA · COUPLE STORY",
+    year: "2025",
+    category: "Modern Wedding Portraits",
+    tagline: "A graceful couple story blending warmth, elegance, and sincere connection.",
+    coverImage: "/images/vivek&sreelakshmi/cover.jpg",
+    coverAspect: "vertical",
+    accentColor: "#D33634",
+    description: "Vivek and Sreelakshmi's photographs balance modern framing with emotional honesty. The series reflects the ease and affection between them while preserving the finer details of their celebration.",
+    rituals: ["Bride & Groom Portraits", "Quiet Couple Moments", "Celebration Details", "Atmospheric Family Shots"],
     gallery: [
-      {
-        url: "/images/hero-2-laugh.jpg",
-        caption: "The serene waterways of Alleppey as the bridal boat arrived",
-        orientation: "landscape"
-      },
-      {
-        url: "/images/story-kasavu-bride.jpg",
-        caption: "Woven Kerala kasavu threads and temple jewelry details",
-        orientation: "portrait"
-      }
+      { url: "/images/vivek&sreelakshmi/HD (1).jpg", caption: "Vivek & Sreelakshmi in a tender portrait", orientation: "portrait" },
+      { url: "/images/vivek&sreelakshmi/HD (2).jpg", caption: "The warmth and softness of their connection", orientation: "landscape" },
+      { url: "/images/vivek&sreelakshmi/HD (3).jpg", caption: "A meaningful couple moment with natural light", orientation: "portrait" },
+      { url: "/images/vivek&sreelakshmi/HD (4).jpg", caption: "A composed and cinematic visual from the day", orientation: "landscape" },
+      { url: "/images/vivek&sreelakshmi/HD (5).jpg", caption: "The celebratory mood of the occasion", orientation: "portrait" },
+      { url: "/images/vivek&sreelakshmi/HD (6).jpg", caption: "A final frame preserving the beauty of the experience", orientation: "landscape" }
     ],
     clientQuote: {
-      text: "The frames captured the soul of our ancestral home. It wasn't just a wedding gallery, but an heirloom for our children.",
-      author: "A & B"
+      text: "The photos made our love feel beautifully real, not staged at all.",
+      author: "Vivek & Sreelakshmi"
+    }
+  },
+  {
+    id: "vyshak",
+    title: "VYSHAK",
+    couple: "Vyshak",
+    location: "KERALA · WEDDING & PORTRAIT STORY",
+    year: "2025",
+    category: "Portrait & Celebration Frames",
+    tagline: "A refined portrait collection with a natural, cinematic mood and beautiful attention to details.",
+    coverImage: "/images/vyshak/cover.jpg",
+    coverAspect: "portrait",
+    accentColor: "#417225",
+    description: "Vyshak's photography story is rich in texture, character, and natural atmosphere. It balances portraiture and celebration with a polished editorial eye that still feels personal and alive.",
+    rituals: ["Portrait Styling", "Celebration Shots", "Close Detail Frames", "Final Presence Portrait"],
+    gallery: [
+      { url: "/images/vyshak/HD (1).jpg.jpeg", caption: "Vyshak in a calm and confident portrait", orientation: "portrait" },
+      { url: "/images/vyshak/HD (2).jpg.jpeg", caption: "A polished visual with soft contrast and depth", orientation: "landscape" },
+      { url: "/images/vyshak/HD (4).jpg.jpeg", caption: "A composition highlighting natural mood and detail", orientation: "portrait" },
+      { url: "/images/vyshak/HD (6).jpg.jpeg", caption: "A warm and visual final frame of the day", orientation: "landscape" },
+      { url: "/images/vyshak/HD (7).jpg.jpeg", caption: "A clean portrait with strong personality", orientation: "portrait" }
+    ],
+    clientQuote: {
+      text: "The images felt elevated and truthful at the same time — exactly what I wanted.",
+      author: "Vyshak"
     }
   }
 ];
@@ -1080,13 +993,13 @@ export const SERVICES_DATA = {
   films: {
     heading: "CINEMATIC FILMS",
     tagline: "02 · ATMOSPHERE & MOTION",
-    featuredTitle: "Jibin & Lizbeth",
+    featuredTitle: "Oscar Weddings | Cinematic Wedding Film",
     featuredSubtitle: "Kerala Christian Wedding | Cinematic Wedding Highlight",
     youtubeId: "Vr-WvoInbu4",
-    youtubeUrl: "https://youtu.be/Vr-WvoInbu4",
+    youtubeUrl: "https://youtu.be/6rT-9sFH8ak?si=O1rBedoArbWzd8jB",
     copy: "Your story, in motion. Films built around atmosphere, movement, voices and the moments that photographs cannot hold — crafted to bring you back to how it felt.",
     cta: "WATCH FILMS",
-    thumbnail: "https://img.youtube.com/vi/Vr-WvoInbu4/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/6rT-9sFH8ak/maxresdefault.jpg",
     subDetails: [
       "4K Cinema Optics & Natural Ambient Soundscape",
       "Original Score & Spoken Vow Curation",
@@ -1098,38 +1011,28 @@ export const SERVICES_DATA = {
 
 export const FEATURED_FILMS: FilmReel[] = [
   {
-    id: "film-jibin-lizbeth",
+    id: "film-oscar-weddings",
+    title: "OSCAR WEDDINGS",
+    subtitle: "Kerala Wedding Film | Cinematic Highlight",
+    location: "Kerala, India",
+    duration: "4K HIGHLIGHT",
+    thumbnail: "https://img.youtube.com/vi/6rT-9sFH8ak/maxresdefault.jpg",
+    youtubeId: "6rT-9sFH8ak",
+    youtubeUrl: "https://youtu.be/6rT-9sFH8ak?si=O1rBedoArbWzd8jB",
+    synopsis: "Kerala wedding stories in motion.",
+    quote: "Your story, in motion."
+  },
+  {
+    id: "film-vr-wvoinbu4",
     title: "JIBIN & LIZBETH",
-    subtitle: "Kerala Christian Wedding | Cinematic Wedding Highlight",
+    subtitle: "Kerala Christian Wedding | Cinematic Highlight",
     location: "Kerala, India",
     duration: "4K HIGHLIGHT",
     thumbnail: "https://img.youtube.com/vi/Vr-WvoInbu4/maxresdefault.jpg",
     youtubeId: "Vr-WvoInbu4",
-    youtubeUrl: "https://youtu.be/Vr-WvoInbu4",
-    synopsis: "Atmosphere, movement, voices and the moments that photographs cannot hold. Sacred altar vows, authentic emotions, and candlelit evening revelry captured through 4K cinema optics and natural ambient soundscapes.",
-    quote: "Your story, in motion — crafted to bring you back to how it felt."
-  },
-  {
-    id: "film-1",
-    title: "THE SOUND OF STILLNESS",
-    subtitle: "Intimate Chapel & Heritage Backwaters",
-    location: "Kochi, Kerala",
-    duration: "4:30 MIN",
-    thumbnail: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85",
-    teaserVideoUrl: "https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-posing-for-wedding-photos-41624-large.mp4",
-    synopsis: "Dawn mist rising over the chapel waters, the rustle of raw silk, and the silent tears shared between grandfather and bride.",
+    youtubeUrl: "https://youtu.be/Vr-WvoInbu4?si=psh5fyBHabFreSmk",
+    synopsis: "A cinematic wedding film shaped by ritual, light and emotion.",
     quote: "A film that breathes like the day itself."
-  },
-  {
-    id: "film-2",
-    title: "WHERE THE WATER MEETS THE SKY",
-    subtitle: "Destination Lake Celebration",
-    location: "Kumarakom, Kerala",
-    duration: "5:12 MIN",
-    thumbnail: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1600&q=85",
-    teaserVideoUrl: "https://assets.mixkit.co/videos/preview/mixkit-young-couple-walking-along-the-beach-at-sunset-41617-large.mp4",
-    synopsis: "A destination celebration along Lake Vembanad. Drums, laughter echoing through the banyan trees, and candle lanterns drifting into the night.",
-    quote: "Every frame feels like a memory you can touch."
   }
 ];
 

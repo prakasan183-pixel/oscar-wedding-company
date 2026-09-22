@@ -52,6 +52,39 @@
   letter-spacing: 0.3em;
 }
 
+@keyframes image-shutter-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.image-shutter-reveal {
+  animation: image-shutter-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.spotlight-fixed-background {
+  background-attachment: fixed;
+}
+
+@media (min-width: 1024px) {
+  .film-row-reverse > :first-child {
+    order: 2;
+  }
+
+  .film-row-reverse > :last-child {
+    order: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-shutter-reveal {
+    animation: none;
+  }
+}
+
 /* Subtle image zoom on hover for editorial stillness */
 .editorial-img-wrapper {
   overflow: hidden;

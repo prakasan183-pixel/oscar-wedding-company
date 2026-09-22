@@ -42,7 +42,11 @@ export const KeralaSection: React.FC = () => {
             className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-[#FAF8F5] uppercase tracking-[0.08em] leading-tight"
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
-            {KERALA_DATA.headline}
+            {KERALA_DATA.headline.split('. ').map((line, index) => (
+              <span key={line} className="block lg:whitespace-nowrap">
+                {line}{index === 0 ? '.' : ''}
+              </span>
+            ))}
           </h2>
         </ScrollReveal>
 
