@@ -21,6 +21,15 @@ const getAccentWord = (story: WeddingStory): string => {
   return 'Forever';
 };
 
+const getGalleryPreview = (url: string): string => {
+  if (!url.startsWith('/images/') || url.includes('/mainpics/') || url.includes('/og/')) {
+    return url;
+  }
+
+  const separatorIndex = url.lastIndexOf('/');
+  return `${url.slice(0, separatorIndex + 1)}thumb-${url.slice(separatorIndex + 1)}.jpg`;
+};
+
 const collageImages = [
   { url: '/images/mainpics/Hero1.web.jpg', caption: 'Soft light settling over the celebration', orientation: 'landscape' as const },
   { url: '/images/mainpics/Hero2.web.jpg', caption: 'A quiet pause between rituals', orientation: 'landscape' as const },
@@ -45,24 +54,26 @@ export const StoryModal: React.FC<StoryModalProps> = ({
   const currentIndex = allStories.findIndex((s) => s.id === story.id);
   const nextStory = allStories[(currentIndex + 1) % allStories.length] || allStories[0];
 
+  const storyAccent = story.accentColor || '#7A2420';
   const [imgOne, imgTwo, imgThree, ...galleryImages] = story.gallery;
   const accentWord = getAccentWord(story);
   const additionalImages = [
     ...galleryImages,
     ...collageImages.filter((image) => !story.gallery.some((galleryImage) => galleryImage.url === image.url)),
-  ].slice(0, 9);
+  ].slice(0, 6);
 
   return (
     <div
       id="story-modal-overlay"
       className="fixed inset-0 z-50 overflow-y-auto bg-[#f7f5f1] text-[#241F1B]"
+      style={{ ['--story-accent' as string]: storyAccent }}
     >
       {/* Minimal close control */}
       <button
         id="close-story-modal"
         onClick={onClose}
         aria-label="Close story"
-        className="fixed right-5 top-5 z-20 flex h-10 w-10 items-center justify-center border border-[#ded8cf] bg-[#f7f5f1]/90 text-[#8C8177] transition-colors hover:border-[#7A2420] hover:text-[#7A2420] focus:outline-none sm:right-8 sm:top-8"
+        className="fixed right-5 top-5 z-20 flex h-10 w-10 items-center justify-center border border-[#ded8cf] bg-[#f7f5f1]/90 text-[#8C8177] transition-colors hover:border-[var(--story-accent)] hover:text-[var(--story-accent)] focus:outline-none sm:right-8 sm:top-8"
       >
         <X className="h-4 w-4" />
       </button>
@@ -81,7 +92,8 @@ export const StoryModal: React.FC<StoryModalProps> = ({
                   onClick={() => onSelectStory(nextStory)}
                   aria-label={`Open next story: ${nextStory.couple}`}
                   title={`Next story: ${nextStory.couple}`}
-                  className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#ded8cf] text-[#7A2420] transition-colors hover:border-[#7A2420] hover:bg-[#7A2420] hover:text-[#f7f5f1] focus:outline-none focus:ring-1 focus:ring-[#7A2420]"
+                  className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#ded8cf] text-[var(--story-accent)] transition-colors hover:border-[var(--story-accent)] hover:bg-[var(--story-accent)] hover:text-[#f7f5f1] focus:outline-none focus:ring-1 focus:ring-[var(--story-accent)]"
+                  style={{ ['--story-accent' as string]: storyAccent }}
                 >
                   <ArrowRight className="h-4 w-4" />
                 </button>
@@ -96,36 +108,41 @@ export const StoryModal: React.FC<StoryModalProps> = ({
 
         <div className="grid grid-cols-2 gap-1.5 bg-[#f7f5f1] sm:gap-2">
           {imgOne && (
-            <figure className="aspect-square overflow-hidden bg-[#F1EEE9]">
+            <figure
+              className="aspect-square overflow-hidden bg-[#F1EEE9]"
+            >
               <LazyImage
-                src={imgOne.url}
+                src={getGalleryPreview(imgOne.url)}
                 alt={imgOne.caption}
-                width={700}
-                height={700}
-                priority
+                width={900}
+                height={1125}
+                rootMargin="0px"
                 containerClassName="h-full w-full"
-                className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
+                className="image-shutter-reveal h-full w-full object-cover"
               />
             </figure>
           )}
 
           {imgTwo && (
-            <figure className="aspect-square overflow-hidden bg-[#F1EEE9]">
+            <figure
+              className="aspect-square overflow-hidden bg-[#F1EEE9]"
+            >
               <LazyImage
-                src={imgTwo.url}
+                src={getGalleryPreview(imgTwo.url)}
                 alt={imgTwo.caption}
                 width={700}
                 height={700}
+                rootMargin="0px"
                 containerClassName="h-full w-full"
-                className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
+                className="h-full w-full object-cover"
               />
             </figure>
           )}
 
-          <div className="relative flex aspect-square items-center justify-center overflow-hidden bg-[#7A2420] px-6">
-            <span className="absolute left-4 top-4 text-[8px] uppercase tracking-[0.3em] text-[#e5cdb9]/70">{story.year}</span>
+          <div className="relative flex aspect-square items-center justify-center overflow-hidden px-6" style={{ backgroundColor: storyAccent }}>
+            <span className="absolute left-4 top-4 text-[8px] uppercase tracking-[0.3em] text-white/75">{story.year}</span>
             <span
-              className="whitespace-nowrap text-center text-[3.4rem] leading-none text-[#EFD9C4] sm:text-[4.6rem]"
+              className="whitespace-nowrap text-center text-[3.4rem] leading-none text-white sm:text-[4.6rem]"
               style={{ fontFamily: "'Ballet', 'Brush Script MT', cursive", letterSpacing: '0' }}
             >
               {accentWord}
@@ -133,21 +150,24 @@ export const StoryModal: React.FC<StoryModalProps> = ({
           </div>
 
           {imgThree && (
-            <figure className="aspect-square overflow-hidden bg-[#F1EEE9]">
+            <figure
+              className="aspect-square overflow-hidden bg-[#F1EEE9]"
+            >
               <LazyImage
-                src={imgThree.url}
+                src={getGalleryPreview(imgThree.url)}
                 alt={imgThree.caption}
                 width={700}
                 height={700}
+                rootMargin="0px"
                 containerClassName="h-full w-full"
-                className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
+                className="h-full w-full object-cover"
               />
             </figure>
           )}
         </div>
 
         <div className="mt-7 flex items-center justify-center gap-4 text-[9px] uppercase tracking-[0.2em] text-[#9b9187] sm:hidden">
-          <span>{story.location.split('·')[0].trim()}</span><span className="h-1 w-1 rounded-full bg-[#7A2420]" /><span>{story.year}</span>
+          <span>{story.location.split('·')[0].trim()}</span><span className="h-1 w-1 rounded-full" style={{ backgroundColor: storyAccent }} /><span>{story.year}</span>
         </div>
 
         <p className="mx-auto mt-10 max-w-2xl text-justify text-[10px] uppercase leading-[1.9] tracking-[0.08em] text-[#8C8177] sm:mt-12 sm:text-[11px]">
@@ -164,19 +184,20 @@ export const StoryModal: React.FC<StoryModalProps> = ({
               {additionalImages.map((image, index) => {
                 const layout = image.orientation === 'portrait'
                   ? 'aspect-[4/5]'
-                  : image.orientation === 'square'
-                    ? 'aspect-square'
-                    : 'aspect-[4/3]';
+                  : 'aspect-[4/3]';
                 return (
-                <figure key={`${image.url}-${index}`} className={`${layout} mb-1.5 break-inside-avoid overflow-hidden bg-[#ebe6df] sm:mb-2`}>
+                <figure
+                  key={`${image.url}-${index}`}
+                  className={`${layout} mb-1.5 break-inside-avoid overflow-hidden bg-[#ebe6df] sm:mb-2`}
+                >
                 <LazyImage
-                  src={image.url}
+                  src={getGalleryPreview(image.url)}
                   alt={image.caption}
                   width={600}
                   height={450}
+                  rootMargin="120px 0px"
                   containerClassName="h-full w-full"
-                  rootMargin="80px 0px"
-                  className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
+                  className="h-full w-full object-cover"
                 />
                 </figure>
                 );
@@ -193,7 +214,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
           <p className="text-center text-[9px] uppercase tracking-[0.26em] text-[#9b9187]">
             {story.category}
           </p>
-          {story.clientQuote && <p className="mt-4 text-xl italic leading-tight text-[#7A2420] sm:text-2xl" style={{ fontFamily: "'Parisienne', 'Brush Script MT', cursive", letterSpacing: '0.01em' }}>“{story.clientQuote.text}”</p>}
+          {story.clientQuote && <p className="mt-4 text-xl italic leading-tight sm:text-2xl" style={{ fontFamily: "'Parisienne', 'Brush Script MT', cursive", letterSpacing: '0.01em', color: storyAccent }}>“{story.clientQuote.text}”</p>}
           {story.clientQuote && <p className="mt-3 text-[9px] uppercase tracking-[0.25em] text-[#9b9187]">{story.clientQuote.author}</p>}
         </div>
 
@@ -211,7 +232,10 @@ export const StoryModal: React.FC<StoryModalProps> = ({
               onClose();
               onOpenEnquiry();
             }}
-            className="border-b border-[#7A2420] pb-1 text-[10px] uppercase tracking-[0.25em] text-[#241F1B] transition-colors hover:text-[#7A2420]"
+            className="border-b pb-1 text-[10px] uppercase tracking-[0.25em] text-[#241F1B] transition-colors"
+            style={{ borderBottomColor: storyAccent, color: '#241F1B' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = storyAccent; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#241F1B'; }}
           >
             Check availability
           </button>

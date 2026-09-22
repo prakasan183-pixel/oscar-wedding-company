@@ -143,7 +143,7 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
               ...style,
             }}
             className={`${cleanClassName} ${transitionClass} ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
+              isLoaded ? 'opacity-100 image-shutter-reveal' : 'opacity-0'
             }`}
             {...rest}
           />

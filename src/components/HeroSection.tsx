@@ -285,7 +285,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
               alt={currentSlide.alt}
               width={2400}
               height={1600}
-              className="w-full h-full object-cover brightness-[0.88] contrast-[1.04]"
+              className="image-shutter-reveal w-full h-full object-cover brightness-[0.88] contrast-[1.04]"
               style={{
                 objectPosition: currentSlide.objectPosition || 'center 30%',
               }}

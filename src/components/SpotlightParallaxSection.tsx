@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import { FEATURED_HALDI_STORY } from '../data/weddingContent';
 import { WeddingStory } from '../types';
 import { ScrollReveal } from './ScrollReveal';
-import { LazyImage } from './LazyImage';
 
 interface SpotlightParallaxSectionProps {
   onOpenStory: (story: WeddingStory) => void;
@@ -28,15 +27,12 @@ export const SpotlightParallaxSection: React.FC<SpotlightParallaxSectionProps> =
         Rendered with zero sticky traps, zero scroll listeners, and zero heavy CSS filter shaders.
         Guarantees instant, buttery-smooth 60/120 FPS scrolling across all devices.
       */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-        <LazyImage
-          src="/images/haldi_ceremony_bride.jpg"
-          alt="Bhagya and Prabhu Haldi Ceremony at Kumarakom Lake Palace Heritage Grove — Indian destination wedding photography by Oscar Weddings"
-          width={1376}
-          height={768}
-          containerClassName="w-full h-full"
-          className="w-full h-full object-cover object-center brightness-[0.85]"
-        />
+      <div
+        className="spotlight-fixed-background absolute inset-0 z-0 h-full w-full pointer-events-none bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/haldi_ceremony_bride.jpg')" }}
+        role="img"
+        aria-label="Bhagya and Prabhu Haldi Ceremony at Kumarakom Lake Palace Heritage Grove — Indian destination wedding photography by Oscar Weddings"
+      >
 
         {/* Luxury Atmospheric Film Scrims for High-Contrast Editorial Readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/65" />

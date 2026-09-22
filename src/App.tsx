@@ -22,7 +22,14 @@ import { STORIES_DATA, FEATURED_HALDI_STORY } from './data/weddingContent';
 
 export default function App() {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
-  const [selectedStory, setSelectedStory] = useState<WeddingStory | null>(null);
+  const [selectedStory, setSelectedStory] = useState<WeddingStory | null>(() => {
+    if (typeof window === 'undefined') return null;
+
+    const storyId = new URLSearchParams(window.location.search).get('story');
+    if (!storyId) return null;
+
+    return [FEATURED_HALDI_STORY, ...STORIES_DATA].find((story) => story.id === storyId) || null;
+  });
   const [isFilmModalOpen, setIsFilmModalOpen] = useState(false);
 
   // Sync initial URL params (?story=xyz or ?film=xyz)
@@ -109,12 +116,13 @@ export default function App() {
       <CustomCursor />
 
       {/* Main Page Container with Smooth Fluid Entry */}
-      <motion.div
-        initial={{ opacity: 0.8 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="relative w-full overflow-x-hidden min-h-screen"
-      >
+      {!selectedStory && (
+        <motion.div
+          initial={{ opacity: 0.8 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="relative w-full overflow-x-hidden min-h-screen"
+        >
         {/* Editorial Navigation */}
         <Navbar onOpenEnquiry={handleOpenEnquiry} />
 
@@ -158,7 +166,8 @@ export default function App() {
 
         {/* Sticky Mobile Bar */}
         <StickyMobileBar onOpenEnquiry={handleOpenEnquiry} />
-      </motion.div>
+        </motion.div>
+      )}
 
       {/* Interactive Modals */}
       <StoryModal
