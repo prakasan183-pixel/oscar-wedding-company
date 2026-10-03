@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { PhilosophySection } from './components/PhilosophySection';
 import { SelectedStoriesSection } from './components/SelectedStoriesSection';
+import { WeddingShowcaseSection } from './components/WeddingShowcaseSection';
 import { KeralaSection } from './components/KeralaSection';
 import { SpotlightParallaxSection } from './components/SpotlightParallaxSection';
 import { PhotographyAndFilmsSection } from './components/PhotographyAndFilmsSection';
@@ -16,11 +17,13 @@ import { FilmModal } from './components/FilmModal';
 import { EnquiryModal } from './components/EnquiryModal';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { CustomCursor } from './components/CustomCursor';
+import { PortfolioPage } from './components/PortfolioPage';
 import { SEOHead } from './components/SEOHead';
 import { WeddingStory } from './types';
 import { STORIES_DATA, FEATURED_HALDI_STORY } from './data/weddingContent';
 
 export default function App() {
+  const isPortfolioPage = typeof window !== 'undefined' && window.location.pathname === '/portfolio';
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedStory, setSelectedStory] = useState<WeddingStory | null>(() => {
     if (typeof window === 'undefined') return null;
@@ -103,6 +106,10 @@ export default function App() {
     }
   };
 
+  if (isPortfolioPage) {
+    return <PortfolioPage />;
+  }
+
   return (
     <div className="relative min-h-screen bg-[#0A0A0A] text-[#FAF8F5] selection:bg-[#EAE6DF] selection:text-[#0A0A0A]">
       {/* Dynamic SEO & Social Sharing Metadata Management */}
@@ -135,6 +142,9 @@ export default function App() {
 
           {/* SECTION 02 — PHILOSOPHY */}
           <PhilosophySection />
+
+          {/* WEDDING PHOTOGRAPHY SHOWCASE */}
+          <WeddingShowcaseSection />
 
           {/* SECTION 03 — SELECTED STORIES */}
           <SelectedStoriesSection onOpenStory={handleOpenStory} />

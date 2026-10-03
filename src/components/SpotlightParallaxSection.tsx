@@ -52,7 +52,7 @@ export const SpotlightParallaxSection: React.FC<SpotlightParallaxSectionProps> =
             <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-black/55 border border-white/15 text-[#E6E1D8] shadow-sm">
               <span
                 className="text-[9px] sm:text-[10px] tracking-[0.32em] uppercase font-medium"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 FEATURED CEREMONIAL SPOTLIGHT
               </span>
@@ -75,7 +75,7 @@ export const SpotlightParallaxSection: React.FC<SpotlightParallaxSectionProps> =
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-[#E6E1D8]">
               <span
                 className="text-xs sm:text-sm tracking-[0.28em] uppercase font-medium text-[#FAF8F5]/90"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 MARCH 26, 2025
               </span>
@@ -84,7 +84,7 @@ export const SpotlightParallaxSection: React.FC<SpotlightParallaxSectionProps> =
 
               <span
                 className="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-[#C5A880] font-medium"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 KUMARAKOM · HERITAGE GROVE
               </span>
@@ -110,7 +110,7 @@ export const SpotlightParallaxSection: React.FC<SpotlightParallaxSectionProps> =
 
                 <span
                   className="text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#FAF8F5]/85 group-hover:text-[#FFFFFF] group-hover:tracking-[0.32em] font-medium transition-all duration-200"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                 >
                   VIEW FULL CEREMONY STORY
                 </span>

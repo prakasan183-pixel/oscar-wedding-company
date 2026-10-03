@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
-import { HERO_SLIDES, HERO_DATA } from '../data/weddingContent';
+import { HERO_SLIDES } from '../data/weddingContent';
 
 interface HeroSectionProps {
   onOpenEnquiry: () => void;
@@ -10,119 +10,24 @@ interface HeroSectionProps {
 
 const SLIDE_DURATION = 5500; // 5.5s cinematic cadence
 
-// Cinematic Ken Burns variants for each of the 5 slides: subtle zoom, pan, and drift
-const getCinematicVariants = (index: number) => {
-  switch (index % 5) {
-    case 0: // Slide 1 (Garden Celebration): Gentle upward float & slow zoom
-      return {
-        initial: { opacity: 0, scale: 1.01, y: 4 },
-        animate: {
-          opacity: 1,
-          scale: 1.06,
-          y: -8,
-          transition: {
-            opacity: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-            y: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-          },
-        },
-        exit: {
-          opacity: 0,
-          scale: 1.075,
-          transition: {
-            opacity: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-          },
-        },
-      };
-    case 1: // Slide 2 (Intimate Laugh): Gentle rightward pan & intimate warm zoom
-      return {
-        initial: { opacity: 0, scale: 1.01, x: -8 },
-        animate: {
-          opacity: 1,
-          scale: 1.065,
-          x: 8,
-          transition: {
-            opacity: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-            x: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-          },
-        },
-        exit: {
-          opacity: 0,
-          scale: 1.08,
-          transition: {
-            opacity: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-          },
-        },
-      };
-    case 2: // Slide 3 (Heirloom Royal Sofa): Pure classical regal slow push-in
-      return {
-        initial: { opacity: 0, scale: 1.0 },
-        animate: {
-          opacity: 1,
-          scale: 1.065,
-          transition: {
-            opacity: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-          },
-        },
-        exit: {
-          opacity: 0,
-          scale: 1.075,
-          transition: {
-            opacity: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-          },
-        },
-      };
-    case 3: // Slide 4 (Sacred Thaali Ritual): Slow leftward drift & devotional focus
-      return {
-        initial: { opacity: 0, scale: 1.01, x: 8 },
-        animate: {
-          opacity: 1,
-          scale: 1.06,
-          x: -8,
-          transition: {
-            opacity: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-            x: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-          },
-        },
-        exit: {
-          opacity: 0,
-          scale: 1.075,
-          transition: {
-            opacity: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-          },
-        },
-      };
-    case 4: // Slide 5 (Midnight Reception Twirl): Dynamic diagonal glide & celebration radiance
-    default:
-      return {
-        initial: { opacity: 0, scale: 1.02, y: 6, x: -4 },
-        animate: {
-          opacity: 1,
-          scale: 1.07,
-          y: -6,
-          x: 4,
-          transition: {
-            opacity: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-            y: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-            x: { duration: 8.5, ease: [0.16, 1, 0.3, 1] },
-          },
-        },
-        exit: {
-          opacity: 0,
-          scale: 1.08,
-          transition: {
-            opacity: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
-          },
-        },
-      };
-  }
-};
+// Static hero image crossfade without zoom/pan motion
+const getCinematicVariants = () => ({
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      opacity: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      opacity: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+    },
+  },
+});
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLoaded }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ isAppLoaded }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isInitialLoaded, setIsInitialLoaded] = useState(false);
@@ -248,67 +153,63 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
     touchEndX.current = null;
   };
 
-  const handleScrollToStories = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const target = document.getElementById('stories');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const currentSlide = HERO_SLIDES[currentIndex];
-  const cinematicVariants = getCinematicVariants(currentIndex);
 
   return (
     <section
       id="hero"
       data-theme="dark"
-      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden text-[#FAF8F5]"
+      className="relative min-h-[67vh] sm:min-h-[70vh] md:min-h-screen w-full flex flex-col justify-between overflow-hidden text-[#FAF8F5] bg-transparent"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       {/* 1. CINEMATIC AMBIENT IMAGE STACK: Seamless Ken Burns Crossfade between exactly 5 images */}
-      <div className="absolute inset-0 z-0 select-none overflow-hidden">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentSlide.id}
-            variants={cinematicVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="absolute inset-0 w-full h-full"
-            style={{ willChange: 'opacity, transform' }}
-          >
-            <img
-              src={currentSlide.image}
-              alt={currentSlide.alt}
-              width={2400}
-              height={1600}
-              className="image-shutter-reveal w-full h-full object-cover brightness-[0.88] contrast-[1.04]"
-              style={{
-                objectPosition: currentSlide.objectPosition || 'center 30%',
-              }}
-              loading="eager"
-              fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
-              decoding="async"
-              referrerPolicy="no-referrer"
-            />
+      <div className="absolute inset-0 z-0 select-none overflow-hidden bg-transparent">
+        {HERO_SLIDES.map((slide, index) => {
+          const isActive = index === currentIndex;
 
-            {/* Editorial Multi-Tier Lighting Vignettes: Ensures crystal-clear legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/ via-black/5 to-black/6 pointer-events-none" />
-            <div className="absolute inset-0 bg-radial-[circle_at_center,_transparent_70%,_rgba(0,0,0,0.5)_100%] pointer-events-none" />
-          </motion.div>
-        </AnimatePresence>
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-[1000ms] ease-out ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ willChange: 'opacity' }}
+            >
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                width={2400}
+                height={1600}
+                className="w-full h-full object-cover brightness-[0.88] contrast-[1.04]"
+                style={{
+                  objectPosition: slide.objectPosition || 'center 30%',
+                }}
+                loading="eager"
+                fetchPriority={index === 0 ? 'high' : 'auto'}
+                decoding="async"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* TOP SPACING: Clears the fixed editorial navbar */}
       <div className="h-16 sm:h-20 md:h-24 z-10" />
 
+      <div className="absolute left-[5%] top-[18%] z-20 hidden md:block text-[9px] uppercase tracking-[0.34em] leading-[2.1] text-[#FAF8F5]/70">
+        <span className="block">People</span>
+        <span className="block">Emotions</span>
+        <span className="block">Forever</span>
+        <span className="mt-4 block h-px w-9 bg-[#C7B58A]/80" />
+      </div>
+
       {/* VERTICAL SPACER: Positions hero text intentionally within natural optical center */}
       <div className="flex-1 min-h-[4vh] sm:min-h-[8vh] md:min-h-[14vh] pointer-events-none" />
 
-      {/* 2. MAIN EDITORIAL DISPLAY: Left Navigation, Center Content, Right Progress Counter */}
+      {/* 2. MAIN EDITORIAL DISPLAY */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 pb-12 sm:pb-14 md:pb-16 flex items-center justify-between">
         
         {/* DESKTOP LEFT NAVIGATION: Arrowhead on the exact same horizontal axis */}
@@ -363,13 +264,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center"
             >
-              {/* Primary Cormorant Garamond Editorial Headline */}
+              {/* Primary Editorial Headline */}
               <motion.h1
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-serif font-light text-[#FAF8F5] leading-[1.1] sm:leading-[1.04] tracking-tight whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+                className="mt-2 text-[1.75rem] sm:text-4xl md:text-[2.9rem] lg:text-[2.5rem] xl:text-[2.8rem] font-normal text-[#FAF8F5] leading-[1.1] sm:leading-[1.04] tracking-[0.08em] whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] uppercase"
+                style={{ fontFamily: "'Italiana', 'Cormorant Garamond', Georgia, serif" }}
               >
                 <span className="sr-only">Oscar Weddings — Luxury Wedding Photography &amp; Cinematic Films: </span>
                 {currentSlide.headline}
@@ -387,51 +288,37 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
             </motion.div>
           </AnimatePresence>
 
-          {/* Action CTA Buttons */}
-          <div className="mt-6 sm:mt-8 md:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <a
-              id="hero-explore-stories-btn"
-              href="#stories"
-              onClick={handleScrollToStories}
-              className="w-full sm:w-auto min-h-[40px] sm:min-h-[44px] px-5 sm:px-9 py-2.5 sm:py-3.5 bg-[#FAF8F5] text-[#0A0A0A] text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.24em] font-medium hover:bg-[#EAE6DF] hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center gap-2 group"
-            >
-              <span>{HERO_DATA.ctaPrimary}</span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-            </a>
-
-            <button
-              id="hero-enquire-btn"
-              onClick={onOpenEnquiry}
-              className="w-full sm:w-auto min-h-[40px] sm:min-h-[44px] px-5 sm:px-9 py-2.5 sm:py-3.5 border border-[#FAF8F5]/60 bg-black/40 backdrop-blur-sm text-[#FAF8F5] text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.24em] font-light hover:bg-[#FAF8F5]/20 hover:border-[#FAF8F5] transition-all duration-300"
-            >
-              {HERO_DATA.ctaSecondary}
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION: Thumb-friendly controls with live 01 / 05 progress bar */}
-          <div className="md:hidden mt-6 flex items-center justify-center gap-5 select-none">
+          {/* MOBILE NAVIGATION: Slim editorial arrows matching the desktop controls */}
+          <div className="md:hidden mt-6 flex items-center justify-center gap-4 select-none">
             <button
               id="mobile-hero-prev-btn"
               onClick={handlePrev}
-              className="p-2.5 text-white/85 active:scale-90 hover:text-white transition-all flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/15"
+              className="group relative flex items-center h-6 cursor-pointer select-none focus:outline-none transition-all duration-300 text-white/85 hover:text-white"
               aria-label="Previous photograph"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <svg className="w-16 h-4 overflow-visible" viewBox="0 0 160 16" fill="none">
+                <line x1="7" y1="8" x2="160" y2="8" stroke="currentColor" strokeWidth="1" className="text-white/50 group-hover:text-white transition-colors duration-300" />
+                <path d="M7 4 L2 8 L7 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="text-white drop-shadow transition-transform duration-300 group-hover:-translate-x-1" />
+              </svg>
             </button>
 
             <div className="flex items-center gap-2.5">
-              <span className="text-xs font-serif tracking-[0.2em] text-white">
+              <span className="text-[10px] font-serif tracking-[0.2em] text-white">
                 {String(currentIndex + 1).padStart(2, '0')}
               </span>
-              
-              <div className="w-16 h-[2px] bg-white/20 rounded-full overflow-hidden relative">
-                <div
-                  className="h-full bg-white rounded-full transition-all duration-75 ease-linear"
-                  style={{ width: `${progress}%` }}
-                />
+
+              <div className="relative w-7 h-5" aria-hidden="true">
+                <div className="absolute left-1/2 top-1/2 w-8 -translate-x-1/2 -translate-y-1/2 -rotate-[55deg]">
+                  <div className="h-[2px] w-full overflow-hidden rounded-full bg-white/20">
+                    <div
+                      className="h-full rounded-full bg-white transition-all duration-75 ease-linear"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                </div>
               </div>
 
-              <span className="text-xs font-serif tracking-[0.2em] text-white/60">
+              <span className="text-[10px] font-serif tracking-[0.2em] text-white/60">
                 {String(totalSlides).padStart(2, '0')}
               </span>
             </div>
@@ -439,10 +326,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
             <button
               id="mobile-hero-next-btn"
               onClick={handleNext}
-              className="p-2.5 text-white/85 active:scale-90 hover:text-white transition-all flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/15"
+              className="group relative flex items-center h-6 cursor-pointer select-none focus:outline-none transition-all duration-300 text-white/85 hover:text-white"
               aria-label="Next photograph"
             >
-              <ChevronRight className="w-4 h-4" />
+              <svg className="w-16 h-4 overflow-visible" viewBox="0 0 160 16" fill="none">
+                <line x1="0" y1="8" x2="153" y2="8" stroke="currentColor" strokeWidth="1" className="text-white/50 group-hover:text-white transition-colors duration-300" />
+                <path d="M153 4 L158 8 L153 12" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="text-white drop-shadow transition-transform duration-300 group-hover:translate-x-1" />
+              </svg>
             </button>
           </div>
         </div>
@@ -522,14 +412,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenEnquiry, isAppLo
         </div>
       </div>
 
-      <a
-        href="#philosophy"
-        className="absolute bottom-5 sm:bottom-7 md:bottom-8 left-1/2 z-20 -translate-x-1/2 inline-flex items-center gap-2 text-[9px] sm:text-[10px] tracking-[0.26em] uppercase text-[#B4ACA1]/90 transition-colors hover:text-[#FAF8F5]"
-        aria-label="Scroll to discover"
-      >
-        <span>SCROLL TO DISCOVER</span>
-        <ArrowDown className="w-3.5 h-3.5" />
-      </a>
+      <div className="absolute right-[3%] bottom-[6%] z-20 hidden md:block text-right text-[9px] uppercase tracking-[0.3em] leading-[2.1] text-[#FAF8F5]/70">
+        <span className="block">Weddings</span>
+        <span className="block">By People</span>
+        <span className="block">For People</span>
+        <span className="mt-4 ml-auto block h-px w-9 bg-[#C7B58A]/80" />
+      </div>
+
 
     </section>
   );

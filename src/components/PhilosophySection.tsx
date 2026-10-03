@@ -53,7 +53,7 @@
 //             <div className="space-y-6 max-w-2xl">
 //               <p
 //                 className="text-base sm:text-lg md:text-xl text-[#3A3632] font-light leading-[1.7] tracking-normal"
-//                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+//                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
 //               >
 //                 {PHILOSOPHY_DATA.paragraph}
 //               </p>
@@ -172,7 +172,7 @@ export const PhilosophySection: React.FC = () => {
             <div className="space-y-4 max-w-2xl">
               <p
                 className="text-base sm:text-lg md:text-xl text-[#3A3632] font-light leading-[1.7] tracking-normal"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 {PHILOSOPHY_DATA.paragraph}
               </p>
@@ -215,7 +215,7 @@ export const PhilosophySection: React.FC = () => {
                   height={1500}
                   containerClassName="w-full aspect-[4/5] overflow-hidden bg-[#EAE6DF] shadow-sm"
                   placeholderClassName="bg-[#EAE6DF]"
-                  className="w-full h-full object-cover filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-[1.03] transition-[filter,transform] duration-1000 ease-out"
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
                 />
               </div>
 

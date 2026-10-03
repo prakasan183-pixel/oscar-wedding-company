@@ -22,7 +22,7 @@ const getAccentWord = (story: WeddingStory): string => {
 };
 
 const getGalleryPreview = (url: string): string => {
-  if (!url.startsWith('/images/') || url.includes('/mainpics/') || url.includes('/og/')) {
+  if (!url.startsWith('/images/') || url.includes('/mainpics/') || url.includes('/og/') || url.includes('/Deva/')) {
     return url;
   }
 
