@@ -1,2 +1,3 @@
+public/vedios/HD.MP4 filter=lfs diff=lfs merge=lfs -text
 public/images/** filter=lfs diff=lfs merge=lfs -text
 public/vedios/** filter=lfs diff=lfs merge=lfs -text

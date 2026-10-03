@@ -75,7 +75,7 @@ export const ExperienceSection: React.FC = () => {
                     <div className="md:col-span-7 space-y-4">
                       <p
                         className="text-base sm:text-lg md:text-xl text-[#262422] font-light leading-relaxed"
-                        style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                       >
                         {stage.summary}
                       </p>

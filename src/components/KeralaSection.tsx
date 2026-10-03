@@ -18,9 +18,9 @@ export const KeralaSection: React.FC = () => {
           width={1200}
           height={896}
           containerClassName="w-full h-full"
-          className="w-full h-full object-cover object-center filter brightness-[0.45] contrast-[1.12]"
+          className="w-full h-full object-cover object-center md:object-[60%_center] filter brightness-[0.7] contrast-[1.08]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-[#0A0A0A]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/20 to-[#0A0A0A]/35 pointer-events-none" />
       </div>
 
       {/* Editorial Content Container */}
@@ -39,7 +39,7 @@ export const KeralaSection: React.FC = () => {
         {/* Headline */}
         <ScrollReveal delay={0.1} y={24} duration={0.85} amount={0.2}>
           <h2
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-[#FAF8F5] uppercase tracking-[0.08em] leading-tight"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-[#FAF8F5] uppercase tracking-[0.08em] leading-tight"
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             {KERALA_DATA.headline.split('. ').map((line, index) => (
@@ -53,8 +53,8 @@ export const KeralaSection: React.FC = () => {
         {/* Sophisticated Body Copy */}
         <ScrollReveal delay={0.2} y={24} duration={0.85} amount={0.2}>
           <p
-            className="text-base sm:text-lg md:text-xl text-[#E6E1D8] font-light leading-[1.8] max-w-3xl mx-auto tracking-normal"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            className="text-base sm:text-lg md:text-xl text-[#E6E1D8] font-light leading-[1.8] max-w-3xl mx-auto tracking-normal text-justify sm:text-center"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             {KERALA_DATA.copy}
           </p>

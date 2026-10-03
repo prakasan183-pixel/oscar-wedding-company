@@ -84,7 +84,7 @@ export const StickyMobileBar: React.FC<StickyMobileBarProps> = ({ onOpenEnquiry 
               <div className="px-3.5 py-1 bg-[#161514] border border-[#2B2723] rounded-full self-end shadow-sm flex items-center">
                 <span
                   className="text-[8.5px] tracking-[0.28em] uppercase text-[#B4ACA1] font-light"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                 >
                   ATELIER CONCIERGE
                 </span>
@@ -111,7 +111,7 @@ export const StickyMobileBar: React.FC<StickyMobileBarProps> = ({ onOpenEnquiry 
                       </span>
                       <span
                         className="block text-[8.5px] tracking-[0.16em] uppercase text-[#8C8479] font-light mt-0.5"
-                        style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                       >
                         Private Studio Calendar
                       </span>
@@ -139,7 +139,7 @@ export const StickyMobileBar: React.FC<StickyMobileBarProps> = ({ onOpenEnquiry 
                       </span>
                       <span
                         className="block text-[8.5px] tracking-[0.16em] uppercase text-[#8C8479] font-light mt-0.5"
-                        style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                       >
                         Instant Atelier Dialogue
                       </span>

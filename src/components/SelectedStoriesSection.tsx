@@ -11,35 +11,44 @@ interface SelectedStoriesSectionProps {
 export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
   onOpenStory,
 }) => {
-  const selectedStories = useMemo(() => STORIES_DATA.slice(0, 6), []);
+  const selectedStories = useMemo(() => STORIES_DATA, []);
 
   const renderSelectedMosaic = () => (
-    <div className="grid grid-cols-2 gap-2 md:gap-3 xl:gap-4 lg:grid-cols-3 xl:grid-cols-4">
-      {selectedStories.map((story, index) => {
-        const isTall = story.coverAspect === 'vertical' || story.coverAspect === 'portrait' || story.coverAspect === 'square';
-        const heightClass = isTall ? 'lg:min-h-[420px] xl:min-h-[500px]' : 'lg:min-h-[300px] xl:min-h-[340px]';
+    <div className="columns-2 gap-2 md:columns-3 md:gap-3 xl:columns-4 xl:gap-4">
+      {selectedStories.map((story) => {
+        const isPortrait = story.coverAspect === 'vertical' || story.coverAspect === 'portrait';
 
         return (
-          <button
-            key={`${story.id}-${index}`}
-            type="button"
-            onClick={() => onOpenStory(story)}
-            className={`group relative block aspect-[4/5] w-full overflow-hidden bg-[#EAE6DF] text-left lg:aspect-auto ${heightClass}`}
-            aria-label={`Open ${story.couple} story`}
-          >
+        <button
+          key={story.id}
+          type="button"
+          onClick={() => onOpenStory(story)}
+          className="group mb-5 block w-full break-inside-avoid overflow-hidden bg-[#EAE6DF] text-left md:mb-6"
+          aria-label={`Open ${story.couple} story`}
+        >
+          <div className={`${isPortrait ? 'aspect-[4/5]' : 'aspect-[4/3]'} overflow-hidden`}>
             <LazyImage
               src={story.coverImage}
               alt={`${story.couple} wedding story`}
               width={900}
-              height={isTall ? 1125 : 675}
+              height={isPortrait ? 1125 : 675}
               rootMargin="120px 0px"
               containerClassName="h-full w-full"
-              className="block h-full w-full object-cover object-center transition-opacity duration-300 ease-out"
+              className="block h-full w-full object-cover object-center transition duration-700 ease-out group-hover:scale-[1.03]"
             />
-            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-3 pb-3 pt-10 text-[9px] uppercase tracking-[0.18em] text-white opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100">
+          </div>
+          <div className="border-x border-b border-[#EAE6DF] bg-[#FAF9F6] px-3 py-3 md:px-4 md:py-4">
+            <p
+              className="text-[11px] uppercase tracking-[0.2em] text-[#141312]"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            >
               {story.couple}
-            </span>
-          </button>
+            </p>
+            <p className="mt-1 text-[8px] uppercase tracking-[0.2em] text-[#8C8479]">
+              {story.location.split('·')[0].trim()}
+            </p>
+          </div>
+        </button>
         );
       })}
     </div>
@@ -58,9 +67,9 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
           <div className="inline-flex items-center gap-2">
             <span
               className="text-[10px] sm:text-[11px] tracking-[0.38em] uppercase text-[#8C8479] font-medium block"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
             >
-              SELECTED WORKS
+              OSCAR WEDDINGS · STORY ARCHIVE
             </span>
           </div>
 
@@ -68,14 +77,14 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
             className="text-2xl sm:text-4xl md:text-5xl lg:text-[52px] font-serif font-light text-[#141312] tracking-[0.16em] sm:tracking-[0.22em] uppercase leading-tight"
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
-            CURATED LUXURY WEDDING PORTFOLIO
+            THE WEDDING ARCHIVE
           </h2>
 
           <p
             className="text-xs sm:text-sm text-[#736B63] font-light tracking-wide max-w-xl mx-auto pt-1 leading-relaxed"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
-            Moments observed with stillness, quiet elegance, and editorial permanence.
+            Stories photographed with feeling, elegance, and permanence.
           </p>
         </div>
 
@@ -89,7 +98,7 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
             id="view-full-portfolio-btn"
             href="/portfolio"
             className="group inline-flex items-center gap-2.5 border border-[#141312] px-6 py-3 text-[10px] tracking-[0.3em] uppercase text-[#141312] font-medium transition-colors duration-500 hover:bg-[#141312] hover:text-[#FAF8F5]"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             <span>View Full Portfolio</span>
             <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" />

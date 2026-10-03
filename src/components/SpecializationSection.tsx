@@ -10,6 +10,15 @@ interface SpecializationSectionProps {
   onOpenEnquiry: () => void;
 }
 
+const getSpecializationPreview = (url: string): string => {
+  if (!url.startsWith('/images/') || url.includes('/mainpics/') || url.includes('/og/')) {
+    return url;
+  }
+
+  const separatorIndex = url.lastIndexOf('/');
+  return `${url.slice(0, separatorIndex + 1)}thumb-${url.slice(separatorIndex + 1)}.jpg`;
+};
+
 export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
   onOpenEnquiry,
 }) => {
@@ -48,12 +57,12 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
     <section
       id="specialization"
       data-theme="light"
-      className="relative bg-[#FAF8F5] text-[#141210] py-16 md:py-24 px-6 md:px-12 lg:px-20 border-t border-[#EAE4DA] overflow-hidden"
+      className="relative bg-[#FAF8F5] text-[#141210] py-16 md:py-24 border-t border-[#EAE4DA] overflow-hidden"
     >
       {/* Subtle fine-art warm radial background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.95)_0%,rgba(250,248,245,0.9)_50%,rgba(242,237,230,0.95)_100%)] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto space-y-10 md:space-y-12">
+      <div className="relative space-y-10 md:space-y-12">
         {/* ========================================================================= */}
         {/* ATELIER EDITORIAL HEADER — Clean typography with NO starting symbols */}
         {/* ========================================================================= */}
@@ -84,206 +93,44 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
         </div>
 
         {/* ========================================================================= */}
-        {/* EDITORIAL MOSAIC SPREAD — 100% Responsive for Mobile, Tablet & Desktop */}
+        {/* EDITORIAL MOSAIC SPREAD — Full-width 4-image composition */}
         {/* ========================================================================= */}
-        <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#E5DFD5] pb-4">
-            <div>
-              <span className="text-[10px] sm:text-[11px] tracking-[0.32em] uppercase text-[#736B63] font-medium block">
-                CURATED MOSAIC
-              </span>
-              <h3
-                className="text-2xl sm:text-3xl font-serif font-light text-[#141210] mt-0.5"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              >
-                Ceremonial Cadences & Pre-Wedding
-              </h3>
-            </div>
-            <p className="text-xs text-[#736B63] max-w-xs font-light">
-              Tap any frame to view archival notes and full-resolution composition.
-            </p>
-          </div>
-
-          {/* Grid Layout: Desktop 12-cols bento, Tablet 2-cols, Mobile 1-col */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
-            {/* 1. Feature Card: Traditional Kasavu & Temple Lotus (Kerala Wedding) */}
-            {photos[0] && (
+        <div className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            {photos.slice(0, 4).map((photo, index) => (
               <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setActiveModalPhoto(photos[0])}
-                className="sm:col-span-2 lg:col-span-6 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
+                key={photo.id}
+                onClick={() => setActiveModalPhoto(photo)}
+                className="group relative overflow-hidden bg-[#EAE4DA] cursor-pointer"
               >
-                <div className="aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full overflow-hidden relative">
+                <div className="relative aspect-[3/2.2] md:aspect-[1.22] w-full overflow-hidden sm:aspect-[4/3] md:aspect-[1.22]">
                   <LazyImage
-                    src={photos[0].image}
-                    alt={photos[0].alt}
+                    src={getSpecializationPreview(photo.image)}
+                    alt={photo.alt}
                     width={1200}
                     height={900}
+                    priority={index === 0}
+                    rootMargin="160px 0px"
                     containerClassName="w-full h-full"
                     placeholderClassName="bg-[#EAE4DA]"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 p-5 sm:p-7 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h4
-                      className="text-xl sm:text-2xl font-serif text-white mt-1"
-                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                    >
-                      {photos[0].title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-white/80 font-light mt-1 line-clamp-2">
-                      {photos[0].caption}
-                    </p>
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
+
+                  <div className="absolute inset-x-0 bottom-0 p-2 sm:p-5 text-left text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100">
+                    <div>
+                      <h4
+                        className="text-sm sm:text-2xl md:text-[2.3rem] leading-[0.98] font-light"
+                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+                      >
+                        {photo.title}
+                      </h4>
+                    </div>
                   </div>
                 </div>
               </motion.div>
-            )}
-
-            {/* 2. Portrait Card: Save The Date Backwater Serenade */}
-            {photos[1] && (
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setActiveModalPhoto(photos[1])}
-                className="sm:col-span-1 lg:col-span-3 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
-              >
-                <div className="aspect-[3/4] w-full overflow-hidden relative">
-                  <LazyImage
-                    src={photos[1].image}
-                    alt={photos[1].alt}
-                    width={900}
-                    height={1200}
-                    containerClassName="w-full h-full"
-                    placeholderClassName="bg-[#EAE4DA]"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 p-5 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h4
-                      className="text-lg sm:text-xl font-serif text-white mt-1"
-                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                    >
-                      {photos[1].title}
-                    </h4>
-                    <p className="text-xs text-white/80 font-light mt-1 line-clamp-2">
-                      {photos[1].caption}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* 3. Portrait Card: The Heirloom Kerala Bride */}
-            {photos[2] && (
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setActiveModalPhoto(photos[2])}
-                className="sm:col-span-1 lg:col-span-3 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
-              >
-                <div className="aspect-[3/4] w-full overflow-hidden relative">
-                  <LazyImage
-                    src={photos[2].image}
-                    alt={photos[2].alt}
-                    width={900}
-                    height={1200}
-                    containerClassName="w-full h-full"
-                    placeholderClassName="bg-[#EAE4DA]"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 p-5 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h4
-                      className="text-lg sm:text-xl font-serif text-white mt-1"
-                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                    >
-                      {photos[2].title}
-                    </h4>
-                    <p className="text-xs text-white/80 font-light mt-1 line-clamp-2">
-                      {photos[2].caption}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* 4. Landscape Card: The Auspicious Thalikettu (Sacred Ritual) */}
-            {photos[3] && (
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setActiveModalPhoto(photos[3])}
-                className="sm:col-span-1 lg:col-span-6 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
-              >
-                <div className="aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/9] w-full overflow-hidden relative">
-                  <LazyImage
-                    src={photos[3].image}
-                    alt={photos[3].alt}
-                    width={1200}
-                    height={675}
-                    containerClassName="w-full h-full"
-                    placeholderClassName="bg-[#EAE4DA]"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h4
-                      className="text-lg sm:text-xl font-serif text-white mt-1"
-                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                    >
-                      {photos[3].title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-white/80 font-light mt-1 line-clamp-2">
-                      {photos[3].caption}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* 5. Landscape Card: Twilight Reception & Celebrations */}
-            {photos[4] && (
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => setActiveModalPhoto(photos[4])}
-                className="sm:col-span-1 lg:col-span-6 relative overflow-hidden bg-[#EAE4DA] shadow-[0_8px_24px_rgba(0,0,0,0.06)] border border-[#E5DFD5] cursor-pointer group"
-              >
-                <div className="aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/9] w-full overflow-hidden relative">
-                  <LazyImage
-                    src={photos[4].image}
-                    alt={photos[4].alt}
-                    width={1200}
-                    height={675}
-                    containerClassName="w-full h-full"
-                    placeholderClassName="bg-[#EAE4DA]"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 p-5 sm:p-6 flex flex-col justify-end text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h4
-                      className="text-lg sm:text-xl font-serif text-white mt-1"
-                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                    >
-                      {photos[4].title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-white/80 font-light mt-1 line-clamp-2">
-                      {photos[4].caption}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </div>
-
-          {/* Bottom Inquire CTA */}
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E5DFD5]">
-            <p className="text-xs sm:text-sm text-[#736B63] font-light text-center sm:text-left">
-              Accepting private commissions for Kerala wedding celebrations and Save The Date shoots across 2025 & 2026.
-            </p>
-            <button
-              onClick={onOpenEnquiry}
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#141210] hover:bg-[#2B2723] text-[#FAF8F5] text-xs tracking-[0.2em] uppercase font-medium transition-all duration-300 cursor-pointer shadow-md group whitespace-nowrap"
-            >
-              <span>INQUIRE FOR WEDDING & SAVE THE DATE</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            ))}
           </div>
         </div>
       </div>

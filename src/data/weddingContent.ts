@@ -672,7 +672,7 @@ import { WeddingStory, FilmReel, ExperienceStage, HeroSlide, SpecializationPhoto
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "kerala-garden-celebration",
-    image: "/images/mainpics/Hero1.web.jpg",
+    image: "/images/Lizbeth&jibin/08 insta_.jpg",
     headline: "The Art of Arrival",
     subheadline: "THE ART OF TIMELESS HONESTY",
     location: "KOCHI · KERALA",
@@ -683,7 +683,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "kerala-couple-laugh",
-    image: "/images/mainpics/Hero2.web.jpg",
+    image: "/images/samurthi/HD (13).jpg",
     headline: "A Private Kind of Joy",
     subheadline: "THE POETRY OF CANDID LAUGHTER",
     location: "THRISSUR · KERALA",
@@ -694,35 +694,35 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "kerala-royal-sofa",
-    image: "/images/mainpics/Hero3.web.jpg",
+    image: "/images/albin&thara/D.JPG",
     headline: "Portraits of Distinction",
     subheadline: "REGAL CRAFTSMANSHIP & POISE",
     location: "TRIVANDRUM · KERALA",
     tagline: "Temple gold, woven Kanchipuram threads, and portraits crafted for generations.",
     quote: "Compositions steeped in classical heritage, sculpted by shadows and stillness.",
-    alt: "Couple in traditional Kasavu and Kanchipuram silk seated on royal carved sofa",
+    alt: "Wedding couple sharing a joyful moment in their celebration",
     objectPosition: "center 36%"
   },
   {
     id: "kerala-thaali-ritual",
-    image: "/images/mainpics/Hero4.web.jpg",
+    image: "/images/piyush/oscar (2).jpg",
     headline: "The Ceremony of Forever",
     subheadline: "THE REVERENCE OF THE THAALI",
     location: "KOTTAYAM · KERALA",
     tagline: "The suspended second when sacred knots are tied and two paths become one.",
     quote: "Ancient devotional rituals honored with cinematographic depth and reverence.",
-    alt: "Groom tying the sacred Thaali mangalsutra around bride's neck with jasmine garlands",
+    alt: "Bride and groom in traditional Kerala wedding attire",
     objectPosition: "center 30%"
   },
   {
     id: "kerala-reception-twirl",
-    image: "/images/mainpics/Hero5.web.jpg",
+    image: "/images/vyshak/HD (2).jpg.jpeg",
     headline: "An Evening in Motion",
     subheadline: "CINEMATIC MOTION & CELEBRATION",
     location: "ALAPPUZHA · KERALA",
     tagline: "The euphoric twirl of midnight silks beneath glistening chandeliers.",
     quote: "Transforming the energy of grand celebrations into breathtaking visual art.",
-    alt: "Bride and groom dancing and twirling joyously at luxury reception beneath chandeliers",
+    alt: "Couple embracing during their elegant wedding celebration",
     objectPosition: "center 25%"
   }
 ];
@@ -791,6 +791,27 @@ export const FEATURED_HALDI_STORY: WeddingStory = {
 };
 
 export const STORIES_DATA: WeddingStory[] = [
+  {
+    id: "deva",
+    title: "DEVA",
+    couple: "Deva",
+    location: "KERALA · WEDDING STORY",
+    year: "—",
+    category: "Traditional Wedding Portraits",
+    tagline: "A graceful collection of bridal portraits and quiet moments shared together.",
+    coverImage: "/images/Deva/insta (8).jpg",
+    coverAspect: "vertical",
+    accentColor: "#7A5145",
+    description: "Deva's wedding story moves between richly detailed traditional bridal attire and a composed portrait of the couple on a sweeping staircase. Each frame holds a little of the day's quiet elegance.",
+    rituals: ["Bridal Portraits", "Couple Portraits", "Traditional Attire", "Wedding-Day Details"],
+    gallery: [
+      { url: "/images/Deva/HD  (1).jpg", caption: "Deva in traditional bridal attire and heirloom jewelry", orientation: "portrait" },
+      { url: "/images/Deva/HD  (4).jpg", caption: "A graceful moment together on the staircase", orientation: "landscape" },
+      { url: "/images/Deva/HD  (5).jpg", caption: "A quiet portrait from the wedding day", orientation: "portrait" },
+      { url: "/images/Deva/insta (5).jpg", caption: "A close bridal portrait with traditional jewelry", orientation: "portrait" },
+      { url: "/images/Deva/insta (8).jpg", caption: "The couple framed by the staircase architecture", orientation: "portrait" }
+    ]
+  },
   {
     id: "albin-thara",
     title: "ALBIN & THARA",
@@ -978,7 +999,7 @@ export const KERALA_DATA = {
   headline: "ROOTED IN KERALA. MADE FOR EVERYWHERE.",
   copy: "Kerala is where our perspective begins — shaped by its rituals, architecture, landscapes, families and the quiet intimacy of its celebrations. From ceremonies along the backwaters to celebrations across India and destination weddings beyond, we bring that sense of place, observation and storytelling wherever your story takes us.",
   locations: "KERALA · GOA · RAJASTHAN · MUMBAI · CHENNAI · HYDERABAD · DESTINATIONS",
-  image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=2400&q=85",
+  image: "/images/rootedsection/katakali.png",
   secondaryImage: "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=85"
 };
 
@@ -993,7 +1014,7 @@ export const SERVICES_DATA = {
   films: {
     heading: "CINEMATIC FILMS",
     tagline: "02 · ATMOSPHERE & MOTION",
-    featuredTitle: "Oscar Weddings | Cinematic Wedding Film",
+    featuredTitle: "Lifin & Dona | Cinematic Wedding Film",
     featuredSubtitle: "Kerala Christian Wedding | Cinematic Wedding Highlight",
     youtubeId: "Vr-WvoInbu4",
     youtubeUrl: "https://youtu.be/6rT-9sFH8ak?si=O1rBedoArbWzd8jB",
@@ -1012,7 +1033,7 @@ export const SERVICES_DATA = {
 export const FEATURED_FILMS: FilmReel[] = [
   {
     id: "film-oscar-weddings",
-    title: "OSCAR WEDDINGS",
+    title: "LIFIN & DONA",
     subtitle: "Kerala Wedding Film | Cinematic Highlight",
     location: "Kerala, India",
     duration: "4K HIGHLIGHT",
@@ -1064,9 +1085,9 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 ];
 
 export const SPECIALIZATION_DATA = {
-  eyebrow: "THE ART OF WEDDINGS",
+  eyebrow: "THE OSCAR WAY",
   titleLine1: "The Art of Weddings",
-  titleLine2: "& Cinematic Save The Date",
+  titleLine2: "",
   narrative:
     "Dedicated to capturing authentic Kerala weddings and cinematic Save The Date stories — preserving sacred temple thalikettu rituals, heirloom Kasavu bridal grace, and idyllic backwater romance.",
   pillars: [
@@ -1081,7 +1102,7 @@ export const SPECIALIZATION_DATA = {
       id: "kerala-kasavu-bride",
       disciplineNumber: "01",
       disciplineCategory: "KERALA WEDDING CEREMONY",
-      image: "/images/story-kasavu-bride.jpg",
+      image: "/images/Lizbeth&jibin/01 insta_.jpg",
       title: "Traditional Kasavu & Temple Lotus",
       tag: "01 · KERALA WEDDING",
       caption: "Gleaming Kasavu gold zari silk, handpicked pink lotus blooms, and sunlit palace courtyard serenity.",
@@ -1096,7 +1117,7 @@ export const SPECIALIZATION_DATA = {
       id: "save-the-date-backwaters",
       disciplineNumber: "02",
       disciplineCategory: "SAVE THE DATE & PRE-WEDDING",
-      image: "/images/story-backwater-procession.jpg",
+      image: "/images/vivek&sreelakshmi/HD (2).jpg",
       title: "Save The Date: Backwater Serenade",
       tag: "02 · SAVE THE DATE",
       caption: "Ceremonial silk parasols, calm waters, and timeless romantic anticipation along the Alleppey canals.",
@@ -1111,7 +1132,7 @@ export const SPECIALIZATION_DATA = {
       id: "bridal-temple-portrait",
       disciplineNumber: "03",
       disciplineCategory: "HEIRLOOM BRIDAL PORTRAITURE",
-      image: "/images/story-bridal-portrait.jpg",
+      image: "/images/piyush/oscar (2).jpg",
       title: "The Heirloom Kerala Bride",
       tag: "03 · BRIDAL PORTRAITURE",
       caption: "Quiet bridal dawn adorned with antique gold ornaments, fresh jasmine strands, and timeless grace.",
@@ -1126,7 +1147,7 @@ export const SPECIALIZATION_DATA = {
       id: "sacred-thalikettu-ritual",
       disciplineNumber: "04",
       disciplineCategory: "SACRED THALIKETTU RITUAL",
-      image: "/images/hero-4-thaali.jpg",
+      image: "/images/aleena&Nithin/HD (12) (1).jpg",
       title: "The Auspicious Thalikettu",
       tag: "04 · SACRED RITUAL",
       caption: "The auspicious moment of tying the golden Thaali amidst flickering nilavilakku lamplight and prayers.",
@@ -1141,7 +1162,7 @@ export const SPECIALIZATION_DATA = {
       id: "reception-celebration-twirl",
       disciplineNumber: "05",
       disciplineCategory: "WEDDING RECEPTION & DANCE",
-      image: "/images/hero-5-reception.jpg",
+      image: "/images/jesica/cover.jpg",
       title: "Twilight Reception & Celebrations",
       tag: "05 · RECEPTION",
       caption: "Euphoric celebration, glistening evening chandeliers, and the joyous first dance on coastal lawns.",

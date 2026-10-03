@@ -46,7 +46,7 @@ export const OscarLogo: React.FC<OscarLogoProps> = ({
       {!isMinimal && (
         <span
           className={`${isFull ? 'mt-2 text-[0.54rem]' : 'mt-1 text-[0.42rem]'} ${companyAlignment} font-medium tracking-[0.34em] ${subColor} ${hoverSubColor}`}
-          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
         >
           COMPANY
         </span>
