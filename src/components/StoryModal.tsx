@@ -81,7 +81,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
       <main className="mx-auto max-w-3xl px-6 pb-20 pt-16 sm:px-12 sm:pt-20">
         <header className="mb-8 flex items-end justify-between gap-6 border-b border-[#ded8cf] pb-5 sm:mb-10">
           <div>
-            <p className="mb-3 text-[9px] uppercase tracking-[0.35em] text-[#9b9187]">An Oscar Weddings story</p>
+            <p className="mb-3 text-[9px] uppercase tracking-[0.35em] text-[#9b9187]">An Oscar Wedding Company story</p>
             <div className="flex items-center gap-4">
               <h1 className="text-2xl text-[#241F1B] sm:text-3xl" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: '0.06em' }}>
                 {story.couple}
@@ -219,7 +219,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
         </div>
 
         <p className="mt-16 text-center text-[10px] uppercase tracking-[0.35em] text-[#B5AFA6] sm:mt-20">
-          Oscar Weddings
+          Oscar Wedding Company
         </p>
 
         {/* -------------------------------------------------- */}

@@ -9,7 +9,7 @@ interface SEOHeadProps {
 
 const DEFAULT_TITLE = 'Oscar Wedding Company';
 const DEFAULT_DESC =
-  'Oscar Weddings is an acclaimed luxury wedding photography and cinematic films atelier rooted in Kerala, crafting timeless heirloom stills and 4K cinema across India and worldwide destinations.';
+  'Oscar Wedding Company is an acclaimed luxury wedding photography and cinematic films atelier rooted in Kerala, crafting timeless heirloom stills and 4K cinema across India and worldwide destinations.';
 const BASE_URL = 'https://oscarweddings.com';
 const DEFAULT_IMAGE = `${BASE_URL}/images/og/og-main.jpg`;
 
@@ -26,8 +26,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     let dynamicSchema: object | null = null;
 
     if (selectedStory) {
-      title = `${selectedStory.title} | Luxury Wedding Photography | Oscar Weddings`;
-      description = `${selectedStory.tagline} Captured by Oscar Weddings in ${selectedStory.location}. Preserving generational traditions and candid elegance.`;
+      title = `${selectedStory.title} | Luxury Wedding Photography | Oscar Wedding Company`;
+      description = `${selectedStory.tagline} Captured by Oscar Wedding Company in ${selectedStory.location}. Preserving generational traditions and candid elegance.`;
       ogImage = selectedStory.id === 'bhagya-prabhu'
         ? `${BASE_URL}/images/og/og-haldi.jpg`
         : `${BASE_URL}/images/og/og-stories.jpg`;
@@ -43,12 +43,12 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
           : `${BASE_URL}${selectedStory.coverImage}`,
         author: {
           '@type': 'Organization',
-          name: 'Oscar Weddings',
+          name: 'Oscar Wedding Company',
           url: BASE_URL,
         },
         publisher: {
           '@type': 'Organization',
-          name: 'Oscar Weddings',
+          name: 'Oscar Wedding Company',
           logo: {
             '@type': 'ImageObject',
             url: DEFAULT_IMAGE,
@@ -64,9 +64,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         ].join(', '),
       };
     } else if (isFilmModalOpen) {
-      title = 'Jibin & Lizbeth Wedding Highlight | 4K Cinematic Film | Oscar Weddings';
+      title = 'Jibin & Lizbeth Wedding Highlight | 4K Cinematic Film | Oscar Wedding Company';
       description =
-        'Watch the cinematic Kerala Christian wedding highlight film for Jibin & Lizbeth by Oscar Weddings. 4K cinema optics, authentic soundscapes, and sacred vows.';
+        'Watch the cinematic Kerala Christian wedding highlight film for Jibin & Lizbeth by Oscar Wedding Company. 4K cinema optics, authentic soundscapes, and sacred vows.';
       ogImage = `${BASE_URL}/images/og/og-films.jpg`;
       canonicalUrl = `${BASE_URL}/?film=jibin-lizbeth`;
 
@@ -75,7 +75,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         '@type': 'VideoObject',
         name: 'Jibin & Lizbeth | Kerala Christian Wedding | Cinematic Wedding Highlight',
         description:
-          'Cinematic wedding highlight film by Oscar Weddings capturing Jibin & Lizbeth Kerala Christian wedding with 4K cinema optics, natural ambient soundscapes, and sacred vows.',
+          'Cinematic wedding highlight film by Oscar Wedding Company capturing Jibin & Lizbeth Kerala Christian wedding with 4K cinema optics, natural ambient soundscapes, and sacred vows.',
         thumbnailUrl: [
           'https://img.youtube.com/vi/Vr-WvoInbu4/maxresdefault.jpg',
           ogImage,
@@ -86,9 +86,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         embedUrl: 'https://www.youtube.com/embed/Vr-WvoInbu4',
       };
     } else if (isEnquiryOpen) {
-      title = 'Commissions & Dates | Oscar Weddings Photography & Films';
+      title = 'Commissions & Dates | Oscar Wedding Company Photography & Films';
       description =
-        'Check date availability and commission Oscar Weddings for luxury weddings and celebrations in Kerala, across India, and worldwide destinations.';
+        'Check date availability and commission Oscar Wedding Company for luxury weddings and celebrations in Kerala, across India, and worldwide destinations.';
       canonicalUrl = `${BASE_URL}/#enquiry`;
     }
 

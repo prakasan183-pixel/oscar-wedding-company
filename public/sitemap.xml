@@ -11,7 +11,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://oscarweddings.com/images/hero-1-garden.jpg</image:loc>
-      <image:title>Oscar Weddings — Luxury Wedding Photography in Kerala and Worldwide</image:title>
+      <image:title>Oscar Wedding Company — Luxury Wedding Photography in Kerala and Worldwide</image:title>
       <image:caption>Kerala bride and groom celebrating joyfully in tropical garden with traditional Kasavu silk</image:caption>
     </image:image>
     <image:image>
@@ -34,7 +34,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://oscarweddings.com/images/og/og-photography.jpg</image:loc>
-      <image:title>Oscar Weddings — Wedding Photography Archive</image:title>
+      <image:title>Oscar Wedding Company — Wedding Photography Archive</image:title>
       <image:caption>Medium format digital and fine art documentary wedding photography</image:caption>
     </image:image>
   </url>
@@ -48,7 +48,7 @@
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/Vr-WvoInbu4/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Jibin &amp; Lizbeth | Kerala Christian Wedding | Cinematic Wedding Highlight</video:title>
-      <video:description>Cinematic wedding highlight film by Oscar Weddings capturing Jibin &amp; Lizbeth Kerala Christian wedding with 4K cinema optics, natural ambient soundscapes, and sacred vows.</video:description>
+      <video:description>Cinematic wedding highlight film by Oscar Wedding Company capturing Jibin &amp; Lizbeth Kerala Christian wedding with 4K cinema optics, natural ambient soundscapes, and sacred vows.</video:description>
       <video:content_loc>https://youtu.be/Vr-WvoInbu4</video:content_loc>
       <video:player_loc>https://www.youtube.com/embed/Vr-WvoInbu4</video:player_loc>
       <video:duration>270</video:duration>
@@ -65,7 +65,7 @@
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://oscarweddings.com/images/og/og-stories.jpg</image:loc>
-      <image:title>Oscar Weddings — Selected Wedding Stories</image:title>
+      <image:title>Oscar Wedding Company — Selected Wedding Stories</image:title>
       <image:caption>Curated luxury wedding portfolio of heritage, royal, coastal, and destination ceremonies</image:caption>
     </image:image>
   </url>
@@ -147,7 +147,7 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- The Oscar Experience & Four-Stage Approach -->
+  <!-- The Oscar Wedding Company Experience & Four-Stage Approach -->
   <url>
     <loc>https://oscarweddings.com/#experience</loc>
     <lastmod>2026-09-11</lastmod>

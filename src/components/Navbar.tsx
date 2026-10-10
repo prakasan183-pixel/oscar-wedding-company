@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, ArrowUpRight, Mail } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 import { OscarLogo } from './OscarLogo';
 import { CONTACT_DETAILS } from '../data/weddingContent';
+import mobileLogo from '../logo/oscarlogo4mobile.png';
+import desktopLogo from '../logo/oscarlogo4desktop.png';
 
 interface NavbarProps {
   onOpenEnquiry: () => void;
@@ -41,6 +43,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
     { label: 'The Experience', href: '#experience' },
   ];
 
+  const desktopNavItems = [
+    { label: 'Stories', href: '#stories' },
+    { label: 'Approach', href: '#philosophy' },
+    { label: 'Films', href: '#craft' },
+    { label: 'About', href: '#experience' },
+    { label: 'Journal', href: '#stories' },
+  ];
+
   return (
     <>
       <header
@@ -49,56 +59,68 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
             ? 'bg-white/90 backdrop-blur-md py-3 sm:py-4 border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)]'
-            : 'bg-gradient-to-b from-black/85 via-black/35 to-transparent py-4 sm:py-6'
+            : 'bg-gradient-to-b from-black/55 via-black/20 to-transparent py-3.5 sm:py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3.5 xs:px-5 sm:px-8 md:px-12 flex items-center justify-between">
-          {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-2 focus:outline-none flex-shrink-0">
-            <OscarLogo variant="compact" theme={isScrolled ? 'light' : 'dark'} />
+       <div className="relative mx-auto flex max-w-[1600px] items-center justify-between px-[6%]">
+  {/* Mobile Brand */}
+  <a
+    href="#"
+    className="mt-1 !mr-2 !ml-[-19px] flex flex-shrink-0 items-center gap-2 focus:outline-none lg:hidden"
+  >
+    <img
+      src={mobileLogo}
+      alt="Oscar Wedding Company"
+      className="w-[185px] max-w-[46vw] sm:w-[200px]"
+      style={isScrolled ? { filter: 'brightness(0) opacity(0.62)' } : undefined}
+    />
+  </a>
+
+          <nav className="hidden items-center gap-3 lg:flex xl:gap-5" aria-label="Main navigation">
+            {desktopNavItems.slice(0, 3).map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`font-cormorant text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors xl:text-[11px] xl:tracking-[0.2em] ${
+                  isScrolled ? 'text-[#1C1916] hover:text-black' : 'text-white hover:text-white'
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <a href="#" aria-label="Oscar Wedding Company home" className="absolute left-1/2 hidden -translate-x-1/2 lg:mt-2 lg:block">
+            <img
+              src={desktopLogo}
+              alt=""
+              className="w-[240px] xl:w-[270px]"
+              style={isScrolled ? { filter: 'brightness(0) opacity(0.62)' } : undefined}
+            />
           </a>
 
-          {/* Actions & Hamburger Menu */}
-          <div className="flex items-center gap-1.5 xs:gap-2.5 sm:gap-6 flex-shrink-0">
-            <a
-              href={`${CONTACT_DETAILS.phone1.whatsapp}?text=Hello%20Oscar%20Weddings%2C%20we%20would%20love%20to%20enquire%20about%20our%20wedding%20date.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`hidden sm:flex text-[11px] uppercase tracking-[0.22em] transition-colors items-center gap-1.5 ${
-                isScrolled
-                  ? 'text-[#2B2824] hover:text-[#0A0A0A]'
-                  : 'text-[#B4ACA1] hover:text-[#FAF8F5]'
-              }`}
-            >
-              <span>WHATSAPP</span>
-              <ArrowUpRight className="w-3 h-3 opacity-70" />
-            </a>
-
+          <div className="flex flex-shrink-0 items-center gap-3 sm:gap-5">
+            <nav className="hidden items-center gap-3 xl:gap-5 lg:flex" aria-label="More navigation">
+              {desktopNavItems.slice(3).map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={`font-cormorant text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors xl:text-[11px] xl:tracking-[0.2em] ${
+                    isScrolled ? 'text-[#1C1916] hover:text-black' : 'text-white hover:text-white'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
             <button
               id="nav-check-date-btn"
               onClick={onOpenEnquiry}
-              className={`hidden sm:inline-block px-5 py-2.5 bg-transparent text-[11px] uppercase tracking-[0.24em] font-light transition-all duration-300 ${
-                isScrolled
-                  ? 'border border-[#0A0A0A]/35 text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#FAF8F5]'
-                  : 'border border-[#B4ACA1]/40 text-[#FAF8F5] hover:bg-[#FAF8F5] hover:text-[#0A0A0A]'
-              }`}
+              className="border border-black/15 bg-white px-3 py-2 text-[8px] font-medium uppercase tracking-[0.23em] text-[#0A0A0A] transition-all duration-300 hover:border-black/30 hover:bg-white hover:text-[#0A0A0A] sm:px-5 sm:py-2.5 sm:text-[9px]"
             >
-              CHECK YOUR DATE
+              Enquire <span aria-hidden="true"></span>
             </button>
 
-            {/* Quick Enquire button for mobile */}
-            <button
-              onClick={onOpenEnquiry}
-              className={`sm:hidden px-2.5 py-1.5 text-[9px] xs:text-[9.5px] uppercase tracking-[0.16em] xs:tracking-[0.18em] whitespace-nowrap active:scale-95 transition-all ${
-                isScrolled
-                  ? 'border border-[#0A0A0A]/35 text-[#0A0A0A] hover:bg-black/5'
-                  : 'border border-[#8C8479]/40 text-[#FAF8F5]'
-              }`}
-            >
-              ENQUIRE
-            </button>
-
-            {/* HIGH-END MORPHING HAMBURGER BUTTON */}
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -109,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
               title={mobileMenuOpen ? 'Close menu' : 'Open navigation menu'}
             >
               <span
-                className={`hidden md:inline-block text-[10px] uppercase tracking-[0.26em] transition-colors select-none mr-2 ${
+                className={`hidden lg:inline-block text-[9px] uppercase tracking-[0.26em] transition-colors select-none mr-2 ${
                   isScrolled
                     ? 'text-[#0A0A0A] group-hover:text-black font-normal'
                     : 'text-[#B4ACA1] group-hover:text-[#FAF8F5] font-light'
@@ -249,7 +271,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
                 </button>
 
                 <a
-                  href={`${CONTACT_DETAILS.phone1.whatsapp}?text=Hello%20Oscar%20Weddings%2C%20we%20would%20love%20to%20enquire%20about%20our%20wedding%20date.`}
+                  href={`${CONTACT_DETAILS.phone1.whatsapp}?text=Hello%20Oscar%20Wedding%20Company%2C%20we%20would%20love%20to%20enquire%20about%20our%20wedding%20date.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 xs:py-3.5 sm:py-4 border border-[#2B2824] hover:border-[#8C8479] text-[#FAF8F5] text-[10.5px] xs:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] flex items-center justify-center gap-2 transition-colors text-center"
@@ -277,7 +299,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
 
               <div className="text-center pt-1 sm:pt-2 flex items-center justify-between text-[8.5px] xs:text-[9.5px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#8C8479]">
                 <span>KOCHI &middot; TRIVANDRUM &middot; WORLDWIDE</span>
-                <span className="hidden sm:inline">EST. 2019 &middot; OSCAR WEDDINGS</span>
+                <span className="hidden sm:inline">EST. 2019 &middot; OSCAR WEDDING COMPANY</span>
               </div>
             </div>
           </motion.div>

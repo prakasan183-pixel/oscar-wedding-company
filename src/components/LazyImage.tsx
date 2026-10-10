@@ -13,6 +13,7 @@ export interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement
   threshold?: number;
   showPlaceholder?: boolean;
   objectPosition?: string;
+  revealAnimation?: boolean;
 }
 
 /**
@@ -39,6 +40,7 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
       threshold = 0.01,
       showPlaceholder = true,
       objectPosition,
+      revealAnimation = true,
       style,
       onLoad,
       onError,
@@ -143,7 +145,7 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
               ...style,
             }}
             className={`${cleanClassName} ${transitionClass} ${
-              isLoaded ? 'opacity-100 image-shutter-reveal' : 'opacity-0'
+              isLoaded ? `opacity-100${revealAnimation ? ' image-shutter-reveal' : ''}` : 'opacity-0'
             }`}
             {...rest}
           />

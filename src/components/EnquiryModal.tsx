@@ -52,7 +52,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose }) =
 
   const handleWhatsAppForward = () => {
     const text = encodeURIComponent(
-      `Hello Oscar Weddings, we would like to enquire about our wedding.\n\nNames: ${formData.names || 'Not specified'}\nDate: ${formData.weddingDate || 'TBD'}\nLocation: ${formData.location}\nServices: ${formData.services}\nGuests: ${formData.guestCount}\nNotes: ${formData.notes || 'Looking forward to hearing from you'}`
+      `Hello Oscar Wedding Company, we would like to enquire about our wedding.\n\nNames: ${formData.names || 'Not specified'}\nDate: ${formData.weddingDate || 'TBD'}\nLocation: ${formData.location}\nServices: ${formData.services}\nGuests: ${formData.guestCount}\nNotes: ${formData.notes || 'Looking forward to hearing from you'}`
     );
     const waNumber = CONTACT_DETAILS.phone1.raw.replace(/[^0-9]/g, '');
     window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');

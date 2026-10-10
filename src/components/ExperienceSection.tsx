@@ -1,120 +1,112 @@
-import React, { useState } from 'react';
-import { EXPERIENCE_STAGES } from '../data/weddingContent';
-import { Plus, Minus } from 'lucide-react';
-import { ScrollReveal } from './ScrollReveal';
+import React from 'react';
+import { motion } from 'motion/react';
 
-export const ExperienceSection: React.FC = () => {
-  const [activeStage, setActiveStage] = useState<number | null>(null);
+const approachSteps = [
+  {
+    number: '01',
+    title: <>Observe<br />Deeply</>,
+    description: 'We take time to know you, your people and what truly matters.',
+  },
+  {
+    number: '02',
+    title: <>Capture<br />Honestly</>,
+    description: 'Real moments over perfection, always.',
+  },
+  {
+    number: '03',
+    title: <>Tell a<br />Bigger Story</>,
+    description: 'Your wedding, woven with emotion, culture and the little in-betweens.',
+  },
+  {
+    number: '04',
+    title: <>Create a<br />Lasting Legacy</>,
+    description: 'Photographs and films that feel alive, even years from now.',
+  },
+];
 
-  const toggleStage = (idx: number) => {
-    setActiveStage(activeStage === idx ? null : idx);
-  };
+export const ExperienceSection: React.FC = () => (
+  <section
+    id="experience"
+    data-theme="light"
+    aria-labelledby="approach-heading"
+    className="our-approach-section relative overflow-hidden bg-[#FAF8F5] text-[#171615]"
+  >
+    <img
+      src="/images/rootedsection/approach-flower-left-clean.png"
+      alt=""
+      aria-hidden="true"
+      className="our-approach-flourish our-approach-flourish-left"
+      width={314}
+      height={695}
+    />
+    <img
+      src="/images/rootedsection/approach-flower-right-clean.png"
+      alt=""
+      aria-hidden="true"
+      className="our-approach-flourish our-approach-flourish-right"
+      width={667}
+      height={632}
+    />
+    <div className="our-approach-inner relative z-10 mx-auto max-w-[1680px]">
+      <header className="flex items-center justify-between gap-6">
+        <h2
+          id="approach-heading"
+          className="font-editorial-sans text-[11px] font-semibold uppercase tracking-[0.32em] text-[#35312D] sm:text-[13px]"
+        >
+          OUR APPROACH
+        </h2>
+        <p className="border-b border-[#4C4C4C] pb-1 font-editorial-sans text-[10px] font-medium uppercase tracking-[0.14em] text-[#595959] sm:text-[12px]">
+          A THOUGHTFUL PROCESS
+        </p>
+      </header>
 
-  return (
-    <section
-      id="experience"
-      data-theme="light"
-      className="relative bg-[#FAF7F2] text-[#0A0A0A] py-16 md:py-24 px-6 md:px-12 lg:px-20 transition-colors"
-    >
-      <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
-        {/* Section Header */}
-        <ScrollReveal y={20} duration={0.8} amount={0.2}>
-          <div className="max-w-3xl md:max-w-6xl space-y-4 border-b border-[#E2DDD5] pb-4">
-            <span className="text-[10px] sm:text-[11px] tracking-[0.34em] uppercase text-[#736B63] font-medium block">
-              THE OSCAR EXPERIENCE
-            </span>
-
-            <h2
-              className="text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#0A0A0A] leading-tight"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+      <motion.div
+        className="our-approach-grid mt-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:mt-14 lg:grid-cols-4 lg:gap-x-0 lg:gap-y-0"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+              delayChildren: 0.1,
+            },
+          },
+        }}
+      >
+        {approachSteps.map((step, index) => (
+          <motion.article
+            className="our-approach-step relative"
+            key={step.number}
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+              },
+            }}
+          >
+            {index > 0 && <span className="our-approach-divider" aria-hidden="true" />}
+            {index % 2 === 0 && (
+              <span className="our-approach-mobile-divider" aria-hidden="true" />
+            )}
+            <p className="our-approach-number font-cormorant font-light leading-[0.8] tracking-[-0.055em] text-[#D8D2CB]">
+              {step.number}
+            </p>
+            <h3
+              className="our-approach-title mt-3 font-cormorant font-normal leading-[1.02] tracking-[-0.045em] text-[#111111] normal-case"
+              style={{ textTransform: 'none' }}
             >
-              A considered approach, from the first conversation to the final photograph.
-            </h2>
-          </div>
-        </ScrollReveal>
-
-        {/* Four-Stage Editorial Sequence (Not repetitive cards, but elegant linear sequence) */}
-        <div className="divide-y divide-[#E2DDD5] border-y border-[#E2DDD5]">
-          {EXPERIENCE_STAGES.map((stage, index) => {
-            const isOpen = activeStage === index;
-            return (
-              <ScrollReveal
-                key={stage.number}
-                delay={index * 0.08}
-                y={20}
-                duration={0.75}
-                amount={0.15}
-              >
-                <div
-                  className="py-8 md:py-10 transition-colors hover:bg-[#F3EFEA]/60 px-4 md:px-6 -mx-4 md:-mx-6 cursor-pointer"
-                  onClick={() => toggleStage(index)}
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-start">
-                    {/* Stage Number & Title */}
-                    <div className="md:col-span-4 flex items-baseline gap-6">
-                      <span
-                        className="text-4xl md:text-5xl font-serif text-[#736B63] font-light select-none"
-                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                      >
-                        {stage.number}
-                      </span>
-                      <div>
-                        <span className="text-xs tracking-[0.25em] text-[#736B63] uppercase block">
-                          STAGE
-                        </span>
-                        <h3
-                          className="text-2xl md:text-3xl font-serif text-[#0A0A0A] font-light tracking-wide mt-0.5"
-                          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                        >
-                          {stage.title}
-                        </h3>
-                      </div>
-                    </div>
-
-                    {/* Summary Copy */}
-                    <div className="md:col-span-7 space-y-4">
-                      <p
-                        className="text-base sm:text-lg md:text-xl text-[#262422] font-light leading-relaxed"
-                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                      >
-                        {stage.summary}
-                      </p>
-
-                      {/* Subtle Expandable Narrative */}
-                      {isOpen && (
-                        <div className="pt-3 border-t border-[#E2DDD5]/80 animate-fadeIn">
-                          <p className="text-sm sm:text-base text-[#736B63] font-light leading-relaxed">
-                            {stage.detail}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Subtle Indicator */}
-                    <div className="md:col-span-1 flex md:justify-end text-[#736B63]">
-                      <span className="text-xs uppercase tracking-widest flex items-center gap-1 font-mono">
-                        {isOpen ? (
-                          <Minus className="w-4 h-4 text-[#0A0A0A]" />
-                        ) : (
-                          <Plus className="w-4 h-4 text-[#736B63]" />
-                        )}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            );
-          })}
-        </div>
-
-        {/* Quiet Footnote Note */}
-        <ScrollReveal delay={0.15} y={16} duration={0.8} amount={0.2}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs tracking-[0.2em] uppercase text-[#736B63] gap-4 pt-4">
-            <span>COMMISSIONS ACCEPTED GLOBALLY</span>
-            <span>ESTIMATED RETENTION: MAXIMUM 18 CELEBRATIONS PER YEAR</span>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-};
+              {step.title}
+            </h3>
+            <p className="our-approach-description mt-4 max-w-[20ch] font-editorial-sans font-light leading-[1.55] text-[#666666]">
+              {step.description}
+            </p>
+          </motion.article>
+        ))}
+      </motion.div>
+    </div>
+  </section>
+);

@@ -38,7 +38,7 @@ export const FilmModal: React.FC<FilmModalProps> = ({
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="text-[10px] tracking-[0.3em] uppercase text-[#8C8479]">
-                OSCAR CINEMA ARCHIVE
+                WEDDING CINEMA ARCHIVE
               </span>
               {selectedFilm.youtubeId && (
                 <span className="text-[9px] tracking-widest uppercase px-2 py-0.5 bg-[#1C1814] border border-[#3A2E1F] text-[#D8B48A] rounded-[2px] flex items-center gap-1 font-mono">
@@ -84,7 +84,7 @@ export const FilmModal: React.FC<FilmModalProps> = ({
             <iframe
               key={selectedFilm.id}
               src={`https://www.youtube-nocookie.com/embed/${selectedFilm.youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-              title={`${selectedFilm.title} — Cinematic Wedding Highlight Film by Oscar Weddings`}
+              title={`${selectedFilm.title} — Cinematic Wedding Highlight Film by Oscar Wedding Company`}
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -128,7 +128,7 @@ export const FilmModal: React.FC<FilmModalProps> = ({
           ) : (
             <LazyImage
               src={selectedFilm.thumbnail}
-              alt={`${selectedFilm.title} — 4K Cinematic Wedding Highlight Film by Oscar Weddings`}
+              alt={`${selectedFilm.title} — 4K Cinematic Wedding Highlight Film by Oscar Wedding Company`}
               width={1280}
               height={720}
               priority={true}

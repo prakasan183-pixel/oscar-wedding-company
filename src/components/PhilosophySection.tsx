@@ -84,7 +84,7 @@
 //             <div className="relative w-full max-w-md space-y-4">
 //               <LazyImage
 //                 src={PHILOSOPHY_DATA.featuredImage}
-//                 alt="Documentary Kerala wedding portrait capturing silent grace and unhurried devotion in Fort Kochi - Oscar Weddings"
+//                 alt="Documentary Kerala wedding portrait capturing silent grace and unhurried devotion in Fort Kochi - Oscar Wedding Company"
 //                 width={1200}
 //                 height={1500}
 //                 containerClassName="w-full aspect-[4/5] overflow-hidden bg-[#EAE6DF] shadow-sm"
@@ -124,14 +124,29 @@ export const PhilosophySection: React.FC = () => {
       target.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
   return (
     <section
       id="philosophy"
       data-theme="light"
-      className="relative bg-[#FAF7F2] text-[#0A0A0A] py-16 md:py-24 px-6 md:px-12 lg:px-20 transition-colors"
+      className="philosophy-section relative overflow-hidden bg-[#FAF7F2] text-[#0A0A0A] py-16 md:py-24 px-6 md:px-12 lg:px-20 transition-colors"
     >
-      <div className="max-w-7xl mx-auto">
+      <img
+        src="/images/rootedsection/philosophy-flower.png"
+        alt=""
+        aria-hidden="true"
+        className="philosophy-flourish philosophy-flourish-left"
+        width={755}
+        height={740}
+      />
+      <img
+        src="/images/rootedsection/philosophy-divider.png"
+        alt=""
+        aria-hidden="true"
+        className="philosophy-flourish philosophy-flourish-divider"
+        width={1946}
+        height={266}
+      />
+      <div className="relative z-10 mx-auto max-w-7xl">
 
         {/* Editorial Subhead / Issue Label */}
         <ScrollReveal y={16} duration={0.75} amount={0.2}>
@@ -163,10 +178,14 @@ export const PhilosophySection: React.FC = () => {
           >
 
             <h2
-              className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#0A0A0A] font-light leading-[1.12] tracking-tight"
+              className="text-[clamp(0.875rem,5vw,1.875rem)] sm:text-5xl md:text-6xl lg:text-[3.5rem] font-serif text-[#0A0A0A] font-[400] leading-[1.12] tracking-tight"
               style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
             >
-              {PHILOSOPHY_DATA.headline}
+              <span className="whitespace-nowrap">
+                {PHILOSOPHY_DATA.headline.split(' ').slice(0, 4).join(' ')}
+              </span>
+              {' '}
+              {PHILOSOPHY_DATA.headline.split(' ').slice(4).join(' ')}
             </h2>
 
             <div className="space-y-4 max-w-2xl">
@@ -210,7 +229,7 @@ export const PhilosophySection: React.FC = () => {
               <div className="group overflow-hidden">
                 <LazyImage
                   src={PHILOSOPHY_DATA.featuredImage}
-                  alt="Documentary Kerala wedding portrait capturing silent grace and unhurried devotion in Fort Kochi - Oscar Weddings"
+                  alt="Documentary Kerala wedding portrait capturing silent grace and unhurried devotion in Fort Kochi - Oscar Wedding Company"
                   width={1200}
                   height={1500}
                   containerClassName="w-full aspect-[4/5] overflow-hidden bg-[#EAE6DF] shadow-sm"

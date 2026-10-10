@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ChevronLeft, ChevronRight, X, MapPin } from 'lucide-react';
 import { SPECIALIZATION_DATA } from '../data/weddingContent';
 import { SpecializationPhoto } from '../types';
-import { ScrollReveal } from './ScrollReveal';
 import { LazyImage } from './LazyImage';
 
 interface SpecializationSectionProps {
@@ -19,12 +18,82 @@ const getSpecializationPreview = (url: string): string => {
   return `${url.slice(0, separatorIndex + 1)}thumb-${url.slice(separatorIndex + 1)}.jpg`;
 };
 
+const AnimatedCounter: React.FC<{ target: number; started: boolean }> = ({ target, started }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!started) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(target);
+      return;
+    }
+
+    let frameId = 0;
+    const duration = 1300;
+    let startTime: number | undefined;
+
+    const animate = (time: number) => {
+      if (startTime === undefined) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      setCount(Math.round(target * (1 - (1 - progress) ** 3)));
+      if (progress < 1) frameId = window.requestAnimationFrame(animate);
+    };
+
+    frameId = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(frameId);
+  }, [started, target]);
+
+  return <>{count}+</>;
+};
+
 export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
   onOpenEnquiry,
 }) => {
   const [activeModalPhoto, setActiveModalPhoto] = useState<SpecializationPhoto | null>(null);
+  const [statsStarted, setStatsStarted] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const { photos } = SPECIALIZATION_DATA;
+  const stripImages: Array<{ src: string; alt: string; photo?: SpecializationPhoto }> = [
+    { src: getSpecializationPreview(photos[0].image), alt: photos[0].alt, photo: photos[0] },
+    {
+      src: '/images/thumb-story-backwater-procession.jpg.jpg',
+      alt: 'Wedding procession along the Kerala backwaters',
+    },
+    { src: getSpecializationPreview(photos[1].image), alt: photos[1].alt, photo: photos[1] },
+    {
+      src: '/images/thumb-haldi_ceremony_bride.jpg.jpg',
+      alt: 'Bride adorned with flowers for a wedding ceremony',
+    },
+    { src: getSpecializationPreview(photos[2].image), alt: photos[2].alt, photo: photos[2] },
+    {
+      src: '/images/thumb-hero-4-thaali.jpg.jpg',
+      alt: 'Couple sharing a joyful moment after their wedding ceremony',
+    },
+    { src: getSpecializationPreview(photos[3].image), alt: photos[3].alt, photo: photos[3] },
+    {
+      src: '/images/thumb-story-royal-red-couple.jpg.jpg',
+      alt: 'Bride and groom in traditional wedding attire',
+    },
+  ];
 
-  const { eyebrow, titleLine1, titleLine2, narrative, photos } = SPECIALIZATION_DATA;
+  useEffect(() => {
+    const element = statsRef.current;
+    if (!element || statsStarted) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [statsStarted]);
 
   // Modal navigation
   const handleModalNext = useCallback(() => {
@@ -57,82 +126,85 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
     <section
       id="specialization"
       data-theme="light"
-      className="relative bg-[#FAF8F5] text-[#141210] py-16 md:py-24 border-t border-[#EAE4DA] overflow-hidden"
+      className="relative overflow-hidden border-t border-[#EAE4DA] bg-[#FAF8F5] text-[#141210]"
     >
-      {/* Subtle fine-art warm radial background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,255,255,0.95)_0%,rgba(250,248,245,0.9)_50%,rgba(242,237,230,0.95)_100%)] pointer-events-none" />
+      <header className="px-5 pb-8 pt-12 text-center sm:pb-10 sm:pt-16 md:pb-12 md:pt-[4.5rem]">
+        <p className="mb-3 text-[9px] font-medium uppercase tracking-[0.3em] text-[#89775F] sm:text-[10px]">
+          DETAILS THAT TELL A BIGGER STORY
+        </p>
+        <h2
+          className="whitespace-nowrap text-[clamp(1.35rem,7vw,2.15rem)] font-light uppercase leading-none tracking-[0.045em] text-[#171615] sm:text-5xl md:text-[3.5rem]"
+          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+        >
+          The Art of Weddings
+        </h2>
+        <p className="mx-auto mt-4 max-w-[38rem] text-xs font-light leading-[1.7] text-[#655E55] sm:mt-5 sm:text-sm">
+          Every detail, quiet gesture and fleeting moment, thoughtfully preserved as part of your
+          wedding story.
+        </p>
+      </header>
 
-      <div className="relative space-y-10 md:space-y-12">
-        {/* ========================================================================= */}
-        {/* ATELIER EDITORIAL HEADER — Clean typography with NO starting symbols */}
-        {/* ========================================================================= */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <ScrollReveal delay={0} y={16} duration={0.75} amount={0.2}>
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#EDE7DD]/80 border border-[#DDD5C7]/70 text-[#6B6358] text-[9.5px] sm:text-[10.5px] tracking-[0.32em] uppercase font-medium">
-              <span>{eyebrow}</span>
-            </div>
-          </ScrollReveal>
+      <div className="grid grid-cols-4 md:grid-cols-8" aria-label="Wedding details gallery">
+        {stripImages.map(({ src, alt, photo }) => {
+          const image = (
+            <LazyImage
+              src={src}
+              alt={alt}
+              width={480}
+              height={430}
+              rootMargin="100px 0px"
+              revealAnimation={false}
+              containerClassName="aspect-[1.05] w-full"
+              placeholderClassName="bg-[#EAE4DA]"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
+            />
+          );
 
-          <ScrollReveal delay={0.06} y={20} duration={0.8} amount={0.2}>
-            <h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-[#141210] tracking-[-0.015em] leading-[1.08]"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+          return photo ? (
+            <button
+              key={src}
+              type="button"
+              onClick={() => setActiveModalPhoto(photo)}
+              aria-label={`View photograph: ${photo.title}`}
+              className="group relative block min-w-0 cursor-pointer overflow-hidden bg-[#EAE4DA] focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-white"
             >
-              <span>{titleLine1}</span>
-              <span className="block italic text-[#806B52] font-normal mt-1 sm:mt-2">
-                {titleLine2}
-              </span>
-            </h2>
-          </ScrollReveal>
+              {image}
+            </button>
+          ) : (
+            <div key={src} className="group relative min-w-0 overflow-hidden bg-[#EAE4DA]">
+              {image}
+            </div>
+          );
+        })}
+      </div>
 
-          <ScrollReveal delay={0.12} y={16} duration={0.8} amount={0.2}>
-            <p className="text-sm sm:text-base text-[#615A52] leading-relaxed max-w-2xl mx-auto font-light pt-1">
-              {narrative}
-            </p>
-          </ScrollReveal>
-        </div>
-
-        {/* ========================================================================= */}
-        {/* EDITORIAL MOSAIC SPREAD — Full-width 4-image composition */}
-        {/* ========================================================================= */}
-        <div className="w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            {photos.slice(0, 4).map((photo, index) => (
-              <motion.div
-                key={photo.id}
-                onClick={() => setActiveModalPhoto(photo)}
-                className="group relative overflow-hidden bg-[#EAE4DA] cursor-pointer"
-              >
-                <div className="relative aspect-[3/2.2] md:aspect-[1.22] w-full overflow-hidden sm:aspect-[4/3] md:aspect-[1.22]">
-                  <LazyImage
-                    src={getSpecializationPreview(photo.image)}
-                    alt={photo.alt}
-                    width={1200}
-                    height={900}
-                    priority={index === 0}
-                    rootMargin="160px 0px"
-                    containerClassName="w-full h-full"
-                    placeholderClassName="bg-[#EAE4DA]"
-                    className="w-full h-full object-cover object-center"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/10" />
-
-                  <div className="absolute inset-x-0 bottom-0 p-2 sm:p-5 text-left text-white pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100">
-                    <div>
-                      <h4
-                        className="text-sm sm:text-2xl md:text-[2.3rem] leading-[0.98] font-light"
-                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                      >
-                        {photo.title}
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+      <div
+        ref={statsRef}
+        className="mx-auto grid max-w-5xl grid-cols-3 px-3 py-9 sm:px-8 sm:py-12 md:py-14"
+        aria-label="Oscar Wedding Company in numbers"
+      >
+        {[
+          { target: 20, label: 'WEDDINGS DOCUMENTED' },
+          { target: 20, label: 'LOCATIONS' },
+          { target: 5, label: 'YEARS OF STORYTELLING' },
+        ].map(({ target, label }, index) => (
+          <div
+            key={label}
+            className={`flex flex-col items-center justify-center text-center ${
+              index > 0 ? 'border-l border-[#D9D2C8]' : ''
+            }`}
+          >
+            <span
+              className="font-cormorant text-[2.35rem] font-light leading-[0.8] tracking-[-0.055em] text-[#796549] sm:text-5xl md:text-[3.5rem]"
+              aria-label={`${target} plus`}
+            >
+              <AnimatedCounter target={target} started={statsStarted} />
+            </span>
+            <span className="mt-3 max-w-[10rem] text-[7px] font-medium uppercase leading-relaxed tracking-[0.16em] text-[#655E55] sm:text-[9px] sm:tracking-[0.22em] md:text-[10px]">
+              {label}
+            </span>
           </div>
-        </div>
+        ))}
       </div>
 
       {/* ========================================================================= */}
@@ -254,7 +326,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                   <p className="text-[9px] text-center text-white/35 tracking-[0.18em] uppercase">
-                    OSCAR WEDDINGS · PRIVATE COMMISSION
+                    OSCAR WEDDING COMPANY · PRIVATE COMMISSION
                   </p>
                 </div>
               </div>

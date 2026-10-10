@@ -2,130 +2,80 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { FEATURED_HALDI_STORY } from '../data/weddingContent';
 import { WeddingStory } from '../types';
-import { ScrollReveal } from './ScrollReveal';
 
 interface SpotlightParallaxSectionProps {
   onOpenStory: (story: WeddingStory) => void;
 }
 
+const spotlightStats = ['WEDDINGS COVERED', 'YEARS OF STORIES', 'DESTINATIONS'];
+
 export const SpotlightParallaxSection: React.FC<SpotlightParallaxSectionProps> = ({
   onOpenStory,
-}) => {
-  const handleExplore = () => {
-    onOpenStory(FEATURED_HALDI_STORY);
-  };
-
-  return (
-    <section
-      id="ceremony-spotlight"
-      data-theme="dark"
-      className="relative min-h-[90vh] sm:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#070706] text-[#FAF8F5] py-16 md:py-24 px-6 md:px-12 lg:px-20"
-      aria-label="Bhagya and Prabhu Haldi Ceremony Editorial Spotlight"
+}) => (
+  <section
+    id="ceremony-spotlight"
+    data-theme="light"
+    aria-label="Bhagya and Prabhu Haldi Ceremony Editorial Spotlight"
+    className="overflow-hidden bg-[#FAF8F5] text-[#171615]"
+  >
+    <div
+      className="grid grid-cols-3 border-b border-[#E7E1D8] px-3 py-6 sm:px-8 sm:py-8 md:py-9"
+      aria-label="Oscar Wedding Company"
     >
-      {/* 
-        Full-bleed Atmospheric Background: 
-        Rendered with zero sticky traps, zero scroll listeners, and zero heavy CSS filter shaders.
-        Guarantees instant, buttery-smooth 60/120 FPS scrolling across all devices.
-      */}
-      <div
-        className="spotlight-fixed-background absolute inset-0 z-0 h-full w-full pointer-events-none bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/haldi_ceremony_bride.jpg')" }}
-        role="img"
-        aria-label="Bhagya and Prabhu Haldi Ceremony at Kumarakom Lake Palace Heritage Grove — Indian destination wedding photography by Oscar Weddings"
-      >
+      {spotlightStats.map((stat, index) => (
+        <p
+          key={stat}
+          className={`flex min-h-8 items-center justify-center text-center text-[8px] font-medium uppercase leading-relaxed tracking-[0.15em] text-[#262522] sm:text-[10px] sm:tracking-[0.22em] md:text-xs ${
+            index > 0 ? 'border-l border-[#77736D]' : ''
+          }`}
+        >
+          {stat}
+        </p>
+      ))}
+    </div>
 
-        {/* Luxury Atmospheric Film Scrims for High-Contrast Editorial Readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/65" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/35 to-transparent" />
+    <div className="grid lg:h-[clamp(350px,23vw,470px)] lg:grid-cols-[minmax(0,1.85fr)_minmax(0,1fr)]">
+      <div className="group relative h-[250px] overflow-hidden bg-[#EAE4DA] sm:h-[330px] lg:h-full lg:min-h-0">
+        <img
+          src="/images/thumb-haldi_ceremony_bride.jpg.jpg"
+          alt="Bhagya celebrating her Haldi ceremony among the gardens of Kumarakom"
+          width={1200}
+          height={800}
+          loading="lazy"
+          decoding="async"
+          className="h-full min-h-0 w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.025]"
+        />
       </div>
 
-      {/* Subtle Ambient Accent Hairlines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#EAE6DF]/20 to-transparent z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#EAE6DF]/20 to-transparent z-10 pointer-events-none" />
+      <div className="flex flex-col justify-center px-7 py-9 sm:px-12 sm:py-12 lg:px-[clamp(2rem,3.6vw,4.5rem)] lg:py-10">
+        <p className="mb-5 text-[9px] font-medium uppercase tracking-[0.25em] text-[#716D67] sm:text-[10px] sm:tracking-[0.28em]">
+          MARCH 26, 2025
+          <span className="mx-2 text-[#A28C6E] sm:mx-3">·</span>
+          KUMARAKOM · HERITAGE GROVE
+        </p>
 
-      {/* Foreground Editorial Story Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto">
-        <div className="max-w-3xl space-y-5 md:space-y-7">
-          
-          {/* Editorial Eyebrow Tag - Clean without star/sparkle icon */}
-          <ScrollReveal delay={0} y={16} duration={0.8} amount={0.2}>
-            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-black/55 border border-white/15 text-[#E6E1D8] shadow-sm">
-              <span
-                className="text-[9px] sm:text-[10px] tracking-[0.32em] uppercase font-medium"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              >
-                FEATURED CEREMONIAL SPOTLIGHT
-              </span>
-            </div>
-          </ScrollReveal>
+        <h2
+          className="max-w-[18ch] text-[2rem] font-normal uppercase leading-[1.04] tracking-[0.005em] text-[#171615] sm:text-4xl lg:text-[clamp(2.1rem,3vw,3.5rem)]"
+          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+        >
+          A Haldi Full of Sunshine
+        </h2>
 
-          {/* Main Headline */}
-          <ScrollReveal delay={0.12} y={24} duration={0.85} amount={0.2}>
-            <h2
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-[62px] font-serif font-light text-[#FFFFFF] tracking-tight leading-[1.12] drop-shadow-md cursor-pointer group hover:text-[#FAF8F5]/95 transition-colors"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              onClick={handleExplore}
-            >
-              Unveiling the Magic of Bhagya and Prabhu&apos;s Haldi Ceremony: A Day of Love and Traditions
-            </h2>
-          </ScrollReveal>
+        <p className="mt-5 max-w-[42ch] font-cormorant text-lg leading-[1.45] text-[#625F5A] sm:mt-6 sm:text-xl">
+          A vibrant celebration filled with laughter, colours and the people who make it all
+          brighter.
+        </p>
 
-          {/* Date & Location Tag */}
-          <ScrollReveal delay={0.22} y={20} duration={0.85} amount={0.2}>
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-[#E6E1D8]">
-              <span
-                className="text-xs sm:text-sm tracking-[0.28em] uppercase font-medium text-[#FAF8F5]/90"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              >
-                MARCH 26, 2025
-              </span>
-
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />
-
-              <span
-                className="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-[#C5A880] font-medium"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              >
-                KUMARAKOM · HERITAGE GROVE
-              </span>
-            </div>
-          </ScrollReveal>
-
-          {/* Interactive Arrow Line - Completely hardware accelerated and responsive */}
-          <ScrollReveal delay={0.32} y={16} duration={0.8} amount={0.2}>
-            <div className="pt-2 sm:pt-4">
-              <button
-                id="haldi-spotlight-arrow-btn"
-                onClick={handleExplore}
-                className="group inline-flex items-center gap-5 cursor-pointer focus:outline-none"
-                aria-label="View Bhagya and Prabhu Haldi Ceremony story"
-              >
-                <div className="relative flex items-center">
-                  {/* The Horizontal Line */}
-                  <div className="w-24 sm:w-36 h-[1.5px] bg-[#FAF8F5] group-hover:w-48 transition-all duration-300 ease-out shadow-sm" />
-                  
-                  {/* Arrowhead */}
-                  <ArrowRight className="w-5 h-5 text-[#FAF8F5] -ml-2 group-hover:translate-x-3 transition-transform duration-300 ease-out" />
-                </div>
-
-                <span
-                  className="text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#FAF8F5]/85 group-hover:text-[#FFFFFF] group-hover:tracking-[0.32em] font-medium transition-all duration-200"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
-                  VIEW FULL CEREMONY STORY
-                </span>
-              </button>
-            </div>
-          </ScrollReveal>
-        </div>
+        <button
+          type="button"
+          onClick={() => onOpenStory(FEATURED_HALDI_STORY)}
+          className="group mt-7 inline-flex w-fit items-center gap-4 border-b border-[#292825] pb-1.5 text-[10px] font-medium uppercase tracking-[0.22em] text-[#171615] transition-colors hover:text-[#806B52] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#806B52] sm:mt-8 sm:text-xs"
+          aria-label="View full Bhagya and Prabhu Haldi ceremony story"
+        >
+          <span>VIEW FULL CEREMONY STORY</span>
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+        </button>
       </div>
-
-      {/* Bottom Corner Curated Badge */}
-      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-10 z-10 pointer-events-none hidden sm:block">
-        <div className="px-3.5 py-1.5 rounded-full bg-black/55 border border-white/10 text-[9px] tracking-[0.24em] uppercase text-[#FAF8F5]/70 font-light shadow-sm">
-          MONOGRAPH 04 · OSCAR WEDDINGS
-        </div>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

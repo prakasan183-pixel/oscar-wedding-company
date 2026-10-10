@@ -1,74 +1,116 @@
 import React from 'react';
-import { KERALA_DATA } from '../data/weddingContent';
 import { ScrollReveal } from './ScrollReveal';
 import { LazyImage } from './LazyImage';
 
-export const KeralaSection: React.FC = () => {
-  return (
-    <section
-      id="kerala"
-      data-theme="dark"
-      className="relative min-h-[85vh] lg:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0A0A0A] text-[#FAF8F5] py-16 md:py-24 px-6 md:px-12 lg:px-20"
-    >
-      {/* Full-width Atmospheric Kerala Wedding Image */}
-      <div className="absolute inset-0 z-0">
-        <LazyImage
-          src={KERALA_DATA.image}
-          alt="Traditional Kerala wedding backwaters boat procession and backwaters heritage atmosphere — Oscar Weddings"
-          width={1200}
-          height={896}
-          containerClassName="w-full h-full"
-          className="w-full h-full object-cover object-center md:object-[60%_center] filter brightness-[0.7] contrast-[1.08]"
+const inspirationImages = [
+  {
+    src: '/images/hero-4-thaali.jpg',
+    alt: 'A bride taking part in a traditional wedding ritual',
+  },
+  {
+    src: '/images/story-backwater-procession.jpg',
+    alt: 'A Kerala wedding procession beside the backwaters',
+  },
+  {
+    src: '/images/rootedsection/katakali-bg.webp',
+    alt: 'A Kathakali artist in the Kerala countryside',
+  },
+];
+
+export const KeralaSection: React.FC = () => (
+  <section
+    id="kerala"
+    data-theme="light"
+    aria-labelledby="kerala-heading"
+    className="kerala-editorial-section grid w-full overflow-hidden bg-[#F7F4EF] text-[#171615]"
+  >
+    <div className="kerala-editorial-feature relative min-h-0 overflow-hidden bg-[#F7F4EF]">
+      <LazyImage
+        src="/images/story-kasavu-bride.jpg"
+        alt="A Kerala bride in a kasavu sari surrounded by tropical greenery"
+        width={1200}
+        height={800}
+        priority
+        containerClassName="h-full w-full"
+        placeholderClassName="bg-[#F7F4EF]"
+        className="h-full w-full object-cover object-[center_42%]"
+        revealAnimation={false}
+      />
+      <p className="kerala-editorial-image-caption absolute bottom-0 left-0 z-10 font-editorial-sans text-[10px] font-medium uppercase leading-[1.9] tracking-[0.24em] text-white sm:text-[11px]">
+        TRADITIONS
+        <br />
+        PEOPLE
+        <br />
+        PLACES
+        <br />
+        EMOTIONS
+        <span className="mt-4 block h-px w-12 bg-white/70" aria-hidden="true" />
+      </p>
+    </div>
+
+    <div className="kerala-editorial-story relative grid min-w-0 grid-rows-[1fr_auto]">
+      <div className="kerala-editorial-frond-layer" aria-hidden="true">
+        <img
+          src="/images/rootedsection/palm-frond.png"
+          alt=""
+          className="kerala-editorial-frond"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-[#0A0A0A]/20 to-[#0A0A0A]/35 pointer-events-none" />
       </div>
 
-      {/* Editorial Content Container */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8 md:space-y-10">
-        {/* Section Label */}
-        <ScrollReveal delay={0} y={16} duration={0.8} amount={0.2}>
-          <div className="flex items-center justify-center gap-3">
-            <span className="h-[1px] w-8 bg-[#8C8479]/60" />
-            <span className="text-[10px] sm:text-xs tracking-[0.35em] uppercase text-[#B4ACA1] font-light">
-              SENSE OF PLACE &amp; IDENTITY
-            </span>
-            <span className="h-[1px] w-8 bg-[#8C8479]/60" />
-          </div>
-        </ScrollReveal>
-
-        {/* Headline */}
-        <ScrollReveal delay={0.1} y={24} duration={0.85} amount={0.2}>
-          <h2
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-[#FAF8F5] uppercase tracking-[0.08em] leading-tight"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-          >
-            {KERALA_DATA.headline.split('. ').map((line, index) => (
-              <span key={line} className="block lg:whitespace-nowrap">
-                {line}{index === 0 ? '.' : ''}
-              </span>
-            ))}
-          </h2>
-        </ScrollReveal>
-
-        {/* Sophisticated Body Copy */}
-        <ScrollReveal delay={0.2} y={24} duration={0.85} amount={0.2}>
-          <p
-            className="text-base sm:text-lg md:text-xl text-[#E6E1D8] font-light leading-[1.8] max-w-3xl mx-auto tracking-normal text-justify sm:text-center"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-          >
-            {KERALA_DATA.copy}
+      <ScrollReveal
+        y={16}
+        duration={0.7}
+        amount={0.1}
+        className="kerala-editorial-copy-block relative z-10"
+      >
+        <div className="kerala-editorial-eyebrow flex items-center">
+          <p className="shrink-0 font-editorial-sans text-[10px] font-medium uppercase tracking-[0.34em] text-[#77736F] sm:text-[12px]">
+            OUR INSPIRATION
           </p>
-        </ScrollReveal>
+        </div>
 
-        {/* Understated Location Line */}
-        <ScrollReveal delay={0.3} y={16} duration={0.8} amount={0.2}>
-          <div className="pt-4 border-t border-[#FAF8F5]/15 max-w-2xl mx-auto">
-            <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-[#B4ACA1] font-light">
-              {KERALA_DATA.locations}
-            </p>
+        <h2
+          id="kerala-heading"
+          className="kerala-editorial-heading mt-6 font-cormorant font-light uppercase leading-[1.02] tracking-[0.045em] text-[#171615]"
+        >
+          <span className="block whitespace-nowrap">SAME ROOTS,</span>
+          <span className="block whitespace-nowrap">DIFFERENT STORIES.</span>
+        </h2>
+
+        <p className="kerala-editorial-copy mt-5 max-w-[590px] font-cormorant font-normal leading-[1.42] tracking-[0.015em] text-[#77736F]">
+          Our work is inspired by the rich culture, people and traditions that
+          surround us. The colours, the rituals, the landscapes and the way
+          celebrations bring people together continue to shape how we see and
+          tell stories — wherever we go.
+        </p>
+
+        <a
+          href="#experience"
+          className="kerala-editorial-link group mt-8 inline-flex items-center gap-4 font-editorial-sans text-[10px] font-medium uppercase tracking-[0.25em] text-[#57534F] transition-colors hover:text-[#171615] sm:mt-9 sm:text-[11px]"
+        >
+          <span className="h-px w-12 bg-[#9D9993]" aria-hidden="true" />
+          <span>SEE OUR PERSPECTIVE</span>
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+      </ScrollReveal>
+
+      <div className="kerala-editorial-gallery grid grid-cols-3 gap-[6px]" aria-label="Kerala wedding inspiration">
+        {inspirationImages.map((image) => (
+          <div className="relative min-w-0 overflow-hidden bg-[#E7E1D8]" key={image.src}>
+            <LazyImage
+              src={image.src}
+              alt={image.alt}
+              width={640}
+              height={420}
+              containerClassName="h-full w-full"
+              className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+              revealAnimation={false}
+            />
           </div>
-        </ScrollReveal>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

@@ -3,8 +3,8 @@ import { motion } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { PhilosophySection } from './components/PhilosophySection';
+import { BeyondPhotographsSection } from './components/BeyondPhotographsSection';
 import { SelectedStoriesSection } from './components/SelectedStoriesSection';
-import { WeddingShowcaseSection } from './components/WeddingShowcaseSection';
 import { KeralaSection } from './components/KeralaSection';
 import { SpotlightParallaxSection } from './components/SpotlightParallaxSection';
 import { PhotographyAndFilmsSection } from './components/PhotographyAndFilmsSection';
@@ -66,6 +66,16 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  useEffect(() => {
+    if (window.location.pathname !== '/' || window.location.hash !== '#stories') return;
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById('stories')?.scrollIntoView({ block: 'start' });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   const handleOpenEnquiry = () => {
     setIsEnquiryOpen(true);
   };
@@ -107,7 +117,19 @@ export default function App() {
   };
 
   if (isPortfolioPage) {
-    return <PortfolioPage />;
+    return (
+      <>
+        <PortfolioPage onOpenStory={handleOpenStory} onOpenEnquiry={handleOpenEnquiry} />
+        <StoryModal
+          story={selectedStory}
+          onClose={handleCloseStory}
+          onSelectStory={setSelectedStory}
+          allStories={[FEATURED_HALDI_STORY, ...STORIES_DATA]}
+          onOpenEnquiry={handleOpenEnquiry}
+        />
+        <EnquiryModal isOpen={isEnquiryOpen} onClose={handleCloseEnquiry} />
+      </>
+    );
   }
 
   return (
@@ -143,11 +165,14 @@ export default function App() {
           {/* SECTION 02 — PHILOSOPHY */}
           <PhilosophySection />
 
-          {/* WEDDING PHOTOGRAPHY SHOWCASE */}
-          <WeddingShowcaseSection />
+          {/* BEYOND THE PHOTOGRAPHS */}
+          <BeyondPhotographsSection />
 
           {/* SECTION 03 — SELECTED STORIES */}
           <SelectedStoriesSection onOpenStory={handleOpenStory} />
+
+          {/* OUR APPROACH */}
+          <ExperienceSection />
 
           {/* SECTION 04 — KERALA (SENSE OF PLACE & IDENTITY) */}
           <KeralaSection />
@@ -163,9 +188,6 @@ export default function App() {
             onOpenFilms={handleOpenFilms}
             onExplorePhotography={handleExplorePhotography}
           />
-
-          {/* SECTION 06 — THE OSCAR EXPERIENCE */}
-          <ExperienceSection />
 
           {/* SECTION 07 — FINAL ENQUIRY */}
           <FinalEnquirySection onOpenEnquiry={handleOpenEnquiry} />
@@ -201,4 +223,3 @@ export default function App() {
     </div>
   );
 }
-

@@ -59,7 +59,7 @@
 // ];
 
 // export const HERO_DATA = {
-//   brand: "OSCAR WEDDINGS",
+//   brand: "OSCAR WEDDING COMPANY",
 //   subBrand: "KERALA",
 //   tagline: "Stories of love, beautifully remembered.",
 //   ctaPrimary: "EXPLORE STORIES",
@@ -72,7 +72,7 @@
 
 // export const PHILOSOPHY_DATA = {
 //   headline: "We don't simply photograph weddings. We preserve the feeling of them.",
-//   paragraph: "The quiet glance before the ceremony. A father's hands adjusting a collar. Laughter between rituals. The movement, the people, the atmosphere. At Oscar, we document weddings as they unfold — combining honest observation with refined editorial composition to create photographs and films that feel as real years from now as they did that day.",
+//   paragraph: "The quiet glance before the ceremony. A father's hands adjusting a collar. Laughter between rituals. The movement, the people, the atmosphere. At Oscar Wedding Company, we document weddings as they unfold — combining honest observation with refined editorial composition to create photographs and films that feel as real years from now as they did that day.",
 //   linkText: "DISCOVER OUR APPROACH",
 //   featuredImage: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=85",
 //   caption: "Silent grace — Fort Kochi, Kerala"
@@ -641,9 +641,9 @@
 //   headline: "YOUR STORY DESERVES TO BE REMEMBERED.",
 //   subtext: "Tell us about your wedding, your people and the feeling you want to remember.",
 //   primaryCTA: "CHECK YOUR DATE",
-//   secondaryCTA: "WHATSAPP OSCAR",
+//   secondaryCTA: "WHATSAPP OSCAR WEDDING COMPANY",
 //   whatsappNumber: "+918848425896",
-//   whatsappPrefill: "Hello Oscar Weddings, we would love to check your availability for our wedding celebration."
+//   whatsappPrefill: "Hello Oscar Wedding Company, we would love to check your availability for our wedding celebration."
 // };
 
 // export const FOOTER_LINKS = [
@@ -651,7 +651,7 @@
 //   { label: "Cinematic Wedding Films", href: "#craft" },
 //   { label: "Selected Wedding Stories", href: "#stories" },
 //   { label: "Haldi & Traditions", href: "#ceremony-spotlight" },
-//   { label: "The Oscar Experience", href: "#experience" },
+//   { label: "The Oscar Wedding Company Experience", href: "#experience" },
 //   { label: "Rooted in Kerala · Destinations", href: "#kerala" },
 //   { label: "Philosophy & Approach", href: "#philosophy" },
 //   { label: "Check Availability", href: "#enquiry" }
@@ -671,64 +671,48 @@ import { WeddingStory, FilmReel, ExperienceStage, HeroSlide, SpecializationPhoto
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
-    id: "kerala-garden-celebration",
-    image: "/images/Lizbeth&jibin/08 insta_.jpg",
-    headline: "The Art of Arrival",
-    subheadline: "THE ART OF TIMELESS HONESTY",
-    location: "KOCHI · KERALA",
-    tagline: "Where tropical morning light meets the quiet grace of unhurried devotion.",
-    quote: "Preserving sacred dawns, golden Kasavu silks, and promises meant for lifetimes.",
-    alt: "Kerala bride and groom celebrating joyfully in lush tropical garden with Kasavu gold and fragrant jasmine",
-    objectPosition: "center 22%"
+    id: "kerala-thaali-ritual",
+    image: "/images/piyush/oscar (2).jpg",
+    headline: "The Ceremony of Forever",
+    subheadline: "THE REVERENCE OF THE THAALI",
+    heroWords: ["Our", "Special Day,", "Captured", "As", "Romance"],
+    heroLines: ["Our Special Day,", "Captured As Romance"],
+    location: "KOTTAYAM · KERALA",
+    tagline: "Remember every sacred moment, every promise, and the beginning of forever.",
+    quote: "Ancient devotional rituals honored with cinematographic depth and reverence.",
+    alt: "Bride and groom in traditional Kerala wedding attire",
+    objectPosition: "center 30%"
   },
   {
     id: "kerala-couple-laugh",
     image: "/images/samurthi/HD (13).jpg",
     headline: "A Private Kind of Joy",
     subheadline: "THE POETRY OF CANDID LAUGHTER",
+    heroWords: ["Once", "Strangers,", "Came", "A", "Romance"],
+    heroLines: ["Once Strangers,", "Came A Romance"],
     location: "THRISSUR · KERALA",
-    tagline: "The whispered jokes, stolen glances, and spontaneous warmth that time cannot diminish.",
+    tagline: "Keep the laughter, little glances, and candid moments close for a lifetime.",
     quote: "Honest documentary observation capturing what the heart felt in the moment.",
     alt: "Bride leaning lovingly on groom's shoulder during wedding ceremony, pure laughter and candid intimacy",
     objectPosition: "center 30%"
   },
   {
-    id: "kerala-royal-sofa",
-    image: "/images/albin&thara/D.JPG",
-    headline: "Portraits of Distinction",
-    subheadline: "REGAL CRAFTSMANSHIP & POISE",
-    location: "TRIVANDRUM · KERALA",
-    tagline: "Temple gold, woven Kanchipuram threads, and portraits crafted for generations.",
-    quote: "Compositions steeped in classical heritage, sculpted by shadows and stillness.",
-    alt: "Wedding couple sharing a joyful moment in their celebration",
-    objectPosition: "center 36%"
-  },
-  {
-    id: "kerala-thaali-ritual",
-    image: "/images/piyush/oscar (2).jpg",
-    headline: "The Ceremony of Forever",
-    subheadline: "THE REVERENCE OF THE THAALI",
-    location: "KOTTAYAM · KERALA",
-    tagline: "The suspended second when sacred knots are tied and two paths become one.",
-    quote: "Ancient devotional rituals honored with cinematographic depth and reverence.",
-    alt: "Bride and groom in traditional Kerala wedding attire",
-    objectPosition: "center 30%"
-  },
-  {
-    id: "kerala-reception-twirl",
-    image: "/images/vyshak/HD (2).jpg.jpeg",
-    headline: "An Evening in Motion",
-    subheadline: "CINEMATIC MOTION & CELEBRATION",
-    location: "ALAPPUZHA · KERALA",
-    tagline: "The euphoric twirl of midnight silks beneath glistening chandeliers.",
-    quote: "Transforming the energy of grand celebrations into breathtaking visual art.",
-    alt: "Couple embracing during their elegant wedding celebration",
-    objectPosition: "center 25%"
+    id: "kerala-garden-celebration",
+    image: "/images/Lizbeth&jibin/08 insta_.jpg",
+    headline: "The Art of Arrival",
+    subheadline: "THE ART OF TIMELESS HONESTY",
+    heroWords: ["One", "Story", "Captured", "And", "Remembered"],
+    heroLines: ["One Story Captured", "And Remembered"],
+    location: "KOCHI · KERALA",
+    tagline: "Archive your day with the best candid wedding photographers in Kerala.",
+    quote: "Preserving sacred dawns, golden Kasavu silks, and promises meant for lifetimes.",
+    alt: "Kerala bride and groom celebrating joyfully in lush tropical garden with Kasavu gold and fragrant jasmine",
+    objectPosition: "center 22%"
   }
 ];
 
 export const HERO_DATA = {
-  brand: "OSCAR WEDDINGS",
+  brand: "OSCAR WEDDING COMPANY",
   subBrand: "KERALA",
   tagline: "Stories of love, beautifully remembered.",
   ctaPrimary: "EXPLORE STORIES",
@@ -739,7 +723,7 @@ export const HERO_DATA = {
 
 export const PHILOSOPHY_DATA = {
   headline: "We don't simply photograph weddings. We preserve the feeling of them.",
-  paragraph: "The quiet glance before the ceremony. A father's hands adjusting a collar. Laughter between rituals. The movement, the people, the atmosphere. At Oscar, we document weddings as they unfold — combining honest observation with refined editorial composition to create photographs and films that feel as real years from now as they did that day.",
+  paragraph: "The quiet glance before the ceremony. A father's hands adjusting a collar. Laughter between rituals. The movement, the people, the atmosphere. At Oscar Wedding Company, we document weddings as they unfold — combining honest observation with refined editorial composition to create photographs and films that feel as real years from now as they did that day.",
   linkText: "DISCOVER OUR APPROACH",
   featuredImage: "/images/mainpics/section2img.web.jpg",
   caption: "Silent grace — Fort Kochi, Kerala"
@@ -1085,7 +1069,7 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 ];
 
 export const SPECIALIZATION_DATA = {
-  eyebrow: "THE OSCAR WAY",
+  eyebrow: "THE OSCAR WEDDING COMPANY WAY",
   titleLine1: "The Art of Weddings",
   titleLine2: "",
   narrative:
@@ -1203,9 +1187,9 @@ export const ENQUIRY_DATA = {
   headline: "YOUR STORY DESERVES TO BE REMEMBERED.",
   subtext: "Tell us about your wedding, your people and the feeling you want to remember.",
   primaryCTA: "CHECK YOUR DATE",
-  secondaryCTA: "WHATSAPP OSCAR",
+  secondaryCTA: "WHATSAPP OSCAR WEDDING COMPANY",
   whatsappNumber: "+918848425896",
-  whatsappPrefill: "Hello Oscar Weddings, we would love to check your availability for our wedding celebration."
+  whatsappPrefill: "Hello Oscar Wedding Company, we would love to check your availability for our wedding celebration."
 };
 
 export const FOOTER_LINKS = [
@@ -1213,7 +1197,7 @@ export const FOOTER_LINKS = [
   { label: "Cinematic Wedding Films", href: "#craft" },
   { label: "Selected Wedding Stories", href: "#stories" },
   { label: "Haldi & Traditions", href: "#ceremony-spotlight" },
-  { label: "The Oscar Experience", href: "#experience" },
+  { label: "The Oscar Wedding Company Experience", href: "#experience" },
   { label: "Rooted in Kerala · Destinations", href: "#kerala" },
   { label: "Philosophy & Approach", href: "#philosophy" },
   { label: "Check Availability", href: "#enquiry" }

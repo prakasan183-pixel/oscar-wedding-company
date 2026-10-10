@@ -1,20 +1,31 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Oscar Wedding Company
 
-# Run and deploy your AI Studio app
+The Oscar Wedding Company website is a React, TypeScript, and Vite experience for wedding photography and films. It includes the main editorial landing page, a wedding-story portfolio, story and film viewers, and enquiry flows.
 
-This contains everything you need to run your app locally.
+## Requirements
 
-View your app in AI Studio: https://ai.studio/apps/800cd8de-9833-4643-8cca-e5e6c1d463fc
+- Node.js
+- npm
 
-## Run Locally
+## Getting started
 
-**Prerequisites:**  Node.js
+```sh
+npm install
+npm run dev
+```
 
+Vite serves the site at `http://localhost:3000`.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Validation and production build
+
+```sh
+npm run lint
+npm run build
+npm run preview
+```
+
+The portfolio is available at `/portfolio`. Wedding photographs, fonts, and other static media are served from `public/`. Install Git LFS before cloning so the tracked photo and video assets are downloaded.
+
+## Configuration
+
+Set `VITE_SITE_URL` to the public site origin when building for production. See [.env.example](./.env.example). No Gemini API key is required by this website.

@@ -3,6 +3,8 @@ export interface HeroSlide {
   image: string;
   headline: string;
   subheadline: string;
+  heroWords: readonly [string, string, string, string, string];
+  heroLines: readonly [string, string];
   location?: string;
   tagline?: string;
   quote?: string;

@@ -107,11 +107,11 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({
           }}
           className="fixed inset-0 z-[100] bg-[#0A0A0A] flex flex-col items-center justify-between p-6 sm:p-10 md:p-14 select-none pointer-events-none"
           aria-live="polite"
-          aria-label="Loading Oscar Weddings Visual Archive"
+          aria-label="Loading Oscar Wedding Company Visual Archive"
         >
           {/* Top Bar Label */}
           <div className="w-full flex items-center justify-between text-[9px] sm:text-[10px] tracking-[0.32em] uppercase text-[#736B63] font-light">
-            <span>OSCAR WEDDINGS</span>
+            <span>OSCAR WEDDING COMPANY</span>
             <span>KERALA · ARCHIVE 2026</span>
           </div>
 

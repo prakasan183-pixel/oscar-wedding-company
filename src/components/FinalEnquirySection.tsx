@@ -42,7 +42,7 @@ export const FinalEnquirySection: React.FC<FinalEnquirySectionProps> = ({
           >
             <>
               <span className="block lg:whitespace-nowrap">{ENQUIRY_DATA.headline.replace(' REMEMBERED.', '')}</span>
-              <span className="block lg:whitespace-nowrap" style={{ fontFamily: "'Monsieur La Doulaise', 'Brush Script MT', cursive", letterSpacing: '0.02em', textTransform: 'none' }}>Remembered.</span>
+              <span className="font-ballet block lg:whitespace-nowrap" style={{ letterSpacing: '0.02em', textTransform: 'none' }}>Remembered.</span>
             </>
           </h2>
         </ScrollReveal>
