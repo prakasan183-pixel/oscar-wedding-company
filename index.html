@@ -45,8 +45,16 @@
     <meta name="twitter:image" content="https://oscarweddings.com/images/og/og-main.jpg" />
     <meta name="twitter:image:alt" content="Oscar Wedding Company — Luxury Wedding Photography &amp; Cinematic Films" />
 
-    <!-- Performance: Preload Primary Hero Image for Instant LCP -->
-    <link rel="preload" as="image" href="%BASE_URL%images/piyush/oscar%20(2).jpg" fetchpriority="high" />
+    <script>
+      if (!window.location.pathname.replace(/\/+$/, '').endsWith('/portfolio')) {
+        const heroImagePreload = document.createElement('link');
+        heroImagePreload.rel = 'preload';
+        heroImagePreload.as = 'image';
+        heroImagePreload.href = '%BASE_URL%images/piyush/oscar%20(2).jpg';
+        heroImagePreload.fetchPriority = 'high';
+        document.head.appendChild(heroImagePreload);
+      }
+    </script>
 
     <!-- Preconnect to Google Fonts with font-display: swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -24,11 +24,13 @@ npm run build
 npm run preview
 ```
 
+Use `npm run clean` to remove the previous production build.
+
 The portfolio is available at `/portfolio`. Wedding photographs, fonts, and other static media are served from `public/`. Install Git LFS before cloning so the tracked image assets are downloaded.
 
 ## Deploy to GitHub Pages
 
-The `main` branch deploys automatically through GitHub Actions. In the repository's **Settings → Pages**, set the build and deployment source to **GitHub Actions**. The workflow checks out Git LFS images and builds the site for the repository's `/Oscar-wedding-company-website/` URL. Once enabled, the site is available at <https://prakasan183-pixel.github.io/Oscar-wedding-company-website/>.
+The `main` branch deploys automatically through GitHub Actions. In the repository's **Settings → Pages**, set the build and deployment source to **GitHub Actions**. The workflow checks out Git LFS images and builds the site for the repository's `/oscarwedding-c/` URL. Once enabled, the site is available at <https://prakasan183-pixel.github.io/oscarwedding-c/>.
 
 ## Configuration
 
