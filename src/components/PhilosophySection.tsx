@@ -112,6 +112,7 @@ import { PHILOSOPHY_DATA } from '../data/weddingContent';
 import { ScrollReveal } from './ScrollReveal';
 
 import { LazyImage } from './LazyImage';
+import { withSiteBase } from '../utils/siteUrl';
 
 export const PhilosophySection: React.FC = () => {
 
@@ -131,7 +132,7 @@ export const PhilosophySection: React.FC = () => {
       className="philosophy-section relative overflow-hidden bg-[#FAF7F2] text-[#0A0A0A] py-16 md:py-24 px-6 md:px-12 lg:px-20 transition-colors"
     >
       <img
-        src="/images/rootedsection/philosophy-flower.png"
+        src={withSiteBase('/images/rootedsection/philosophy-flower.png')}
         alt=""
         aria-hidden="true"
         className="philosophy-flourish philosophy-flourish-left"
@@ -139,7 +140,7 @@ export const PhilosophySection: React.FC = () => {
         height={740}
       />
       <img
-        src="/images/rootedsection/philosophy-divider.png"
+        src={withSiteBase('/images/rootedsection/philosophy-divider.png')}
         alt=""
         aria-hidden="true"
         className="philosophy-flourish philosophy-flourish-divider"

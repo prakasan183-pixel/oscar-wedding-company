@@ -4,6 +4,7 @@ import { STORIES_DATA } from '../data/weddingContent';
 import { WeddingStory } from '../types';
 import { LazyImage } from './LazyImage';
 import { ScrollReveal } from './ScrollReveal';
+import { withSiteBase } from '../utils/siteUrl';
 
 interface SelectedStoriesSectionProps {
   onOpenStory: (story: WeddingStory) => void;
@@ -125,7 +126,7 @@ export const SelectedStoriesSection: React.FC<SelectedStoriesSectionProps> = ({
           THE WEDDING ARCHIVE
         </h2>
         <a
-          href="/portfolio"
+          href={withSiteBase('/portfolio')}
           className="group inline-flex shrink-0 items-center gap-2.5 font-editorial-sans text-[9px] font-medium tracking-[0.2em] text-[#3E3934] transition-colors hover:text-[#8C8479] sm:text-[10px]"
         >
           <span>MORE STORIES</span>

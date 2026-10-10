@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { withSiteBase } from '../utils/siteUrl';
 
 const approachSteps = [
   {
@@ -32,7 +33,7 @@ export const ExperienceSection: React.FC = () => (
     className="our-approach-section relative overflow-hidden bg-[#FAF8F5] text-[#171615]"
   >
     <img
-      src="/images/rootedsection/approach-flower-left-clean.png"
+      src={withSiteBase('/images/rootedsection/approach-flower-left-clean.png')}
       alt=""
       aria-hidden="true"
       className="our-approach-flourish our-approach-flourish-left"
@@ -40,7 +41,7 @@ export const ExperienceSection: React.FC = () => (
       height={695}
     />
     <img
-      src="/images/rootedsection/approach-flower-right-clean.png"
+      src={withSiteBase('/images/rootedsection/approach-flower-right-clean.png')}
       alt=""
       aria-hidden="true"
       className="our-approach-flourish our-approach-flourish-right"

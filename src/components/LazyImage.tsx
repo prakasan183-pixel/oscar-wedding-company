@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { withSiteBase } from '../utils/siteUrl';
 
 export interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -130,7 +131,7 @@ export const LazyImage = forwardRef<HTMLDivElement, LazyImageProps>(
         {isInView && (
           <img
             ref={imgRef}
-            src={src}
+            src={withSiteBase(src)}
             alt={alt}
             width={width}
             height={height}

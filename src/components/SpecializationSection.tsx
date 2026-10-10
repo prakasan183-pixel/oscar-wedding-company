@@ -14,6 +14,10 @@ const getSpecializationPreview = (url: string): string => {
     return url;
   }
 
+  if (url === '/images/haldi_ceremony_bride.jpg') {
+    return '/images/thumb-haldi_ceremony_bride.jpg.jpg';
+  }
+
   const separatorIndex = url.lastIndexOf('/');
   return `${url.slice(0, separatorIndex + 1)}thumb-${url.slice(separatorIndex + 1)}.jpg`;
 };
@@ -62,7 +66,7 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
     },
     { src: getSpecializationPreview(photos[1].image), alt: photos[1].alt, photo: photos[1] },
     {
-      src: '/images/thumb-haldi_ceremony_bride.jpg.jpg',
+      src: '/images/haldi_ceremony_bride.jpg',
       alt: 'Bride adorned with flowers for a wedding ceremony',
     },
     { src: getSpecializationPreview(photos[2].image), alt: photos[2].alt, photo: photos[2] },

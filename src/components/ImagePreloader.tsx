@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { OscarLogo } from './OscarLogo';
+import { withSiteBase } from '../utils/siteUrl';
 
 interface ImagePreloaderProps {
   imageUrls: string[];
@@ -78,7 +79,7 @@ export const ImagePreloader: React.FC<ImagePreloaderProps> = ({
 
     uniqueUrls.forEach((url) => {
       const img = new Image();
-      img.src = url;
+      img.src = withSiteBase(url);
       img.onload = updateProgress;
       img.onerror = updateProgress;
     });

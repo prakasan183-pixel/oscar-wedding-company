@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { LazyImage } from './LazyImage';
 import { ScrollReveal } from './ScrollReveal';
+import { withSiteBase } from '../utils/siteUrl';
 
 export const BeyondPhotographsSection: React.FC = () => (
   <section
@@ -91,7 +92,7 @@ export const BeyondPhotographsSection: React.FC = () => (
               THE MOMENTS BETWEEN
             </p>
             <a
-              href="/portfolio"
+              href={withSiteBase('/portfolio')}
               className="group inline-flex shrink-0 items-center gap-2 font-editorial-sans text-[9px] font-medium uppercase tracking-[0.24em] text-[#57534F] transition-colors hover:text-[#171615] sm:text-[11px]"
             >
               <span>OUR STORIES</span>

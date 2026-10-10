@@ -26,6 +26,10 @@ npm run preview
 
 The portfolio is available at `/portfolio`. Wedding photographs, fonts, and other static media are served from `public/`. Install Git LFS before cloning so the tracked image assets are downloaded.
 
+## Deploy to GitHub Pages
+
+The `main` branch deploys automatically through GitHub Actions. In the repository's **Settings → Pages**, set the build and deployment source to **GitHub Actions**. The workflow checks out Git LFS images and builds the site for the repository's `/Oscar-wedding-company-website/` URL. Once enabled, the site is available at <https://prakasan183-pixel.github.io/Oscar-wedding-company-website/>.
+
 ## Configuration
 
 Set `VITE_SITE_URL` to the public site origin when building for production. See [.env.example](./.env.example). No Gemini API key is required by this website.

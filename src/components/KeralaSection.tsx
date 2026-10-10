@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollReveal } from './ScrollReveal';
 import { LazyImage } from './LazyImage';
+import { withSiteBase } from '../utils/siteUrl';
 
 const inspirationImages = [
   {
@@ -51,7 +52,7 @@ export const KeralaSection: React.FC = () => (
     <div className="kerala-editorial-story relative grid min-w-0 grid-rows-[1fr_auto]">
       <div className="kerala-editorial-frond-layer" aria-hidden="true">
         <img
-          src="/images/rootedsection/palm-frond.png"
+          src={withSiteBase('/images/rootedsection/palm-frond.png')}
           alt=""
           className="kerala-editorial-frond"
         />

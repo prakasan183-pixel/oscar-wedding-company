@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Isabel';
-  src: url('/fonts/Fontspring-DEMO-isabel-light.otf') format('opentype');
+  src: url('./assets/Fontspring-DEMO-isabel-light.otf') format('opentype');
   font-style: normal;
   font-weight: 300;
   font-display: swap;

@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { FEATURED_HALDI_STORY } from '../data/weddingContent';
 import { WeddingStory } from '../types';
+import { withSiteBase } from '../utils/siteUrl';
 
 interface SpotlightParallaxSectionProps {
   onOpenStory: (story: WeddingStory) => void;
@@ -37,7 +38,7 @@ export const SpotlightParallaxSection: React.FC<SpotlightParallaxSectionProps> =
     <div className="grid lg:h-[clamp(350px,23vw,470px)] lg:grid-cols-[minmax(0,1.85fr)_minmax(0,1fr)]">
       <div className="group relative h-[250px] overflow-hidden bg-[#EAE4DA] sm:h-[330px] lg:h-full lg:min-h-0">
         <img
-          src="/images/thumb-haldi_ceremony_bride.jpg.jpg"
+          src={withSiteBase('/images/thumb-haldi_ceremony_bride.jpg.jpg')}
           alt="Bhagya celebrating her Haldi ceremony among the gardens of Kumarakom"
           width={1200}
           height={800}

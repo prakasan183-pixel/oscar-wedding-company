@@ -21,9 +21,12 @@ import { PortfolioPage } from './components/PortfolioPage';
 import { SEOHead } from './components/SEOHead';
 import { WeddingStory } from './types';
 import { STORIES_DATA, FEATURED_HALDI_STORY } from './data/weddingContent';
+import { withSiteBase } from './utils/siteUrl';
 
 export default function App() {
-  const isPortfolioPage = typeof window !== 'undefined' && window.location.pathname === '/portfolio';
+  const isPortfolioPage =
+    typeof window !== 'undefined' &&
+    window.location.pathname === withSiteBase('/portfolio');
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedStory, setSelectedStory] = useState<WeddingStory | null>(() => {
     if (typeof window === 'undefined') return null;
@@ -67,7 +70,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (window.location.pathname !== '/' || window.location.hash !== '#stories') return;
+    if (window.location.pathname !== withSiteBase('/') || window.location.hash !== '#stories') return;
 
     const frame = window.requestAnimationFrame(() => {
       document.getElementById('stories')?.scrollIntoView({ block: 'start' });

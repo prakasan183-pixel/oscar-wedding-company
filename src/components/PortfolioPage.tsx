@@ -4,6 +4,7 @@ import { FEATURED_HALDI_STORY, STORIES_DATA } from '../data/weddingContent';
 import { WeddingStory } from '../types';
 import { OscarLogo } from './OscarLogo';
 import { LazyImage } from './LazyImage';
+import { withSiteBase } from '../utils/siteUrl';
 
 interface PortfolioPageProps {
   onOpenStory: (story: WeddingStory) => void;
@@ -74,7 +75,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
     <main className="min-h-screen bg-[#FAF8F5] text-[#171615]">
       <header className="border-b border-[#EAE6DF]">
         <div className="mx-auto flex h-[74px] max-w-[1280px] items-center justify-between px-5 sm:px-8 lg:h-[88px] lg:px-12">
-          <a href="/" aria-label="Oscar Wedding Company home" className="shrink-0">
+          <a href={withSiteBase('/')} aria-label="Oscar Wedding Company home" className="shrink-0">
             <OscarLogo variant="compact" theme="light" size="navbar" className="scale-[0.78] origin-left sm:scale-[0.88]" />
           </a>
 
@@ -89,7 +90,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
             ].map(([label, href]) => (
               <a
                 key={label}
-                href={href}
+                href={withSiteBase(href)}
                 className="font-editorial-sans text-[9px] font-medium tracking-[0.19em] text-[#3E3934] transition-colors hover:text-[#8C8479]"
               >
                 {label}
@@ -109,7 +110,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({
 
       <div className="mx-auto max-w-[1152px] px-5 pb-16 pt-8 sm:px-8 sm:pt-10 lg:px-0 lg:pt-12">
         <a
-          href="/#stories"
+          href={withSiteBase('/#stories')}
           className="mb-7 inline-flex items-center gap-2 font-editorial-sans text-[9px] font-medium uppercase tracking-[0.19em] text-[#736B63] transition-colors hover:text-[#171615]"
         >
           <ArrowLeft className="h-3 w-3" />

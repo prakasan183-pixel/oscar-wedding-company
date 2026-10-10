@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { HERO_SLIDES } from '../data/weddingContent';
+import { withSiteBase } from '../utils/siteUrl';
 
 interface HeroSectionProps {
   onOpenEnquiry: () => void;
@@ -37,7 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isAppLoaded }) => {
         image.decode().then(resolve).catch(resolve);
       };
       image.onerror = () => reject(new Error(`Unable to load hero image: ${imageUrl}`));
-      image.src = imageUrl;
+      image.src = withSiteBase(imageUrl);
     });
 
     preloadedImages.current.set(imageUrl, imagePromise);
@@ -129,7 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isAppLoaded }) => {
             aria-hidden="true"
           >
             <img
-              src={slide.image}
+              src={withSiteBase(slide.image)}
               alt=""
               width={2400}
               height={1600}
