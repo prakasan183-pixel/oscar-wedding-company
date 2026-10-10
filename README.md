@@ -24,7 +24,7 @@ npm run build
 npm run preview
 ```
 
-The portfolio is available at `/portfolio`. Wedding photographs, fonts, and other static media are served from `public/`. Install Git LFS before cloning so the tracked photo and video assets are downloaded.
+The portfolio is available at `/portfolio`. Wedding photographs, fonts, and other static media are served from `public/`. Install Git LFS before cloning so the tracked image assets are downloaded.
 
 ## Configuration
 
