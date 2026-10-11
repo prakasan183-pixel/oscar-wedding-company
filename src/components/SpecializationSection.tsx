@@ -14,10 +14,6 @@ const getSpecializationPreview = (url: string): string => {
     return url;
   }
 
-  if (url === '/images/haldi_ceremony_bride.jpg') {
-    return '/images/thumb-haldi_ceremony_bride.jpg.jpg';
-  }
-
   const separatorIndex = url.lastIndexOf('/');
   return `${url.slice(0, separatorIndex + 1)}thumb-${url.slice(separatorIndex + 1)}.jpg`;
 };
@@ -61,23 +57,23 @@ export const SpecializationSection: React.FC<SpecializationSectionProps> = ({
   const stripImages: Array<{ src: string; alt: string; photo?: SpecializationPhoto }> = [
     { src: getSpecializationPreview(photos[0].image), alt: photos[0].alt, photo: photos[0] },
     {
-      src: '/images/thumb-story-backwater-procession.jpg.jpg',
-      alt: 'Wedding procession along the Kerala backwaters',
+      src: '/images/aleena&Nithin/thumb-HD (10) (1).jpg.jpg',
+      alt: 'A wedding moment from Aleena and Nithin’s collection',
     },
     { src: getSpecializationPreview(photos[1].image), alt: photos[1].alt, photo: photos[1] },
     {
-      src: '/images/haldi_ceremony_bride.jpg',
-      alt: 'Bride adorned with flowers for a wedding ceremony',
+      src: '/images/Deva/HD  (1).jpg',
+      alt: 'A portrait from Deva’s wedding collection',
     },
     { src: getSpecializationPreview(photos[2].image), alt: photos[2].alt, photo: photos[2] },
     {
-      src: '/images/thumb-hero-4-thaali.jpg.jpg',
-      alt: 'Couple sharing a joyful moment after their wedding ceremony',
+      src: '/images/jesica/thumb-0 (7).jpeg.jpg',
+      alt: 'A portrait from Jessica’s wedding collection',
     },
     { src: getSpecializationPreview(photos[3].image), alt: photos[3].alt, photo: photos[3] },
     {
-      src: '/images/thumb-story-royal-red-couple.jpg.jpg',
-      alt: 'Bride and groom in traditional wedding attire',
+      src: '/images/vyshak/thumb-HD (2).jpg.jpeg.jpg',
+      alt: 'A wedding photograph from Vyshak’s collection',
     },
   ];
 

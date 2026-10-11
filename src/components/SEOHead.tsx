@@ -11,7 +11,7 @@ const DEFAULT_TITLE = 'Oscar Wedding Company';
 const DEFAULT_DESC =
   'Oscar Wedding Company is an acclaimed luxury wedding photography and cinematic films atelier rooted in Kerala, crafting timeless heirloom stills and 4K cinema across India and worldwide destinations.';
 const BASE_URL = 'https://oscarweddings.com';
-const DEFAULT_IMAGE = `${BASE_URL}/images/og/og-main.jpg`;
+const DEFAULT_IMAGE = `${BASE_URL}/images/albin&thara/cover.jpg`;
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
   selectedStory,
@@ -28,9 +28,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     if (selectedStory) {
       title = `${selectedStory.title} | Luxury Wedding Photography | Oscar Wedding Company`;
       description = `${selectedStory.tagline} Captured by Oscar Wedding Company in ${selectedStory.location}. Preserving generational traditions and candid elegance.`;
-      ogImage = selectedStory.id === 'bhagya-prabhu'
-        ? `${BASE_URL}/images/og/og-haldi.jpg`
-        : `${BASE_URL}/images/og/og-stories.jpg`;
+      ogImage = selectedStory.coverImage.startsWith('http')
+        ? selectedStory.coverImage
+        : `${BASE_URL}${selectedStory.coverImage}`;
       canonicalUrl = `${BASE_URL}/?story=${selectedStory.id}`;
 
       dynamicSchema = {
@@ -67,7 +67,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       title = 'Jibin & Lizbeth Wedding Highlight | 4K Cinematic Film | Oscar Wedding Company';
       description =
         'Watch the cinematic Kerala Christian wedding highlight film for Jibin & Lizbeth by Oscar Wedding Company. 4K cinema optics, authentic soundscapes, and sacred vows.';
-      ogImage = `${BASE_URL}/images/og/og-films.jpg`;
+      ogImage = `${BASE_URL}/images/Lizbeth&jibin/cover.jpg`;
       canonicalUrl = `${BASE_URL}/?film=jibin-lizbeth`;
 
       dynamicSchema = {

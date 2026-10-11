@@ -3,7 +3,7 @@ import { WeddingStory, FilmReel, ExperienceStage, HeroSlide, SpecializationPhoto
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: "kerala-thaali-ritual",
-    image: "/images/piyush/oscar (2).jpg",
+    image: "/images/vivek&sreelakshmi/HD (1).jpg",
     headline: "The Ceremony of Forever",
     subheadline: "THE REVERENCE OF THE THAALI",
     heroWords: ["Our", "Special Day,", "Captured", "As", "Romance"],
@@ -11,12 +11,12 @@ export const HERO_SLIDES: HeroSlide[] = [
     location: "KOTTAYAM · KERALA",
     tagline: "Remember every sacred moment, every promise, and the beginning of forever.",
     quote: "Ancient devotional rituals honored with cinematographic depth and reverence.",
-    alt: "Bride and groom in traditional Kerala wedding attire",
+    alt: "A wedding portrait from Vivek and Sreelakshmi’s story",
     objectPosition: "center 30%"
   },
   {
     id: "kerala-couple-laugh",
-    image: "/images/samurthi/HD (13).jpg",
+    image: "/images/Lizbeth&jibin/03 insta_.jpg",
     headline: "A Private Kind of Joy",
     subheadline: "THE POETRY OF CANDID LAUGHTER",
     heroWords: ["Once", "Strangers,", "Came", "A", "Romance"],
@@ -24,12 +24,12 @@ export const HERO_SLIDES: HeroSlide[] = [
     location: "THRISSUR · KERALA",
     tagline: "Keep the laughter, little glances, and candid moments close for a lifetime.",
     quote: "Honest documentary observation capturing what the heart felt in the moment.",
-    alt: "Bride leaning lovingly on groom's shoulder during wedding ceremony, pure laughter and candid intimacy",
+    alt: "A wedding moment from Lizbeth and Jibin’s story",
     objectPosition: "center 30%"
   },
   {
     id: "kerala-garden-celebration",
-    image: "/images/Lizbeth&jibin/08 insta_.jpg",
+    image: "/images/aleena&Nithin/HD (3) (1).jpg",
     headline: "The Art of Arrival",
     subheadline: "THE ART OF TIMELESS HONESTY",
     heroWords: ["One", "Story", "Captured", "And", "Remembered"],
@@ -37,7 +37,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     location: "KOCHI · KERALA",
     tagline: "Archive your day with the best candid wedding photographers in Kerala.",
     quote: "Preserving sacred dawns, golden Kasavu silks, and promises meant for lifetimes.",
-    alt: "Kerala bride and groom celebrating joyfully in lush tropical garden with Kasavu gold and fragrant jasmine",
+    alt: "A wedding portrait from Aleena and Nithin’s story",
     objectPosition: "center 22%"
   }
 ];
@@ -48,61 +48,16 @@ export const HERO_DATA = {
   tagline: "Stories of love, beautifully remembered.",
   ctaPrimary: "EXPLORE STORIES",
   ctaSecondary: "ENQUIRE",
-  heroImage: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=2400&q=85",
-  heroPoster: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=2400&q=85",
+  heroImage: "/images/albin&thara/B.JPG",
+  heroPoster: "/images/vyshak/HD (6).jpg.jpeg",
 };
 
 export const PHILOSOPHY_DATA = {
   headline: "We don't simply photograph weddings. We preserve the feeling of them.",
   paragraph: "The quiet glance before the ceremony. A father's hands adjusting a collar. Laughter between rituals. The movement, the people, the atmosphere. At Oscar Wedding Company, we document weddings as they unfold — combining honest observation with refined editorial composition to create photographs and films that feel as real years from now as they did that day.",
   linkText: "DISCOVER OUR APPROACH",
-  featuredImage: "/images/mainpics/section2img.web.jpg",
+  featuredImage: "/images/Lizbeth&jibin/04 insta_.jpg",
   caption: "Silent grace — Fort Kochi, Kerala"
-};
-
-export const FEATURED_HALDI_STORY: WeddingStory = {
-  id: "bhagya-prabhu",
-  title: "BHAGYA & PRABHU",
-  couple: "Bhagya & Prabhu",
-  location: "KUMARAKOM · LAKE PALACE HERITAGE GROVE",
-  year: "2025",
-  category: "Haldi Ceremony & Garden Traditions",
-  tagline: "Unveiling the Magic of Bhagya and Prabhu's Haldi Ceremony: A Day of Love and Traditions",
-  coverImage: "/images/haldi_ceremony_bride.jpg",
-  coverAspect: "vertical",
-  description: "Nestled within the sun-dappled coconut groves and heritage teak courtyards of Kumarakom, Bhagya and Prabhu gathered their closest kin for an unforgettable Haldi and floral celebration. Draped in an ethereal pastel sage-green and blush-coral printed lehenga, Bhagya twirled beneath tropical canopies as fragrant marigold petals, laughter, and generational blessings filled the afternoon air.",
-  rituals: [
-    "Floral Petal Rain & Haldi Blessings",
-    "Ancestral Teakwood Nalukettu Gathering",
-    "Folk Rhythms & Sangeet on the Lawn",
-    "Sunset Houseboat Cruise on Lake Vembanad"
-  ],
-  gallery: [
-    {
-      url: "/images/haldi_ceremony_bride.jpg",
-      caption: "Bhagya in her bespoke floral printed lehenga in the lush garden sanctuary",
-      orientation: "portrait"
-    },
-    {
-      url: "/images/hero-1-garden.jpg",
-      caption: "Bhagya & Prabhu sharing an unscripted quiet moment under ancient palms",
-      orientation: "landscape"
-    },
-    {
-      url: "/images/hero-2-laugh.jpg",
-      caption: "Spontaneous laughter during the turmeric and floral petal rituals",
-      orientation: "landscape"
-    },
-    {
-      url: "/images/story-bridal-portrait.jpg",
-      caption: "Morning prep and delicate heirloom bridal jewelry details",
-      orientation: "portrait"
-    }
-  ],
-  clientQuote: {
-    text: "The stillness, the warmth of the afternoon light, and the raw emotions of our families were caught so purely. It felt like living inside an heirloom painting.",
-    author: "Bhagya & Prabhu"
-  }
 };
 
 export const STORIES_DATA: WeddingStory[] = [
@@ -142,7 +97,7 @@ export const STORIES_DATA: WeddingStory[] = [
     rituals: ["Wedding Morning Preparations", "Family Blessings", "Traditional Rituals", "Golden Hour Couple Portraits"],
     gallery: [
       { url: "/images/albin&thara/A.JPG", caption: "Albin & Thara in a warm, candid wedding portrait", orientation: "portrait" },
-      { url: "/images/albin&thara/B.JPG", caption: "A deeply personal family moment during the celebration", orientation: "landscape" },
+      { url: "/images/albin&thara/B.JPG", caption: "Albin and Thara sharing a quiet moment beneath a tree", orientation: "landscape" },
       { url: "/images/albin&thara/C.JPG", caption: "Ceremony energy and quiet emotion in the same frame", orientation: "landscape" },
       { url: "/images/albin&thara/D.JPG", caption: "Natural light and heartfelt connection between the couple", orientation: "portrait" },
       { url: "/images/albin&thara/E.jpg", caption: "The evening atmosphere around the couple and family", orientation: "landscape" },
@@ -310,12 +265,18 @@ export const STORIES_DATA: WeddingStory[] = [
   }
 ];
 
+const featuredStory = STORIES_DATA.find((story) => story.id === "deva");
+if (!featuredStory) {
+  throw new Error('Featured wedding story "deva" was not found.');
+}
+export const FEATURED_STORY = featuredStory;
+
 export const KERALA_DATA = {
   headline: "ROOTED IN KERALA. MADE FOR EVERYWHERE.",
   copy: "Kerala is where our perspective begins — shaped by its rituals, architecture, landscapes, families and the quiet intimacy of its celebrations. From ceremonies along the backwaters to celebrations across India and destination weddings beyond, we bring that sense of place, observation and storytelling wherever your story takes us.",
   locations: "KERALA · GOA · RAJASTHAN · MUMBAI · CHENNAI · HYDERABAD · DESTINATIONS",
   image: "/images/rootedsection/katakali.png",
-  secondaryImage: "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=1200&q=85"
+  secondaryImage: "/images/aleena&Nithin/HD (2) (1).jpg"
 };
 
 export const SERVICES_DATA = {
@@ -323,7 +284,7 @@ export const SERVICES_DATA = {
     heading: "PHOTOGRAPHY",
     copy: "Candid moments. Quiet emotions. Beautifully composed frames. We photograph the day as it happens while creating portraits and images with an editorial sense of light, composition and permanence.",
     cta: "EXPLORE PHOTOGRAPHY",
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1400&q=85",
+    image: "/images/Lizbeth&jibin/05 insta_.jpg",
     subDetails: ["Medium Format & 35mm Digital Composition", "Documentary Candids & Unposed Intimacy", "Fine Art Heirloom Albums Handcrafted in Italy", "Archival Monochromatic & Rich Film Tones"]
   },
   films: {
@@ -447,7 +408,7 @@ export const SPECIALIZATION_DATA = {
       id: "bridal-temple-portrait",
       disciplineNumber: "03",
       disciplineCategory: "HEIRLOOM BRIDAL PORTRAITURE",
-      image: "/images/piyush/oscar (2).jpg",
+      image: "/images/jesica/0 (2).jpeg",
       title: "The Heirloom Kerala Bride",
       tag: "03 · BRIDAL PORTRAITURE",
       caption: "Quiet bridal dawn adorned with antique gold ornaments, fresh jasmine strands, and timeless grace.",
@@ -517,7 +478,7 @@ export const CONTACT_DETAILS = {
 export const ENQUIRY_DATA = {
   headline: "YOUR STORY DESERVES TO BE REMEMBERED.",
   subtext: "Tell us about your wedding, your people and the feeling you want to remember.",
-  primaryCTA: "CHECK YOUR DATE",
+  primaryCTA: "CHECK AVAILABILITY",
   secondaryCTA: "WHATSAPP OSCAR WEDDING COMPANY",
   whatsappNumber: "+918848425896",
   whatsappPrefill: "Hello Oscar Wedding Company, we would love to check your availability for our wedding celebration."
@@ -527,7 +488,7 @@ export const FOOTER_LINKS = [
   { label: "Wedding Photography", href: "#craft" },
   { label: "Cinematic Wedding Films", href: "#craft" },
   { label: "Selected Wedding Stories", href: "#stories" },
-  { label: "Haldi & Traditions", href: "#ceremony-spotlight" },
+  { label: "Featured Wedding Story", href: "#ceremony-spotlight" },
   { label: "The Oscar Wedding Company Experience", href: "#experience" },
   { label: "Rooted in Kerala · Destinations", href: "#kerala" },
   { label: "Philosophy & Approach", href: "#philosophy" },
@@ -537,7 +498,8 @@ export const FOOTER_LINKS = [
 export const PRELOAD_ASSETS: string[] = [
   ...HERO_SLIDES.map((slide) => slide.image),
   ...SPECIALIZATION_DATA.photos.map((p) => p.image),
-  FEATURED_HALDI_STORY.coverImage,
+  FEATURED_STORY.coverImage,
+  FEATURED_STORY.gallery[0]?.url || '',
   STORIES_DATA[0]?.coverImage || '',
   PHILOSOPHY_DATA.featuredImage,
 ].filter(Boolean);

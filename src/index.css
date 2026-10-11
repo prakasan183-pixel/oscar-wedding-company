@@ -38,6 +38,10 @@
     text-transform: uppercase;
   }
 
+  #stories .font-imperial-script {
+    font-family: 'Imperial Script', cursive !important;
+  }
+
   .font-display {
     font-family: 'Antic Didone', serif !important;
     letter-spacing: 0.08em;
@@ -78,6 +82,13 @@ h6 * {
 
 .font-editorial-sans {
   font-family: 'Figtree', sans-serif !important;
+}
+
+#story-modal-overlay .story-accent-word {
+  font-family: 'Imperial Script', cursive !important;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .tracking-luxury-wide {

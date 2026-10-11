@@ -5,16 +5,16 @@ import { withSiteBase } from '../utils/siteUrl';
 
 const inspirationImages = [
   {
-    src: '/images/hero-4-thaali.jpg',
-    alt: 'A bride taking part in a traditional wedding ritual',
+    src: '/images/aleena&Nithin/HD (6) (1).jpg',
+    alt: 'A moment from Aleena and Nithin’s wedding',
   },
   {
-    src: '/images/story-backwater-procession.jpg',
-    alt: 'A Kerala wedding procession beside the backwaters',
+    src: '/images/vivek&sreelakshmi/HD (4).jpg',
+    alt: 'A moment from Vivek and Sreelakshmi’s wedding',
   },
   {
-    src: '/images/rootedsection/katakali-bg.webp',
-    alt: 'A Kathakali artist in the Kerala countryside',
+    src: '/images/vyshak/HD (4).jpg.jpeg',
+    alt: 'A wedding portrait from Vyshak’s collection',
   },
 ];
 
@@ -27,8 +27,8 @@ export const KeralaSection: React.FC = () => (
   >
     <div className="kerala-editorial-feature relative min-h-0 overflow-hidden bg-[#F7F4EF]">
       <LazyImage
-        src="/images/story-kasavu-bride.jpg"
-        alt="A Kerala bride in a kasavu sari surrounded by tropical greenery"
+        src="/images/Deva/HD  (5).jpg"
+        alt="A bridal portrait from Deva’s wedding collection"
         width={1200}
         height={800}
         priority

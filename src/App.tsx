@@ -20,7 +20,7 @@ import { CustomCursor } from './components/CustomCursor';
 import { PortfolioPage } from './components/PortfolioPage';
 import { SEOHead } from './components/SEOHead';
 import { WeddingStory } from './types';
-import { STORIES_DATA, FEATURED_HALDI_STORY } from './data/weddingContent';
+import { STORIES_DATA } from './data/weddingContent';
 import { withSiteBase } from './utils/siteUrl';
 
 export default function App() {
@@ -34,13 +34,13 @@ export default function App() {
     const storyId = new URLSearchParams(window.location.search).get('story');
     if (!storyId) return null;
 
-    return [FEATURED_HALDI_STORY, ...STORIES_DATA].find((story) => story.id === storyId) || null;
+    return STORIES_DATA.find((story) => story.id === storyId) || null;
   });
   const [isFilmModalOpen, setIsFilmModalOpen] = useState(false);
 
   // Sync initial URL params (?story=xyz or ?film=xyz)
   useEffect(() => {
-    const allStories = [FEATURED_HALDI_STORY, ...STORIES_DATA];
+    const allStories = STORIES_DATA;
     const params = new URLSearchParams(window.location.search);
     const storyParam = params.get('story');
     const filmParam = params.get('film');
@@ -127,7 +127,7 @@ export default function App() {
           story={selectedStory}
           onClose={handleCloseStory}
           onSelectStory={setSelectedStory}
-          allStories={[FEATURED_HALDI_STORY, ...STORIES_DATA]}
+          allStories={STORIES_DATA}
           onOpenEnquiry={handleOpenEnquiry}
         />
         <EnquiryModal isOpen={isEnquiryOpen} onClose={handleCloseEnquiry} />

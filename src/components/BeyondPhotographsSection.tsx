@@ -77,13 +77,13 @@ export const BeyondPhotographsSection: React.FC = () => (
         <div className="beyond-photographs-image-wrap min-w-0">
           <div className="beyond-photographs-image block overflow-hidden bg-[#EAE6DF]">
             <LazyImage
-              src="/images/story-backwater-procession.jpg"
-              alt="A bride and groom celebrate with family and friends during a Kerala wedding procession"
-              width={1200}
-              height={800}
+              src="/images/albin&thara/B.JPG"
+              alt="Albin and Thara sharing a quiet moment beneath a tree"
+              width={2400}
+              height={1600}
               priority
               containerClassName="h-full w-full"
-              className="h-full w-full object-cover object-center transition-transform duration-1000 ease-out hover:scale-[1.025]"
+              className="h-full w-full object-cover object-top"
               revealAnimation={false}
             />
           </div>

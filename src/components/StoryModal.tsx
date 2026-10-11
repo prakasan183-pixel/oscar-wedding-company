@@ -30,18 +30,6 @@ const getGalleryPreview = (url: string): string => {
   return `${url.slice(0, separatorIndex + 1)}thumb-${url.slice(separatorIndex + 1)}.jpg`;
 };
 
-const collageImages = [
-  { url: '/images/mainpics/Hero1.web.jpg', caption: 'Soft light settling over the celebration', orientation: 'landscape' as const },
-  { url: '/images/mainpics/Hero2.web.jpg', caption: 'A quiet pause between rituals', orientation: 'landscape' as const },
-  { url: '/images/mainpics/Hero3.web.jpg', caption: 'Details held close', orientation: 'portrait' as const },
-  { url: '/images/mainpics/Hero4.web.jpg', caption: 'An evening of gathered light', orientation: 'landscape' as const },
-  { url: '/images/mainpics/Hero5.web.jpg', caption: 'The last dance of the night', orientation: 'portrait' as const },
-  { url: '/images/mainpics/section2img.web.jpg', caption: 'A tender glance between celebrations', orientation: 'portrait' as const },
-  { url: '/images/story-bridal-portrait.jpg', caption: 'The texture and warmth of the day', orientation: 'portrait' as const },
-  { url: '/images/hero-2-laugh.jpg', caption: 'A quiet detail preserved in light', orientation: 'landscape' as const },
-  { url: '/images/story-kasavu-bride.jpg', caption: 'The celebration gathering around them', orientation: 'portrait' as const },
-];
-
 export const StoryModal: React.FC<StoryModalProps> = ({
   story,
   onClose,
@@ -57,10 +45,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
   const storyAccent = story.accentColor || '#7A2420';
   const [imgOne, imgTwo, imgThree, ...galleryImages] = story.gallery;
   const accentWord = getAccentWord(story);
-  const additionalImages = [
-    ...galleryImages,
-    ...collageImages.filter((image) => !story.gallery.some((galleryImage) => galleryImage.url === image.url)),
-  ].slice(0, 6);
+  const additionalImages = galleryImages;
 
   return (
     <div
@@ -142,8 +127,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({
           <div className="relative flex aspect-square items-center justify-center overflow-hidden px-6" style={{ backgroundColor: storyAccent }}>
             <span className="absolute left-4 top-4 text-[8px] uppercase tracking-[0.3em] text-white/75">{story.year}</span>
             <span
-              className="whitespace-nowrap text-center text-[3.4rem] leading-none text-white sm:text-[4.6rem]"
-              style={{ fontFamily: "'Ballet', 'Brush Script MT', cursive", letterSpacing: '0' }}
+              className="story-accent-word whitespace-nowrap text-center text-[3.4rem] leading-none text-white sm:text-[4.6rem]"
             >
               {accentWord}
             </span>

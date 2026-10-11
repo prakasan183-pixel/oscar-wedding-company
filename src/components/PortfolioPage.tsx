@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { FEATURED_HALDI_STORY, STORIES_DATA } from '../data/weddingContent';
+import { STORIES_DATA } from '../data/weddingContent';
 import { WeddingStory } from '../types';
 import { OscarLogo } from './OscarLogo';
 import { LazyImage } from './LazyImage';
@@ -27,7 +27,7 @@ const orderedStories = storyOrder.flatMap((id) => {
   return story ? [story] : [];
 });
 
-const portfolioStories = [...orderedStories, FEATURED_HALDI_STORY];
+const portfolioStories = orderedStories;
 const portfolioColumns = [
   ['albin-thara'],
   ['aleena-nithin', 'deva'],
@@ -36,7 +36,7 @@ const portfolioColumns = [
 ];
 const mosaicStoryIds = new Set(portfolioColumns.flat());
 
-const filters = ['All', 'Kerala', 'Tamil Nadu', 'Destination', 'Haldi', 'Christian', 'Muslim'] as const;
+const filters = ['All', 'Kerala', 'Tamil Nadu', 'Destination', 'Christian', 'Muslim'] as const;
 type PortfolioFilter = (typeof filters)[number];
 
 const matchesFilter = (story: WeddingStory, filter: PortfolioFilter): boolean => {
@@ -51,7 +51,7 @@ const matchesFilter = (story: WeddingStory, filter: PortfolioFilter): boolean =>
   ].join(' ').toLowerCase();
 
   if (filter === 'Kerala') {
-    return searchableText.includes('kerala') || story.id === 'bhagya-prabhu';
+    return searchableText.includes('kerala');
   }
 
   return searchableText.includes(filter.toLowerCase());
