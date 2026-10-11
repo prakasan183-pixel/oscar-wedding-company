@@ -32,6 +32,10 @@ The portfolio is available at `/portfolio`. Wedding photographs, fonts, and othe
 
 The `main` branch deploys automatically through GitHub Actions. In the repository's **Settings → Pages**, set the build and deployment source to **GitHub Actions**. The workflow checks out Git LFS images and builds the site for the repository's `/oscarwedding-c/` URL. Once enabled, the site is available at <https://prakasan183-pixel.github.io/oscarwedding-c/>.
 
+## Deploy to Vercel
+
+The Vercel build command runs `git lfs pull` before building so wedding photos stored in Git LFS are included in the deployment. Keep the repository's `vercel.json` build command enabled.
+
 ## Configuration
 
 Set `VITE_SITE_URL` to the public site origin when building for production. See [.env.example](./.env.example). No Gemini API key is required by this website.
