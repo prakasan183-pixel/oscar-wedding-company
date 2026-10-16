@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { PhilosophySection } from './components/PhilosophySection';
@@ -19,6 +19,7 @@ import { StickyMobileBar } from './components/StickyMobileBar';
 import { CustomCursor } from './components/CustomCursor';
 import { PortfolioPage } from './components/PortfolioPage';
 import { SEOHead } from './components/SEOHead';
+import { OscarLoader } from './components/OscarLoader';
 import { WeddingStory } from './types';
 import { STORIES_DATA } from './data/weddingContent';
 import { withSiteBase } from './utils/siteUrl';
@@ -36,7 +37,18 @@ export default function App() {
 
     return STORIES_DATA.find((story) => story.id === storyId) || null;
   });
+  const [isHeroReady, setIsHeroReady] = useState(() => isPortfolioPage || selectedStory !== null);
+  const [hasMinimumLoaderTimeElapsed, setHasMinimumLoaderTimeElapsed] = useState(false);
   const [isFilmModalOpen, setIsFilmModalOpen] = useState(false);
+  const showLoader =
+    !isPortfolioPage &&
+    !selectedStory &&
+    !(isHeroReady && hasMinimumLoaderTimeElapsed);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setHasMinimumLoaderTimeElapsed(true), 1200);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   // Sync initial URL params (?story=xyz or ?film=xyz)
   useEffect(() => {
@@ -88,6 +100,7 @@ export default function App() {
   };
 
   const handleOpenStory = (story: WeddingStory) => {
+    setIsHeroReady(true);
     setSelectedStory(story);
     const newUrl = `?story=${story.id}${window.location.hash}`;
     window.history.pushState({ storyId: story.id }, '', newUrl);
@@ -147,6 +160,21 @@ export default function App() {
       {/* Minimalist Interactive Circular Cursor */}
       <CustomCursor />
 
+      <AnimatePresence>
+        {showLoader && (
+          <motion.div
+            key="oscar-intro-loader"
+            className="oscar-loader-screen"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.65, ease: 'easeInOut' }}
+          >
+            <OscarLoader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Main Page Container with Smooth Fluid Entry */}
       {!selectedStory && (
         <motion.div
@@ -163,6 +191,7 @@ export default function App() {
           {/* SECTION 01 — HERO */}
           <HeroSection
             onOpenEnquiry={handleOpenEnquiry}
+            onInitialImageReady={() => setIsHeroReady(true)}
           />
 
           {/* SECTION 02 — PHILOSOPHY */}

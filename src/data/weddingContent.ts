@@ -2,19 +2,6 @@ import { WeddingStory, FilmReel, ExperienceStage, HeroSlide, SpecializationPhoto
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
-    id: "kerala-thaali-ritual",
-    image: "/images/vivek&sreelakshmi/HD (1).jpg",
-    headline: "The Ceremony of Forever",
-    subheadline: "THE REVERENCE OF THE THAALI",
-    heroWords: ["Our", "Special Day,", "Captured", "As", "Romance"],
-    heroLines: ["Our Special Day,", "Captured As Romance"],
-    location: "KOTTAYAM · KERALA",
-    tagline: "Remember every sacred moment, every promise, and the beginning of forever.",
-    quote: "Ancient devotional rituals honored with cinematographic depth and reverence.",
-    alt: "A wedding portrait from Vivek and Sreelakshmi’s story",
-    objectPosition: "center 30%"
-  },
-  {
     id: "kerala-couple-laugh",
     image: "/images/Lizbeth&jibin/03 insta_.jpg",
     headline: "A Private Kind of Joy",
@@ -25,6 +12,19 @@ export const HERO_SLIDES: HeroSlide[] = [
     tagline: "Keep the laughter, little glances, and candid moments close for a lifetime.",
     quote: "Honest documentary observation capturing what the heart felt in the moment.",
     alt: "A wedding moment from Lizbeth and Jibin’s story",
+    objectPosition: "center 30%"
+  },
+  {
+    id: "kerala-thaali-ritual",
+    image: "/images/vivek&sreelakshmi/HD (1).jpg",
+    headline: "The Ceremony of Forever",
+    subheadline: "THE REVERENCE OF THE THAALI",
+    heroWords: ["Our", "Special Day,", "Captured", "As", "Romance"],
+    heroLines: ["Our Special Day,", "Captured As Romance"],
+    location: "KOTTAYAM · KERALA",
+    tagline: "Remember every sacred moment, every promise, and the beginning of forever.",
+    quote: "Ancient devotional rituals honored with cinematographic depth and reverence.",
+    alt: "A wedding portrait from Vivek and Sreelakshmi’s story",
     objectPosition: "center 30%"
   },
   {

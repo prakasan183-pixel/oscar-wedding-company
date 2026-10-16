@@ -4,17 +4,19 @@ import { withSiteBase } from '../utils/siteUrl';
 
 interface HeroSectionProps {
   onOpenEnquiry: () => void;
+  onInitialImageReady?: () => void;
   isAppLoaded?: boolean;
 }
 
 const SLIDE_DURATION = 5500;
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ isAppLoaded }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ isAppLoaded, onInitialImageReady }) => {
   const totalSlides = HERO_SLIDES.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isInitialLoaded, setIsInitialLoaded] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const preloadedImages = useRef(new Map<string, Promise<void>>());
+  const initialImageReadyRef = useRef(false);
   const currentSlide = HERO_SLIDES[currentIndex];
 
   const renderHeadlineWords = (words: readonly string[], highlightInitials = false) => words.map((word, index) => (
@@ -66,6 +68,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isAppLoaded }) => {
     const timer = window.setTimeout(() => setIsInitialLoaded(true), 400);
     return () => window.clearTimeout(timer);
   }, [preloadImage, totalSlides]);
+
+  useEffect(() => {
+    preloadImage(0)
+      .catch((error: Error) => {
+        console.error(error.message, error);
+      })
+      .finally(() => {
+        if (initialImageReadyRef.current) return;
+        initialImageReadyRef.current = true;
+        onInitialImageReady?.();
+      });
+  }, [onInitialImageReady, preloadImage]);
 
   useEffect(() => {
     preloadImage((currentIndex + 1) % totalSlides);
@@ -166,7 +180,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ isAppLoaded }) => {
           <span className="sr-only">Oscar Wedding Company — {currentSlide.heroWords.join(' ')}. </span>
           {currentSlide.heroLines.map((line) => (
             <span key={line} aria-hidden="true" className="block whitespace-nowrap text-left">
-              {renderHeadlineWords(line.split(' '), currentSlide.id === 'kerala-thaali-ritual')}
+              {renderHeadlineWords(
+                line.split(' '),
+                currentSlide.id === 'kerala-couple-laugh' || currentSlide.id === 'kerala-garden-celebration' || currentSlide.id === 'kerala-thaali-ritual',
+              )}
             </span>
           ))}
         </h1>

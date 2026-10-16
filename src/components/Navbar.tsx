@@ -58,8 +58,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
         data-theme={isScrolled ? 'light' : 'dark'}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/90 backdrop-blur-md py-3 sm:py-4 border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)]'
-            : 'bg-gradient-to-b from-black/55 via-black/20 to-transparent py-3.5 sm:py-5'
+            ? 'bg-white/90 backdrop-blur-md py-2 sm:py-3 border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)]'
+            : 'bg-gradient-to-b from-black/55 via-black/20 to-transparent py-2.5 sm:py-4'
         }`}
       >
        <div className="relative mx-auto flex max-w-[1600px] items-center justify-between px-[6%]">
@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
       src={mobileLogo}
       alt="Oscar Wedding Company"
       className="w-[185px] max-w-[46vw] sm:w-[200px]"
-      style={isScrolled ? { filter: 'brightness(0) opacity(0.62)' } : undefined}
+      style={isScrolled ? { filter: 'brightness(0) opacity(0.78)' } : undefined}
     />
   </a>
 
@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
               src={desktopLogo}
               alt=""
               className="w-[240px] xl:w-[270px]"
-              style={isScrolled ? { filter: 'brightness(0) opacity(0.62)' } : undefined}
+              style={isScrolled ? { filter: 'brightness(0) opacity(0.78)' } : undefined}
             />
           </a>
 
